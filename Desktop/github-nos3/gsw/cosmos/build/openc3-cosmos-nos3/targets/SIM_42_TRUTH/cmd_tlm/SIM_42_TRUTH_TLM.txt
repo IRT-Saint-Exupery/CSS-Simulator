@@ -1,0 +1,135 @@
+TELEMETRY SIM_42_TRUTH SIM_42_TRUTH_DATA BIG_ENDIAN                  "Simulation Truth Data from 42"
+    APPEND_ITEM         YEAR                    16  INT       "Year"
+    APPEND_ITEM         DOY                     16  INT       "Day of Year"
+    APPEND_ITEM         MONTH                   16  INT       "Month"
+    APPEND_ITEM         DAY                     16  INT       "Day"
+    APPEND_ITEM         UTC_HOUR                16  INT       "UTC Hour"
+    APPEND_ITEM         UTC_MINUTE              16  INT       "UTC Minute"
+    APPEND_ITEM         UTC_SECOND              64  FLOAT     "UTC Second"
+        FORMAT_STRING "%.2f
+	<% (1..3).each do |x| %>
+		APPEND_ITEM POSITION_N_<%= x %> 64 FLOAT "Inertial Position (m). Byte <%= x%>"
+      FORMAT_STRING "%.0f"
+	<% end %>
+	<% (1..3).each do |x| %>
+		APPEND_ITEM VELOCITY_N_<%= x %> 64 FLOAT "Inertial Velocity (m/s). Byte <%= x%>"
+      FORMAT_STRING "%.0f"
+	<% end %>
+	<% (1..3).each do |x| %>
+		APPEND_ITEM SVB_<%= x %> 64 FLOAT "Sun Unit Vector in Body Frame. Byte <%= x%>"
+      FORMAT_STRING "%.3f"
+	<% end %>
+	<% (1..3).each do |x| %>
+		APPEND_ITEM BVB_<%= x %> 64 FLOAT "Magnetic Field Vector in Body Frame (T). Byte <%= x%>"
+      FORMAT_STRING "%.9f"
+	<% end %>
+	<% (1..3).each do |x| %>
+		APPEND_ITEM HVB_<%= x %> 64 FLOAT "Angular Momentum Vector in Body Frame (Nms). Byte <%= x%>"
+      FORMAT_STRING "%.3f"
+	<% end %>
+	<% (1..3).each do |x| %>
+		APPEND_ITEM WN_<%= x %> 64 FLOAT "Body Angular Rate in Body Frame (rad/s). Byte <%= x%>"
+      FORMAT_STRING "%.3f"
+	<% end %>
+	<% (1..4).each do |x| %>
+		APPEND_ITEM QN_<%= x %> 64 FLOAT "Body Quaternion in Inertial Frame. Byte <%= x%>"
+      FORMAT_STRING "%.3f"
+	<% end %>
+    APPEND_ITEM         NEWLINE                 8   UINT  "Newline character"
+    APPEND_ITEM         HVB_MAG                 0   DERIVED  "Magnitude of the Angular Momentum (Nms)"
+      GENERIC_READ_CONVERSION_START FLOAT 64
+        return Math.sqrt(packet.read('HVB_1')*packet.read('HVB_1') + packet.read('HVB_2')*packet.read('HVB_2') + packet.read('HVB_3')*packet.read('HVB_3'))
+      GENERIC_READ_CONVERSION_END
+      FORMAT_STRING "%.3f"
+    APPEND_ITEM         WN_X_DPS                0   DERIVED   "Body Angular Rate X in Body Frame (deg/s)"
+      GENERIC_READ_CONVERSION_START FLOAT 64
+        return packet.read('WN_1') * 180.0/3.141592653589793
+      GENERIC_READ_CONVERSION_END
+      FORMAT_STRING "%.1f"
+    APPEND_ITEM         WN_Y_DPS                0   DERIVED   "Body Angular Rate Y in Body Frame (deg/s)"
+      GENERIC_READ_CONVERSION_START FLOAT 64
+        return packet.read('WN_2') * 180.0/3.141592653589793
+      GENERIC_READ_CONVERSION_END
+      FORMAT_STRING "%.1f"
+    APPEND_ITEM         WN_Z_DPS                0   DERIVED   "Body Angular Rate Z in Body Frame (deg/s)"
+      GENERIC_READ_CONVERSION_START FLOAT 64
+        return packet.read('WN_3') * 180.0/3.141592653589793
+      GENERIC_READ_CONVERSION_END
+      FORMAT_STRING "%.1f"
+    APPEND_ITEM         WN_X_RPM                0   DERIVED   "Body Angular Rate X in Body Frame (rpm)"
+      GENERIC_READ_CONVERSION_START FLOAT 64
+        return packet.read('WN_1') * 30.0/3.141592653589793
+      GENERIC_READ_CONVERSION_END
+      FORMAT_STRING "%.1f"
+    APPEND_ITEM         WN_Y_RPM                0   DERIVED   "Body Angular Rate Y in Body Frame (rpm)"
+      GENERIC_READ_CONVERSION_START FLOAT 64
+        return packet.read('WN_2') * 30.0/3.141592653589793
+      GENERIC_READ_CONVERSION_END
+      FORMAT_STRING "%.1f"
+    APPEND_ITEM         WN_Z_RPM                0   DERIVED   "Body Angular Rate Z in Body Frame (rpm)"
+      GENERIC_READ_CONVERSION_START FLOAT 64
+        return packet.read('WN_3') * 30.0/3.141592653589793
+      GENERIC_READ_CONVERSION_END
+      FORMAT_STRING "%.1f"
+    APPEND_ITEM         WN_MAG                  0   DERIVED  "Magnitude of the Body Angular Rate in the Body Frame (rad/s)"
+      GENERIC_READ_CONVERSION_START FLOAT 64
+        return Math.sqrt(packet.read('WN_1')*packet.read('WN_1') + packet.read('WN_2')*packet.read('WN_2') + packet.read('WN_3')*packet.read('WN_3'))
+      GENERIC_READ_CONVERSION_END
+      FORMAT_STRING "%.3f"
+    APPEND_ITEM         BVB_X_NT                0   DERIVED   "Magnetic Field Vector X in Body Frame (nT)"
+      GENERIC_READ_CONVERSION_START FLOAT 64
+        return packet.read('BVB_1') * 1000000000.0
+      GENERIC_READ_CONVERSION_END
+      FORMAT_STRING "%.1f"
+    APPEND_ITEM         BVB_Y_NT                0   DERIVED   "Magnetic Field Vector Y in Body Frame (nT)"
+      GENERIC_READ_CONVERSION_START FLOAT 64
+        return packet.read('BVB_2') * 1000000000.0
+      GENERIC_READ_CONVERSION_END
+      FORMAT_STRING "%.1f"
+    APPEND_ITEM         BVB_Z_NT                0   DERIVED   "Magnetic Field Vector Z in Body Frame (nT)"
+      GENERIC_READ_CONVERSION_START FLOAT 64
+        return packet.read('BVB_3') * 1000000000.0
+      GENERIC_READ_CONVERSION_END
+      FORMAT_STRING "%.1f"
+    APPEND_ITEM         BVB_MAG_NT              0   DERIVED  "Magnitude of the Magnetic Field Vector (nT)"
+      READ_CONVERSION vector_magnitude.rb BVB_X_NT BVB_Y_NT BVB_Z_NT
+      FORMAT_STRING "%.1f"
+    APPEND_ITEM         ORBIT_NORMAL            0   DERIVED  "Unit vector normal to the orbit plane (POSITION_N x VELOCITY_N)"
+      READ_CONVERSION orbit_normal.rb POSITION_N_1 POSITION_N_2 POSITION_N_3 VELOCITY_N_1 VELOCITY_N_2 VELOCITY_N_3
+      FORMAT_STRING "%.3f"
+    APPEND_ITEM         SVN                     0   DERIVED  "Sun Unit Vector in Inertial Frame"
+      READ_CONVERSION svn.rb SVB_1 SVB_2 SVB_3 QN_1 QN_2 QN_3 QN_4
+      FORMAT_STRING "%.3f"
+    APPEND_ITEM         IN_SUN                  0   DERIVED  " > 0 is In Sun, = 0 is Not In Sun (Using sun vector and nominal earth radius)"
+      READ_CONVERSION in_sun.rb POSITION_N_1 POSITION_N_2 POSITION_N_3 SVB_1 SVB_2 SVB_3 QN_1 QN_2 QN_3 QN_4
+    APPEND_ITEM         BETA                    0   DERIVED  "Beta angle (angle between orbit normal and sun vector) and its supplement (180 degrees - beta)"
+      READ_CONVERSION beta_angle.rb POSITION_N_1 POSITION_N_2 POSITION_N_3 VELOCITY_N_1 VELOCITY_N_2 VELOCITY_N_3 SVB_1 SVB_2 SVB_3 QN_1 QN_2 QN_3 QN_4
+      FORMAT_STRING "%.1f"
+    APPEND_ITEM         PETIT_SOL_PAN_SUN_ANGLE 0   DERIVED  "Angle in degrees between the PetitSat solar panel normal (+Z) and the sun (0 is desirable, but this is not really controllable)"
+      GENERIC_READ_CONVERSION_START FLOAT 64
+        return 180.0*Math.acos(packet.read('SVB_3'))/Math::PI
+      GENERIC_READ_CONVERSION_END
+      FORMAT_STRING "%.1f"
+    APPEND_ITEM         SNOOPI_SOL_PAN_SUN_ANG  0   DERIVED  "Angle in degrees between the SNOOPI solar panel normal (+X) and the sun"
+      GENERIC_READ_CONVERSION_START FLOAT 64
+        return 180.0*Math.acos(packet.read('SVB_1'))/Math::PI
+      GENERIC_READ_CONVERSION_END
+      FORMAT_STRING "%.1f"
+    APPEND_ITEM         Z_NADIR_ANGLE           0   DERIVED  "Angle in degrees between the nadir vector and the spacecraft +Z vector (0 is desirable)"
+      READ_CONVERSION z_nadir_angle.rb POSITION_N_1 POSITION_N_2 POSITION_N_3 QN_1 QN_2 QN_3 QN_4
+      FORMAT_STRING "%.1f"
+    APPEND_ITEM         X_RAM_ANGLE           0     DERIVED  "Angle in degrees between the velocity vector and the spacecraft +X vector (0 is desirable, but not achievable due to nadir constraint)"
+      READ_CONVERSION x_ram_angle.rb VELOCITY_N_1 VELOCITY_N_2 VELOCITY_N_3 QN_1 QN_2 QN_3 QN_4
+      FORMAT_STRING "%.1f"
+    APPEND_ITEM         XZ_RAM_ANGLE           0    DERIVED  "Angle in degrees between the velocity vector and the spacecraft X-Z plane (0 is desirable, constrained to 0-180)"
+      READ_CONVERSION xz_ram_angle.rb VELOCITY_N_1 VELOCITY_N_2 VELOCITY_N_3 QN_1 QN_2 QN_3 QN_4
+      FORMAT_STRING "%.1f"
+    APPEND_ITEM         NADIR_IN_BODY          0    DERIVED  "Nadir vector in body coordinates (+z is desirable)"
+      READ_CONVERSION nadir_in_body.rb POSITION_N_1 POSITION_N_2 POSITION_N_3 QN_1 QN_2 QN_3 QN_4
+      FORMAT_STRING "%.3f"
+    APPEND_ITEM         RAM_IN_BODY            0    DERIVED  "Ram (velocity) vector in body coordinates (as close to +x as possible is desirable)"
+      READ_CONVERSION ram_in_body.rb VELOCITY_N_1 VELOCITY_N_2 VELOCITY_N_3 QN_1 QN_2 QN_3 QN_4
+      FORMAT_STRING "%.3f"
+    APPEND_ITEM         GEOCENTRIC_LATITUDE    0    DERIVED  "Geocentric latitude of the spacecraft (degrees)"
+      READ_CONVERSION geocentric_latitude.rb POSITION_N_1 POSITION_N_2 POSITION_N_3
+      FORMAT_STRING "%.1f"

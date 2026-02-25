@@ -1,0 +1,33 @@
+TELEMETRY GENERIC_IMU GENERIC_IMU_HK_TLM LITTLE_ENDIAN "GENERIC_IMU_Hk_tlm_t"
+  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x0925  "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQUENCE       16 UINT         "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_LENGTH         16 UINT         "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SECONDS        32 UINT         "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM    CCSDS_SUBSECS        16 UINT         "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM    CCSDS_SPARE          32 UINT         ""
+  APPEND_ITEM    CMD_ERR_COUNT         8 UINT         "Command Error Count"
+  APPEND_ITEM    CMD_COUNT             8 UINT         "Command Count"
+  APPEND_ITEM    DEVICE_ERR_COUNT      8 UINT         "Device Command Error Count"
+  APPEND_ITEM    DEVICE_COUNT          8 UINT         "Device Command Count"
+  APPEND_ITEM    DEVICE_ENABLED        8 UINT         "Device Enable Status"
+    STATE DISABLED 0
+    STATE ENABLED  1 
+  # GENERIC_IMU_Device_HK_tlm_t
+  APPEND_ITEM    DEVICE_COUNTER       32 UINT         "Reported Device Command Counter"
+  APPEND_ITEM    DEVICE_STATUS        32 UINT         "Reported Device Status"
+
+TELEMETRY GENERIC_IMU GENERIC_IMU_DATA_TLM LITTLE_ENDIAN "GENERIC_IMU_Device_tlm_t"
+  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x0926  "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQUENCE       16 UINT         "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_LENGTH         16 UINT         "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SECONDS        32 UINT         "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM    CCSDS_SUBSECS        16 UINT         "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM    CCSDS_SPARE          32 UINT         ""
+  # GENERIC_IMU_Device_Data_tlm_t
+  APPEND_ITEM    X_LINEAR_ACCELERATION     32 FLOAT   "Linear acceleration in the X-direction"
+  APPEND_ITEM    X_ANGULAR_ACCELERATION    32 FLOAT   "Angular acceleration in the X-direction"
+  APPEND_ITEM    Y_LINEAR_ACCELERATION     32 FLOAT   "Linear acceleration in the Y-direction"
+  APPEND_ITEM    Y_ANGULAR_ACCELERATION    32 FLOAT   "Angular acceleration in the Y-direction"
+  APPEND_ITEM    Z_LINEAR_ACCELERATION     32 FLOAT   "Linear acceleration in the Z-direction"
+  APPEND_ITEM    Z_ANGULAR_ACCELERATION    32 FLOAT   "Angular acceleration in the Z-direction"
+

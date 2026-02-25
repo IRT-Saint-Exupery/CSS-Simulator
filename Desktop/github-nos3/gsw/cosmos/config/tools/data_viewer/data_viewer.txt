@@ -1,0 +1,7 @@
+AUTO_START
+
+# COMPONENT "ADCS" data_viewer_component.rb
+#   PACKET INST ADCS
+
+COMPONENT "cfe_terminal" evs_terminal.rb
+    PACKET CFS CFE_EVS_PACKET

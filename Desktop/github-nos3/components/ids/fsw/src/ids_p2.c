@@ -1,0 +1,454 @@
+#include "ids_p2.h"
+#include "ids_p1.h"
+
+#if defined IDS_P2_ENABLED
+extern struct P2_struct P2_data;
+#else
+struct P2_struct P2_data; //TODO - verifiy if this does not introduce a bias inmemory evaluation !!
+#endif
+
+#ifdef IDS_P1_ENABLED
+extern struct P1_struct * P1_struct_ptr;
+#endif
+
+uint16_t msgid_tbl[REAL_RULE_NB];
+uint8_t fc_tbl[REAL_RULE_NB];
+uint16_t param_offset[REAL_RULE_NB];
+uint8_t param_is_string[REAL_RULE_NB]; // WILL BE USED AS BOOL, REPLACE BY ENUM TO ADD OTHER TYPES (with also "undefined" state to handle if type is not well defined)
+uint16_t param_length[REAL_RULE_NB];
+//char *param_values[2]; // DO A MALLOC WHILE PARSING WITH CORRECT LENGTH
+char param_vals[REAL_RULE_NB][20/*TEST*/]; //SB ou CI ou arducam.so + '\0'
+char action_tab[REAL_RULE_NB][5/*TEST*/];
+char cond_tab[REAL_RULE_NB][5/*TEST*/];
+int8_t state_id[REAL_RULE_NB];
+uint8_t state_table[5]; //this causes ids of states to cap at 255 before overflowing
+
+char rule_test1[] = "D 0x1806 5 0:STRING:160 SB"; //TODO - DELETE THIS
+char rule_cikill[] = "D 0x1806 5 0:STRING:160 CI";
+char rule_islkill[] = "D 0x1806 5 0:STRING:160 ISL";
+char rule_camdelete[] = "E0|E1 0x188C 5 0:STRING:512 /cf/arducam.so;E1|E0 0x18B3 36 96:STRING:80 arducam.so;E1|D 0x1806 5 0:STRING:160 CAM;E1|D 0x1806 6 0:STRING:160 CAM";
+char rule_sw[] = "D 0x188C 7 0:STRING:512 /cf";
+//char rule_test6[30] = "D 0x1940 2 0:INT:8 0";
+
+//char rule_test3[90] = "A 0x1806 5 0:STRING:160 APPNAME A 0x1806 5 0:STRING:512 APPFILE A 0x188C 5 0:STRING:512 APPFILE"; -- A FIX
+
+char *rule_test[RULE_NB] = { (char *)&rule_test1, (char *)&rule_cikill, (char *)&rule_islkill, (char *)&rule_camdelete, (char *)&rule_sw/*, (char *)&rule_test6*/ };
+
+void init_P2()
+{
+	P2_data.buffer_last_time = 0;
+	P2_data.last_time_too_quick = 0;
+	P2_data.cfdp_is_ongoing = false;
+}
+
+void init_P2_buffers()
+{
+	// TODO - ADD INIT FOR STATE TABLE & include this in init_P2()
+	for (int i = 0; i<2/*HARDCODED THRESHOLD, EDIT LATER*/; i++)
+	{
+		P2_data.last_MsgIds[i]=0;
+		P2_data.last_FCs[i]=0;
+	}
+}
+
+void update_Log_P2(FILE * log_file, OS_time_t simtime, TC_t *tc_frame_struct, /*uint8* buffer,*/ unsigned int seconds, struct timespec *realtime, uint16_t msgId, int16_t fc, uint8_t is_tc, int8_t ids_output, uint8_t attack_tag)
+{
+	fprintf(log_file, "%lld,%d.%06ld,%04x,%d,%d,%d,%d,", simtime.ticks, seconds, realtime->tv_nsec/1000, msgId, fc, is_tc, attack_tag, ids_output);
+	for (uint16 i = 0; i < tc_frame_struct->tc_pdu_len; i++)
+	{
+		//packet
+		fprintf(log_file, "%02x", tc_frame_struct->tc_pdu[i]);
+	}
+	fprintf(log_file, "\n");
+	fflush(log_file);
+
+	//IDS - keep track of last packet's time of arrival, replace by P1 info later
+	P2_data.buffer_last_time = simtime.ticks;
+	P2_data.last_MsgIds[0] = ((tc_frame_struct->tc_pdu[0]<<8) | tc_frame_struct->tc_pdu[1]);
+	P2_data.last_FCs[0] = tc_frame_struct->tc_pdu[6];
+}
+
+char parse_rules(/*char ** rules_array*/)
+{
+	char param_data_holder[20];
+	int j = 0; // real rules nb (split of statefull also increment this)
+	char *split_ptr, *split_rules_ptr;
+	uint8_t split_count = 0, statefull_rules_count = 0;
+	char *saveptr0, *saveptr1;
+        
+	for (int i=0; i<RULE_NB /*NUMBER OF RULES*/; i++)
+	{
+		split_count = 0;
+		
+		#ifdef P2_PARSE_DEBUG
+		printf("rule : %s\n", rule_test[i]);
+		#endif
+
+		//if the rule is statefull and contains multiple rules
+		if (strchr(rule_test[i], ';')!=NULL)
+		{	
+			split_rules_ptr = strtok_r((char *)rule_test[i], ";", &saveptr0);
+			
+			while(split_rules_ptr != NULL)
+			{
+				#ifdef P2_PARSE_DEBUG
+				printf("rule : %s\n", split_rules_ptr);
+				#endif
+				
+				//parse each rule and populate structures
+				split_count = 0; //prevent miscount on statefull rules
+				split_ptr = strtok_r((char *)split_rules_ptr, " ", &saveptr1);
+				parse_single_rule(split_ptr, &split_count, saveptr1, param_data_holder, j, statefull_rules_count);
+				split_rules_ptr = strtok_r(NULL, ";", &saveptr0);
+				j++;
+			}
+			statefull_rules_count++; //increment statefull rules count to allow for a new rule to have a new state variable allocated
+		}
+		else
+		{
+			//the rule is single and stateless, parse and populate struct
+			split_ptr = strtok_r((char *)rule_test[i], " ", &saveptr1); // MOVE ALL UNDER AND THIS INTO THE LOOP BEFORE THIS
+			parse_single_rule(split_ptr, &split_count, saveptr1, param_data_holder, j, statefull_rules_count);
+			j++;
+		}
+	}
+        
+	return 0;
+}
+
+void parse_single_rule(char *split_ptr, uint8_t *split_count, char *saveptr1, char param_data_holder[20], int i, uint8_t statefull_rules_count)
+{	
+
+	char *state_action_ptr, *cond_ptr, *action_ptr, *data_split_ptr;
+	uint8_t data_split_ctr;
+	unsigned int state_action_sp_count = 0; // change type ? need for int ?
+	char *saveptr2, *saveptr3;
+
+	while(split_ptr != NULL)
+	{
+		#ifdef P2_PARSE_DEBUG
+		printf("split str : %s, split count : %d\n",split_ptr, *split_count);
+		#endif
+		
+		switch (*split_count)
+		{
+			case 0:
+				#ifdef P2_PARSE_DEBUG
+				printf("Action & State : %s\n", split_ptr);
+				#endif
+
+				; //TODO - Put everything under in a specific function so that we can remove this weird semicolon
+				// Action and State machine if any
+				
+				cond_ptr = NULL;
+
+				if (strchr(split_ptr, '|')!=NULL)
+				{
+					//a '|' is present, so cond and action -> statefull rule
+					state_id[i] = statefull_rules_count;
+
+					state_action_ptr = strtok_r((char *)split_ptr, "|", &saveptr2);
+					state_action_sp_count = 0;
+					
+					// works only with E0|E1 or E1|D
+					while(state_action_ptr != NULL)
+					{
+						if (state_action_sp_count == 0)
+						{
+							cond_ptr = state_action_ptr;
+						}
+						else
+						{
+							action_ptr = state_action_ptr;
+						}
+						state_action_ptr = strtok_r(NULL, "|", &saveptr2);
+						state_action_sp_count++;
+					}
+				}
+				else
+				{
+					//stateless single rule
+					action_ptr = split_ptr;
+					state_id[i] = -1;
+				}
+
+				#ifdef P2_PARSE_DEBUG
+				printf("cond : %s, action : %s\n", cond_ptr, action_ptr);
+				#endif
+				
+				strncpy(action_tab[i], action_ptr, strlen(action_ptr));
+				
+				if (cond_ptr != NULL)
+					strncpy(cond_tab[i], cond_ptr, strlen(cond_ptr));
+				else
+					strncpy(cond_tab[i], " ", 2);
+
+				break;
+			case 1:
+				// MsgId
+				msgid_tbl[i] = (uint16_t) strtol(split_ptr, NULL, 16);
+				break;
+			case 2:
+				fc_tbl[i] =  (uint8_t) strtol(split_ptr, NULL, 10);
+				break;
+			case 3:
+				strncpy(param_data_holder, split_ptr, strlen(split_ptr)+1); // +1 for '\0'
+				
+				data_split_ctr = 0;
+				
+				data_split_ptr = strtok_r((char *)param_data_holder, ":", &saveptr3);
+				
+				while(data_split_ptr != NULL)
+				{	
+					//printf("subpslit : %s\n",data_split_ptr);
+					switch(data_split_ctr)
+					{
+						case 0:
+							param_offset[i] = (uint16_t) strtol(data_split_ptr, NULL, 10);
+							break;
+							
+						case 1:
+							if (strcmp(data_split_ptr, "STRING")==0)
+							{
+								param_is_string[i] = true;
+							}
+							else if (strcmp(data_split_ptr, "INT")==0)
+							{
+								param_is_string[i] = false;
+							}
+							else
+							{
+								printf("BAD RULE PARAM TYPE\n");
+								// TODO - add enum state for undefined
+								break;
+							}
+							
+							break;
+							
+						case 2:
+							param_length[i] = (uint16_t) strtol(data_split_ptr, NULL, 10);
+							break;
+						default:
+							printf("BAD SYNTAX ON OFFSET:TYPE:LEN FIELD");
+							break;
+					}
+					data_split_ptr = strtok_r(NULL, ":", &saveptr3);
+					data_split_ctr++;
+				}
+				break;
+			case 4:
+				#ifdef P2_PARSE_DEBUG
+				printf("param value : %s \n", split_ptr);
+				#endif
+
+				// TEST A CHANGER AAAAAA - TODO
+				strncpy(param_vals[i], split_ptr, strlen(split_ptr));
+				break;
+			default:
+				printf("TOO MUCH PARAMS IN RULE \n");
+				break;
+		}
+		split_ptr = strtok_r(NULL, " ", &saveptr1);
+		//printf("split str : %s, split count : %d\n",split_ptr, split_count);
+		(*split_count)++;
+	}
+}
+
+char is_command_allowed(TC_t *tc_frame_struct, OS_time_t simtime, int8_t *alert_rule_nb)
+{
+	char is_accepted = true; //by default the commands are accepted
+	alert_rule_nb = 0;
+
+	uint16_t msgId;
+	uint16_t fc;
+	
+	if (tc_frame_struct->tc_pdu_len > 0)
+	{
+		//TODO - externalize this block when changing code with new TC_Analyzer api
+		msgId = ((tc_frame_struct->tc_pdu[0]<<8) | tc_frame_struct->tc_pdu[1]);
+
+		// if it is a TC extract the FC, else set it to 0
+		if (msgId & 0x1000)
+		{
+    		fc = tc_frame_struct->tc_pdu[6];
+		}
+		else
+		{
+			fc = 0;
+		}
+	}
+	else
+	{
+		msgId = 0;
+		fc = 0;
+	}
+
+	#if defined IDS_P1_ENABLED && defined CFDP_FLOOD_LIFT
+	struct timespec realtime;
+    timespec_get(&realtime, TIME_UTC);
+	
+	//If the threshold for the CFDP transaction is reached it is assumed to be over -> timeout & mark it as not ongoing
+	if ((P2_data.cfdp_is_ongoing)&&(realtime.tv_sec - P2_data.cfdp_start_sec > CFDP_TIMEOUT_THRESHOLD))
+	{
+		//printf("TIMEOUT, ANTI-FLOODING BACK UP\n");
+		sem_wait(&(P1_struct_ptr->cfdp_sem));
+		P1_struct_ptr->cfdp_is_ongoing=false;
+		//printf("P1_cfdp_is_ongoing : %d\n", P1_struct_ptr->cfdp_is_ongoing);
+		sem_post(&(P1_struct_ptr->cfdp_sem));
+		P2_data.cfdp_is_ongoing = false;
+	}
+
+	//If a CFDP transaction is starting, inform P1 that the anti-flooding needs to be lifted (for a limited time)
+	//TODO - RE-ACTIVATE THE ANTI-FLOODING
+	if ((msgId==0x18b3)&&(fc==0x24))
+	{
+		//printf("CFDP transac packet\n");
+		if (!P2_data.cfdp_is_ongoing)
+		{
+			//printf("CFDP transaction starting\n");
+			sem_wait(&(P1_struct_ptr->cfdp_sem));
+			//printf("P1_cfdp_is_ongoing : %d\n", P1_struct_ptr->cfdp_is_ongoing);
+			if (!P1_struct_ptr->cfdp_is_ongoing)
+				P1_struct_ptr->cfdp_is_ongoing=true;
+			sem_post(&(P1_struct_ptr->cfdp_sem));
+			P2_data.cfdp_is_ongoing = true;
+			P2_data.cfdp_start_sec = realtime.tv_sec;
+		}
+	}
+	#endif
+
+	//printf("MsgId : %02x, FC : %d\n",msgId,fc);
+
+	//printf("buffer last time : %lld\n", P2_data.buffer_last_time);
+
+	/* If there was another packet before, and we are not under a CFDP file transfer, begin packet rate checks */ 
+	//TODO - maybe just allow packets with the MSGID of the transaction and not every packet
+	// but would have to take into account metadata packets with no MsgId ?
+	if ((P2_data.buffer_last_time != 0)&&(!P2_data.cfdp_is_ongoing))
+	{
+		int64 diff_timing = (simtime.ticks - P2_data.buffer_last_time)/OS_TIME_TICKS_PER_MSEC;
+		//printf("diff timing P2 : %lld ms\n", diff_timing);
+		
+		if (diff_timing < P2_DOS_THRESHOLD)
+		{
+			if (tc_frame_struct->tc_pdu_len != 0)
+			{
+				//catch what p1 cannot see
+				if (/*(P2_data.last_time_too_quick != 0)&&*/(P2_data.last_MsgIds[0]==msgId)&&(P2_data.last_FCs[0]==fc))
+				{	
+					if (P2_data.last_time_too_quick < P2_DOS_PACKET_THRESHOLD)
+					{
+						P2_data.last_time_too_quick++;
+					}
+					else
+					{
+						/* If last packets were too quick and this one too, and threshold reached */
+						printf("[P2] - Slow anti-flooding : TOO FAST + same packet\n");
+						//if ( **Same packet verification**
+						is_accepted = false;
+					}
+				}
+				else
+				{
+					P2_data.last_time_too_quick = 0;
+					/* This packet came too quickly, watch out when processing next packet */
+					//P2_data.last_time_too_quick = 1;
+				}
+			}
+		}
+		else
+		{
+			/* Reset last packet too quick verification */
+			//P2_data.last_time_too_quick = 0;
+		}
+	}
+
+	uint8_t *param_ptr;
+	uint8_t state_val_holder;
+	uint8_t cond_val_holder;
+	int offset;
+
+	for(int i = 0; i<REAL_RULE_NB /*TEST*/; i++)
+	{
+		if ((msgid_tbl[i] == msgId)&&(fc_tbl[i] == fc))
+		{
+			
+			offset = param_offset[i]/8;
+			param_ptr = &(tc_frame_struct->tc_pdu[8+offset]); // TODO - add checks to see if '\0' is present or if big trouble incoming
+
+			if (param_is_string[i])
+			{
+				//printf("param is : %s\n", (char *)param_ptr);
+
+				if (strncmp(param_vals[i],(char *)param_ptr, strlen(param_vals[i]))==0) //should use total length but maybe better to use relative length of val ??? - TODO
+				{
+					cond_val_holder = cond_tab[i][1] - '0'; // WILL NOT WORK IF MULTIPLE COND and ONLY with E[0-9]
+
+					if ((strncmp(cond_tab[i], " ", 2/*TEST*/)==0)||(state_table[state_id[i]] == cond_val_holder))
+					{
+						//printf("cond is valid\n");
+						printf("[P2 - TC Analyzer] Match for rule %d\n", i);
+						printf("[P2 - TC Analyzer] Action : %s\n", action_tab[i]);
+						
+						//NOT ROBUST TO |E1,D ! only D or E1 atm !
+						if (strncmp(action_tab[i], "D", 5)==0)
+						{
+							is_accepted = false;
+						}
+						else
+						{
+							// go from "E[0-9]" in the rule to [0-9] value -> only works up to 10 !!!
+							state_val_holder = action_tab[i][1] - '0';
+							printf("[P2 - TC Analyzer] changing state[%d] from %d to %d\n", state_id[i], state_table[state_id[i]], state_val_holder);
+							state_table[state_id[i]] = state_val_holder;
+						}
+						break;
+					}
+					else
+					{
+						//printf("cond is not valid\n");
+					}
+
+				}
+			}
+			else //INT ! ONLY 8 BITS SUPPORTED, NEED TO EDIT !
+			{
+				//printf("atoi param_vals : %d, atoi param_ptr : %d\n", atoi((char*)param_vals[i]), *param_ptr);
+				if (atoi((char*)param_vals[i]) == *param_ptr) // *param_ptr only will work for 8bit INT values
+				{		
+					cond_val_holder = cond_tab[i][1] - '0'; // WILL NOT WORK IF MULTIPLE COND and ONLY with E[0-9]
+
+					if ((strncmp(cond_tab[i], " ", 2/*TEST*/)==0)||(state_table[state_id[i]] == cond_val_holder))
+					{
+						//printf("cond is valid\n");
+						printf("[P2 - TC Analyzer] Match for rule %d\n", i);
+                                        	printf("[P2 - TC Analyzer] Action : %s\n", action_tab[i]);
+						
+						//NOT ROBUST TO |E1,D ! only D or E1 atm !
+						if (strncmp(action_tab[i], "D", 5)==0)
+						{
+							is_accepted = false;
+							*alert_rule_nb = i;
+						}
+						else //TODO - CHECK IF COND IS MET !!!
+						{
+							// go from "E[0-9]" in the rule to [0-9] value -> only works up to 10 !!!
+							state_val_holder = action_tab[i][1] - '0';
+							printf("[P2 - TC Analyzer] changing state[%d] from %d to %d\n", state_id[i], state_table[state_id[i]], state_val_holder);
+							state_table[state_id[i]] = state_val_holder;
+						}
+						break;
+					}
+					else
+					{
+						printf("cond is not valid\n");
+					}
+				}
+			}
+			//TODO - take into account non-string parameters and implement comparison
+			//else keep testing for other rules
+		}
+	}
+
+	return is_accepted;
+}

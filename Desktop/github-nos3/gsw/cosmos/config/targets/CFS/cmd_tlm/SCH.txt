@@ -1,0 +1,62 @@
+COMMAND SCH SCH_DISABLE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command disables a single activity in the Schedule Definition Table."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1895 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 5 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 3 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER SLOTNUMBER 16 UINT MIN_UINT16 MAX_UINT16 0 "Slot Number of Activity whose state is to change."
+  APPEND_PARAMETER ENTRYNUMBER 16 UINT MIN_UINT16 MAX_UINT16 0 "Entry Number of Activity whose state is to change."
+
+COMMAND SCH SCH_DISABLE_GROUP <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command disables a single group and/or a collection of Multi-Group Activities in the Schedule Definition Table."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1895 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 5 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 5 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER GROUPDATA 32 UINT MIN_UINT32 MAX_UINT32 0 "Group and Multi-Group Identifiers."
+
+COMMAND SCH SCH_ENABLE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command enables a single activity in the Schedule Definition Table."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1895 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 5 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 2 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER SLOTNUMBER 16 UINT MIN_UINT16 MAX_UINT16 0 "Slot Number of Activity whose state is to change."
+  APPEND_PARAMETER ENTRYNUMBER 16 UINT MIN_UINT16 MAX_UINT16 0 "Entry Number of Activity whose state is to change."
+
+COMMAND SCH SCH_ENABLE_GROUP <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command enables a single group and/or a collection of Multi-Group Activities in the Schedule Definition Table."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1895 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 5 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 4 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER GROUPDATA 32 UINT MIN_UINT32 MAX_UINT32 0 "Group and Multi-Group Identifiers."
+
+COMMAND SCH SCH_ENABLE_SYNC <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command allows the operator to enable processing and synchronization of the Major Frame Signal to the processing of the Schedule Definition Table."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1895 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 1 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 6 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+
+COMMAND SCH SCH_NOOP <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command performs no other function than to increment the command execution counter. The command may be used to verify general aliveness of the Scheduler Application."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1895 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 1 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+
+COMMAND SCH SCH_RESET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command resets the following counters within the Scheduler housekeeping telemetry: Command Execution Counter ($sc_$cpu_SCH_CMDPC)Command Error Counter ($sc_$cpu_SCH_CMDEC)Schedule Activities Success Counter ($sc_$cpu_SCH_ActSuccessCtr)Schedule Activities Failure Counter ($sc_$cpu_SCH_ActFailCtr)Schedule Slots Processed Counter ($sc_$cpu_SCH_SlotProcCtr)Schedule Skipping Slots Counter ($sc_$cpu_SCH_SlotSkipCtr)Multiple Schedule Slots Processed Counter ($sc_$cpu_SCH_MultSlotCtr)Awoke in Same Slot Counter ($sc_$cpu_SCH_SameSlotCtr)Corrupted Table Data Counter ($sc_$cpu_SCH_BadTblDataCtr)Table Loads Successfully Verified Counter ($sc_$cpu_SCH_TblPassVerifyCtr)Table Loads Unsuccessfully Verified Counter ($sc_$cpu_SCH_TblFailVerifyCtr)Valid Major Frames Received Counter ($sc_$cpu_SCH_ValidMajorFrameCtr)Missed Major Frames Received Counter ($sc_$cpu_SCH_MissedMajorFrameCtr)Unexpected Major Frames Received Counter ($sc_$cpu_SCH_UnexpectedMajorFrameCtr)"
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1895 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 1 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 1 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+
+COMMAND SCH SCH_SEND_DIAG_TLM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command generates and sends the Scheduler Application's Diagnostic Telemetry packet."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1895 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 1 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 7 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+

@@ -1,0 +1,19 @@
+{
+    "command1": {
+        "TARGET": "CFS",
+        "CFE_ES_STOP_APP": {
+            "CCSDS_STREAMID": "0x1806",
+            "CCSDS_SEQUENCE": "0xC000",
+            "CCSDS_LENGTH": "25",
+            "CCSDS_FC": "5",
+            "CCSDS_CHECKSUM": "0",
+            "APPLICATION": "\"ISL\"",
+            "MAC": "\"0000\""
+        },
+        "TIMESTAMP": 0.0,
+        "FUZZ": [
+            "None",
+            0
+        ]
+    }
+}

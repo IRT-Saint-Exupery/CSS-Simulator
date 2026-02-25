@@ -1,0 +1,9 @@
+{
+  "scenario": "S1",
+  "command_to_launch": ["20","1"], 
+  "time": ["500","550"],
+  "time_end": "600",
+  "data_output_name": "S1_output_data.pcap"
+}
+
+

@@ -1,0 +1,8 @@
+#CSS IRT Adaptations 
+
+# to locate the library 
+pip show cfdp 
+pip show spacepacket
+
+# we have modified the default length to 512 
+# modified secondary header flag from false to true to match NOS3 spp

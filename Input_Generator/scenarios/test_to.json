@@ -1,0 +1,19 @@
+{
+    "command1": {
+        "TARGET": "CFS",
+        "TO_ENABLE_OUTPUT": {
+            "CCSDS_STREAMID": "0x1880",
+            "CCSDS_SEQUENCE": "0xC000",
+            "CCSDS_LENGTH": "19",
+            "CCSDS_FC": "2",
+            "CCSDS_CHECKSUM": "0",
+            "DEST_IP": "\"192.168.100.8\"",
+            "DEST_PORT": "5011"
+        },
+        "TIMESTAMP": 0.0,
+        "FUZZ": [
+            "None",
+            0
+        ]
+    }
+}

@@ -1,0 +1,14 @@
+#ifndef _GENERIC_EPS_CHECKOUT_DEVICE_CFG_H_
+#define _GENERIC_EPS_CHECKOUT_DEVICE_CFG_H_
+
+/*
+** GENERIC_EPS Checkout Configuration
+*/
+#define GENERIC_EPS_CFG
+#define GENERIC_EPS_CFG_I2C_HANDLE       1
+#define GENERIC_EPS_CFG_I2C_SPEED        1000
+#define GENERIC_EPS_CFG_I2C_ADDRESS      0x2B // 7-bit address
+#define GENERIC_EPS_CFG_I2C_TIMEOUT      10
+#define GENERIC_EPS_CFG_DEBUG
+
+#endif /* _GENERIC_EPS_CHECKOUT_DEVICE_CFG_H_ */

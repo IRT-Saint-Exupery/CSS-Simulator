@@ -1,0 +1,7 @@
+AUTO_START
+
+COMPONENT "cfe_terminal" evs_terminal.rb
+    PACKET CFS CFE_EVS_PACKET
+
+COMPONENT "Arducam_Exp" arducam_exp.rb
+    PACKET ARDUCAM ARDUCAM_EXP_TLM_T

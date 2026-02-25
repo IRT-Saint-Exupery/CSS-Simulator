@@ -1,0 +1,129 @@
+# Configuration file for Wireshark 4.4.6.
+#
+# This file is regenerated each time preferences are saved within
+# Wireshark. Making manual changes should be safe, however.
+# Preferences that have been commented out have not been
+# changed from their default value.
+
+####### Protocols ########
+
+# Whether the FPM dissector is enabled or not
+# true or false (case-insensitive)
+#cortex_tc.enabled: TRUE
+
+# Define the TCP port used for TeleCommands
+# A decimal number
+#cortex_tc.port: 3020
+
+# Define if TCs are sent at physical or coding layer
+# One of: Physical layer, Coding layer
+# (case-insensitive).
+#cortex_tc.if_type: Physical layer
+
+# Whether the Cortex TC packet's content should be dissected or not using CCSDS dissector
+# true or false (case-insensitive)
+#cortex_tc.subdissect: TRUE
+
+# CCSDS dissector to call to dissect TC
+# A string
+cortex_tc.subdissector: tc_cltu
+
+# The debug printing level
+# One of: Disabled, Level 1, Level 2
+# (case-insensitive).
+#cortex_tc.debug: Disabled
+
+# Whether the FPM dissector is enabled or not
+# true or false (case-insensitive)
+#cortex_tm.enabled: TRUE
+
+# Define the TCP port used for TeleMetries
+# A decimal number
+#cortex_tm.port: 3070
+
+# Whether the Cortex TM packet's content should be dissected or not using CCSDS dissector
+# true or false (case-insensitive)
+#cortex_tm.subdissect: TRUE
+
+# CCSDS dissector to call to dissect TM
+# A string
+cortex_tm.subdissector: tm_frame
+
+# The debug printing level
+# One of: Disabled, Level 1, Level 2
+# (case-insensitive).
+#cortex_tm.debug: Level 1
+
+# CCSDS dissector to call to dissect TC
+# A string
+#css_netw.tc_dissector: tc_frame
+
+# CCSDS dissector to call to dissect TM
+# A string
+#css_netw.tm_dissector: tm_frame
+
+# Dissector to call to dissect Space Packets containing TC
+# A string
+space_packet_protocol.tc_dissector: 
+
+# Dissector to call to dissect Space Packets containing TM
+# A string
+space_packet_protocol.tm_dissector: 
+
+# Whether the data is encrypted or not, do we continue dissecting or not
+# true or false (case-insensitive)
+#tc_frame.encrypted: FALSE
+
+# No description
+# true or false (case-insensitive)
+tc_frame.segment_header: TRUE
+
+# Cyclic Redundancy Check
+# true or false (case-insensitive)
+tc_frame.crc: TRUE
+
+# Whether we check TC Frame CRC or not
+# true or false (case-insensitive)
+tc_frame.check_crc: TRUE
+
+# SDLS configuration, overwrites preferences
+# One of: Preferences, Default TC, No SDLS
+# (case-insensitive).
+tc_frame.sdls_config: No SDLS
+
+# Whether we check Space Packet PEC or not
+# true or false (case-insensitive)
+tc_pus.check_pec: TRUE
+
+# Whether the data is encrypted or not, do we continue dissecting or not
+# true or false (case-insensitive)
+#tm_frame.encrypted: FALSE
+
+# Cyclic Redundancy Check
+# true or false (case-insensitive)
+tm_frame.crc: TRUE
+
+# Whether we check TM Frame CRC or not
+# true or false (case-insensitive)
+tm_frame.check_crc: TRUE
+
+# SDLS configuration, overwrites preferences
+# One of: Preferences, Default TM, No SDLS
+# (case-insensitive).
+tm_frame.sdls_config: No SDLS
+
+# Whether each Space Packet has a trailing PEC or not
+# true or false (case-insensitive)
+#tm_pus.has_pec: TRUE
+
+# Whether we check Space Packet PEC or not
+# true or false (case-insensitive)
+#tm_pus.check_pec: FALSE
+
+# Whether each Space Packet has a trailing PEC or not
+# true or false (case-insensitive)
+#tm_pus_cuc.has_pec: TRUE
+
+# Whether we check Space Packet PEC or not
+# true or false (case-insensitive)
+tm_pus_cuc.check_pec: TRUE

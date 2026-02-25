@@ -1,0 +1,43 @@
+TELEMETRY IDS IDS_HK_TLM LITTLE_ENDIAN "IDS_Hk_tlm_t"
+  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x09FA  "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQUENCE       16 UINT         "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_LENGTH         16 UINT         "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SECONDS        32 UINT         "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM    CCSDS_SUBSECS        16 UINT         "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM    CCSDS_SPARE          32 UINT         ""
+  APPEND_ITEM    CMD_ERR_COUNT         8 UINT         "Command Error Count"
+  APPEND_ITEM    CMD_COUNT             8 UINT         "Command Count"
+  APPEND_ITEM    DEVICE_ERR_COUNT      8 UINT         "Device Command Error Count"
+  APPEND_ITEM    DEVICE_COUNT          8 UINT         "Device Command Count"
+  APPEND_ITEM    DEVICE_ENABLED        8 UINT         "Device Enable Status"
+    STATE DISABLED 0
+    STATE ENABLED  1 
+  # IDS_Device_HK_tlm_t
+  APPEND_ITEM    DEVICE_COUNTER       32 UINT         "Reported Device Command Counter"
+  APPEND_ITEM    DEVICE_CONFIG        32 UINT         "Reported Device Configuration"
+  APPEND_ITEM    DEVICE_STATUS        32 UINT         "Reported Device Status"
+  APPEND_ITEM    IDS_STATUS           16 UINT         "Reported IDS Status"
+#number of packets dropped / detected (lifetime or time window)
+  APPEND_ITEM    PACKETS_DETECTED     16 UINT         "Number of Packets Detected"
+#number of packets with bad CRC
+  APPEND_ITEM    BAD_CRC              16 UINT         "Number of packets dropped due to Bad CRC"
+  APPEND_ITEM    SUCCESSIVE_BAD_CRC   16 UINT         "Number of consecutive packets dropped due to Bad CRC"
+#TODO - add relevant items
+
+
+TELEMETRY IDS IDS_DATA_TLM LITTLE_ENDIAN "IDS_Device_tlm_t"
+  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x09FB  "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQUENCE       16 UINT         "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_LENGTH         16 UINT         "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SECONDS        32 UINT         "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM    CCSDS_SUBSECS        16 UINT         "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM    CCSDS_SPARE          32 UINT         ""
+  # IDS_Device_Data_tlm_t
+  APPEND_ITEM    MODULE               8 UINT          "Detection Module"
+# APPEND_ITEM    MODE               8 UINT          "Action Mode - 0: Alert only, 1: Packet blocked"
+  APPEND_ITEM    RULE_NB              8 UINT          "Rule number (0 if not applicable)"
+#  APPEND_ITEM    RULESET              8 UINT          "Rule set ID (if multiple rule sets are loaded)"
+# MsgId, FC, timestamp or full packet - a way to identify the packet responsible - TODO
+#  APPEND_ITEM    FULL_PACKET          1400 BLOCK      "Full detected packet data (binary)"
+#  APPEND_ITEM    PACKET_LEN           16 UINT         "Length of the detected packet, to strip padding"
+  APPEND_ITEM    SENDING_TASK         160 STRING      "Taskname of the packet sender"

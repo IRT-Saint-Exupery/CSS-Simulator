@@ -1,0 +1,21 @@
+TELEMETRY GENERIC_TORQUER GENERIC_TORQUER_HK_TLM_T LITTLE_ENDIAN "GENERIC_TORQUER_Hk_tlm_t"
+  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x093A  "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQUENCE       16 UINT         "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_LENGTH         16 UINT         "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SECONDS        32 UINT         "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM    CCSDS_SUBSECS        16 UINT         "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM    CCSDS_SPARE          32 UINT         ""
+  APPEND_ITEM    CMD_ERR_COUNT         8 UINT         "Command Error Count"
+  APPEND_ITEM    CMD_COUNT             8 UINT         "Command Count"
+  APPEND_ITEM    DEVICE_ERR_COUNT      8 UINT         "Device Command Error Count"
+  APPEND_ITEM    DEVICE_COUNT          8 UINT         "Device Command Count"
+  APPEND_ITEM    DEVICE_ENABLED        8 UINT         "Device Enable Status"
+    STATE DISABLED 0
+    STATE ENABLED  1 
+  APPEND_ITEM    TORQUER_PERIOD       32 UINT         "Torquer Period"
+  APPEND_ITEM    TORQUER_DIRECTION_0   8 UINT         "Torquer 0 Direction"
+  APPEND_ITEM    TORQUER_PERCENT_ON_0  8 UINT         "Torquer 0 Percent On"
+  APPEND_ITEM    TORQUER_DIRECTION_1   8 UINT         "Torquer 1 Direction"
+  APPEND_ITEM    TORQUER_PERCENT_ON_1  8 UINT         "Torquer 1 Percent On"
+  APPEND_ITEM    TORQUER_DIRECTION_2   8 UINT         "Torquer 2 Direction"
+  APPEND_ITEM    TORQUER_PERCENT_ON_2  8 UINT         "Torquer 2 Percent On"

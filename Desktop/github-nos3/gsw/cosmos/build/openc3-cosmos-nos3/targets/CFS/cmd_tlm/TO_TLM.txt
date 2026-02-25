@@ -1,0 +1,15 @@
+TELEMETRY TO TO_HKPACKET LITTLE_ENDIAN "Housekeeping Packet Structure"
+  APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x0880 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
+  APPEND_ITEM CMDCOUNTER 16 UINT "Count of all commands received."
+  APPEND_ITEM ERRCOUNTER 16 UINT "Count of command errors."
+  APPEND_ITEM MSGSUBCNT 16 UINT "Count of subscribed messages by all telemetry pipes."
+  APPEND_ITEM MSGSUBERRCNT 16 UINT "Count of subscription errors."
+  APPEND_ITEM TBLUPDATECNT 16 UINT "Count of table updates through CFE_TBL."
+  APPEND_ITEM TBLEERRCNT 16 UINT "Count of table update errors."
+  APPEND_ITEM CONFIGROUTES 16 UINT "Current mask of configured routes."
+  APPEND_ITEM ENABLEDROUTES 16 UINT "Current mask of enabled routes."

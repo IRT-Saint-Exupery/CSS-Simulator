@@ -1,0 +1,420 @@
+[sudo] password for capstone: 
+CFE_PSP: Default Reset Type = PO
+CFE_PSP: Default Reset SubType = 1
+CFE_PSP: Default CPU ID = 2
+CFE_PSP: Default Spacecraft ID = 42
+CFE_PSP: Default CPU Name: simsat
+CFE_PSP: Starting the cFE with a POWER ON reset.
+Policy 1: available, min-max: 1-99
+Policy 2: available, min-max: 1-99
+Selected policy 2 for RT tasks, root task = 99
+Maximum user msg queue depth = 10
+OSAL: Registering VolumeTable map for ./cf on /cf
+CFE_PSP: Clearing out CFE CDS Shared memory segment.
+CFE_PSP: Clearing out CFE Reset Shared memory segment.
+CFE_PSP: Clearing out CFE User Reserved Shared memory segment.
+2032-089-01:38:30.42077 POWER ON RESET due to Power Cycle (Power Cycle).
+2032-089-01:38:30.42087 ES Startup: CFE_ES_Main in EARLY_INIT state
+CFE_PSP: CFE_PSP_AttachExceptions Called
+2032-089-01:38:30.42096 ES Startup: CFE_ES_Main entering CORE_STARTUP state
+2032-089-01:38:30.42098 ES Startup: Starting Object Creation calls.
+2032-089-01:38:30.42099 ES Startup: Calling CFE_ES_CDSEarlyInit
+2032-089-01:38:30.42113 ES Startup: Calling CFE_EVS_EarlyInit
+2032-089-01:38:30.42125 Event Log cleared following power-on reset
+2032-089-01:38:30.42126 ES Startup: Calling CFE_SB_EarlyInit
+2032-089-01:38:30.42138 SB internal message format: CCSDS Space Packet Protocol version 1
+2032-089-01:38:30.42148 ES Startup: Calling CFE_TIME_EarlyInit
+1980-012-14:03:20.00000 ES Startup: Calling CFE_TBL_EarlyInit
+1980-012-14:03:20.00033 ES Startup: Calling CFE_FS_EarlyInit
+1980-012-14:03:20.00057 ES Startup: Core App: CFE_EVS created. App ID: 0
+EVS Port1 42/2/CFE_EVS 1: cFE EVS Initialized. cFE Version 6.7.1.0
+EVS Port1 42/2/CFE_EVS 14: No subscribers for MsgId 0x808,sender CFE_EVS
+1980-012-14:03:20.05194 ES Startup: Core App: CFE_SB created. App ID: 1
+1980-012-14:03:20.05218 SB:Registered 4 events for filtering
+EVS Port1 42/2/CFE_SB 1: cFE SB Initialized
+EVS Port1 42/2/CFE_SB 14: No subscribers for MsgId 0x808,sender CFE_SB
+1980-012-14:03:20.10416 ES Startup: Core App: CFE_ES created. App ID: 2
+EVS Port1 42/2/CFE_ES 1: cFE ES Initialized
+EVS Port1 42/2/CFE_SB 14: No subscribers for MsgId 0x808,sender CFE_ES
+EVS Port1 42/2/CFE_ES 2: Versions:cFE 6.7.1.0, OSAL 5.0.1.0, PSP 1.4.0.0, chksm 46978
+EVS Port1 42/2/CFE_SB 14: No subscribers for MsgId 0x808,sender CFE_ES
+EVS Port1 42/2/CFE_ES 91: Mission osk
+EVS Port1 42/2/CFE_SB 14: No subscribers for MsgId 0x808,sender CFE_ES
+EVS Port1 42/2/CFE_ES 92: Build 202202011036 capstone@ubuntu
+1980-012-14:03:20.15554 ES Startup: Core App: CFE_TIME created. App ID: 3
+EVS Port1 42/2/CFE_TIME 1: cFE TIME Initialized
+1980-012-14:03:20.20622 ES Startup: Core App: CFE_TBL created. App ID: 4
+EVS Port1 42/2/CFE_TBL 1: cFE TBL Initialized.  cFE Version 6.7.1.0
+1980-012-14:03:20.25695 ES Startup: Finished ES CreateObject table entries.
+1980-012-14:03:20.25700 ES Startup: CFE_ES_Main entering CORE_READY state
+1980-012-14:03:20.25704 ES Startup: Opened ES App Startup file: /cf/cfe_es_startup.scr
+1980-012-14:03:20.25742 ES Startup: Loading shared library: /cf/cfs_lib.so
+CFS Lib Initialized.  Version 2.2.0.01980-012-14:03:20.25818 ES Startup: Loading shared library: /cf/osk_c_fw.so
+OSK C Application Framework Library Initialized. Version 2.0.0
+1980-012-14:03:20.25900 ES Startup: Loading shared library: /cf/osk_42_lib.so
+OSK 42 Library Initialized. Version 1.0.0
+1980-012-14:03:20.26005 ES Startup: Loading file: /cf/kit_to.so, APP: KIT_TO
+1980-012-14:03:20.26051 ES Startup: KIT_TO loaded and created
+1980-012-14:03:20.26093 ES Startup: Loading file: /cf/kit_ci.so, APP: KIT_CI
+1980-012-14:03:20.26136 ES Startup: KIT_CI loaded and created
+1980-012-14:03:20.26177 ES Startup: Loading file: /cf/ds.so, APP: DS
+1980-012-14:03:20.26212 ES Startup: DS loaded and created
+1980-012-14:03:20.26244 ES Startup: Loading file: /cf/fm.so, APP: FM
+1980-012-14:03:20.26292 ES Startup: FM loaded and created
+EVS Port1 42/2/KIT_CI 100: KIT_CI Initialized. Version 1.1.0
+1980-012-14:03:20.26336 ES Startup: Loading file: /cf/lc.so, APP: LC
+1980-012-14:03:20.26554 ES Startup: LC loaded and created
+1980-012-14:03:20.26611 ES Startup: Loading file: /cf/md.so, APP: MD
+EVS Port1 42/2/DS 10: Destination file table verify results: desc text = OK, good entries = 7, bad = 0, unused = 9
+1980-012-14:03:20.26689 ES Startup: MD loaded and created
+1980-012-14:03:20.26883 ES Startup: Loading file: /cf/sc.so, APP: SC
+1980-012-14:03:20.26936 ES Startup: SC loaded and created
+1980-012-14:03:20.27169 ES Startup: Loading file: /cf/cs.so, APP: CS
+1980-012-14:03:20.27231 ES Startup: CS loaded and created
+1980-012-14:03:20.27452 ES Startup: Loading file: /cf/mm.so, APP: MM
+1980-012-14:03:20.27509 ES Startup: MM loaded and created
+EVS Port1 42/2/MM 1: MM Initialized. Version 2.4.1.0
+1980-012-14:03:20.27733 ES Startup: Loading file: /cf/hk.so, APP: HK
+1980-012-14:03:20.27782 ES Startup: HK loaded and created
+1980-012-14:03:20.28057 ES Startup: Loading file: /cf/tftp.so, APP: TFTP
+1980-012-14:03:20.28102 ES Startup: TFTP loaded and created
+EVS Port1 42/2/TFTP 111: Socket bind failed. errno = 98
+EVS Port1 42/2/TFTP 100: TFTP App Initialized. Version 1.1.0
+1980-012-14:03:20.28333 ES Startup: Loading file: /cf/hc.so, APP: HC
+1980-012-14:03:20.28390 ES Startup: HC loaded and created
+1980-012-14:03:20.28724 ES Startup: Loading file: /cf/hsim.so, APP: HSIM
+1980-012-14:03:20.28792 ES Startup: HSIM loaded and created
+EVS Port1 42/2/HSIM 1: Initialization complete: version 2.0.0.1
+1980-012-14:03:20.29115 ES Startup: Loading file: /cf/isim.so, APP: ISIM
+1980-012-14:03:20.29181 ES Startup: ISIM loaded and created
+1980-012-14:03:20.29476 ES Startup: Loading file: /cf/f42.so, APP: F42
+EVS Port1 42/2/HC 23: HC Type Table verify results: good entries = 2, bad = 0
+1980-012-14:03:20.29528 ES Startup: F42 loaded and created
+1980-012-14:03:20.29701 ES Startup: Loading file: /cf/i42.so, APP: I42
+1980-012-14:03:20.29755 ES Startup: I42 loaded and created
+EVS Port1 42/2/I42 100: I42 App Initialized. Version 2.0.0
+1980-012-14:03:20.30022 ES Startup: Loading file: /cf/cf.so, APP: CF
+EVS Port1 42/2/HC 25: Component Table verify results: good entries = 5, bad = 0
+EVS Port1 42/2/HC 1: Initialization complete: version 2.0.0.1
+1980-012-14:03:20.30108 ES Startup: CF loaded and created
+1980-012-14:03:20.30493 ES Startup: Loading file: /cf/hs.so, APP: HS
+1980-012-14:03:20.30548 ES Startup: HS loaded and created
+1980-012-14:03:20.30807 ES Startup: Loading file: /cf/kit_sch.so, APP: KIT_SCH
+1980-012-14:03:20.30861 ES Startup: KIT_SCH loaded and created
+EVS Port1 42/2/DS 12: Filter table verify results: desc text = OK, good entries = 16, bad = 0, unused = 240
+EVS Port1 42/2/DS 1: Application initialized, version 2.5.2.0, data at 0xf6b111e0
+EVS Port1 42/2/LC 56: WDT verify results: good = 13, bad = 0, unused = 163
+1980-012-14:03:21.31684 ES Startup: Startup Sync failed - Applications may not have all initialized
+1980-012-14:03:21.31690 ES Startup: CFE_ES_Main entering APPS_INIT state
+EVS Port1 42/2/CFE_TIME 21: Stop FLYWHEEL
+1980-012-14:03:21.67805 ES Startup: Startup Sync failed - Applications may not have all started
+1980-012-14:03:21.67807 ES Startup: CFE_ES_Main entering OPERATIONAL state
+EVS Port1 42/2/HK 1: HK Initialized.  Version 2.4.1.0
+EVS Port1 42/2/KIT_SCH 25: Successfully replaced table 0 using file /cf/osk_sch_msg_tbl.json
+EVS Port1 42/2/LC 66: ADT verify results: good = 3, bad = 0, unused = 173
+EVS Port1 42/2/LC 23: LC use of Critical Data Store disabled, activity mask = 0x00991990
+EVS Port1 42/2/LC 2: LC Initialized. Version 2.1.0.0
+EVS Port1 42/2/KIT_TO 312: Removed 0 table packet entries
+EVS Port1 42/2/KIT_TO 302: Successfully loaded new table with 60 packets
+EVS Port1 42/2/KIT_TO 25: Successfully replaced table 0 using file /cf/osk_to_pkt_tbl.json
+EVS Port1 42/2/KIT_TO 100: KIT_TO Initialized. Version 2.1.0
+EVS Port1 42/2/SC 21: RTS table file load count = 8
+EVS Port1 42/2/SC 9: SC Initialized. Version 2.5.0.0
+EVS Port1 42/2/F42 25: Successfully replaced table 0 using file /cf/f42_ctrl_tbl.json
+EVS Port1 42/2/F42 100: F42 App Initialized. Version 2.0.0
+EVS Port1 42/2/FM 104: Free Space Table verify results: good entries = 3, bad = 0, unused = 5
+EVS Port1 42/2/MD 52: MD Dwell Tbl verify results: good = 0, bad = 0, unused = 25
+EVS Port1 42/2/FM 1: Initialization complete: version 2.5.2.0
+EVS Port1 42/2/CS 144: CS Eeprom Table verification results: good = 0, bad = 0, unused = 16
+EVS Port1 42/2/FM 100: Child Task initialization complete
+EVS Port1 42/2/CS 107: CS Eeprom Table: No valid entries in the table
+EVS Port1 42/2/CF 1: CF Initialized.  Version 2.2.1.0
+EVS Port1 42/2/CF 73: SemGetId Err:Chan 0 downlink PDUs cannot be throttled.0xFFFFFFEF
+EVS Port1 42/2/MD 52: MD Dwell Tbl verify results: good = 0, bad = 0, unused = 25
+EVS Port1 42/2/CS 143: CS Memory Table verification results: good = 0, bad = 0, unused = 16
+EVS Port1 42/2/CS 107: CS Memory Table: No valid entries in the table
+EVS Port1 42/2/MD 52: MD Dwell Tbl verify results: good = 0, bad = 0, unused = 25
+EVS Port1 42/2/CS 142: CS Apps Table verification results: good = 1, bad = 0, unused = 23
+EVS Port1 42/2/MD 52: MD Dwell Tbl verify results: good = 0, bad = 0, unused = 25
+EVS Port1 42/2/MD 7: Dwell Tables Recovered: 0, Dwell Tables Initialized: 4
+EVS Port1 42/2/MD 1: MD Initialized.  Version 2.3.3.0
+EVS Port1 42/2/CS 139: CS Tables Table verification results: good = 4, bad = 0, unused = 20
+EVS Port1 42/2/CS 127: OS Text Segment disabled due to platform
+EVS Port1 42/2/CS 1: CS Initialized. Version 2.4.0.0
+EVS Port1 42/2/CFE_SB 25: Pipe Overflow,MsgId 0x808,pipe KIT_TO_PKT_PIPE,sender CS
+EVS Port1 42/2/ISIM 4: Successfully configured 10 initialization file attributes
+EVS Port1 42/2/HS 54: ExeCount verify results: good = 6, bad = 0, unused = 26
+EVS Port1 42/2/ISIM 123: ISIM table loaded.
+EVS Port1 42/2/ISIM 25: Successfully replaced table 0 using file /cf/isim_tbl.json
+EVS Port1 42/2/ISIM 100: ISIM App Initialized. Version 2.1.0
+EVS Port1 42/2/KIT_SCH 25: Successfully replaced table 1 using file /cf/osk_sch_sch_tbl.json
+EVS Port1 42/2/KIT_SCH 101: KIT_SCH Initialized. Version 2.0.0
+EVS Port1 42/2/HS 50: AppMon verify results: good = 1, bad = 0, unused = 31
+EVS Port1 42/2/HS 52: EventMon verify results: good = 1, bad = 0, unused = 15
+EVS Port1 42/2/HS 56: MsgActs verify results: good = 0, bad = 0, unused = 8
+EVS Port1 42/2/HS 1: HS Initialized.  Version 2.3.0.0
+EVS Port1 42/2/SC 73: RTS Number 001 Started
+EVS Port1 42/2/SC 86: RTS 001 Execution Completed
+EVS Port1 42/2/CS 2: No-op command. Version 2.4.0.0
+EVS Port1 42/2/CS 2: No-op command. Version 2.4.0.0
+EVS Port1 42/2/HS 23: No-op command: Version 2.3.0.0
+EVS Port1 42/2/HS 23: No-op command: Version 2.3.0.0
+EVS Port1 42/2/HS 23: No-op command: Version 2.3.0.0
+EVS Port1 42/2/KIT_SCH 406: Multiple slots processed: slot = 1, count = 2
+EVS Port1 42/2/KIT_SCH 407: Slots skipped: slot = 2, count = 2
+EVS Port1 42/2/KIT_SCH 406: Multiple slots processed: slot = 1, count = 2
+EVS Port1 42/2/KIT_SCH 406: Multiple slots processed: slot = 1, count = 2
+EVS Port1 42/2/KIT_SCH 406: Multiple slots processed: slot = 1, count = 2
+EVS Port1 42/2/CFE_ES 36: Stop Application APPNAME, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/KIT_SCH 406: Multiple slots processed: slot = 1, count = 2
+EVS Port1 42/2/KIT_SCH 407: Slots skipped: slot = 2, count = 2
+EVS Port1 42/2/CFE_SB 17: Msg Limit Err,MsgId 0x1806,pipe ES_CMD_PIPE,sender KIT_CI
+EVS Port1 42/2/CFE_ES 36: Stop Application A, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_SB 17: Msg Limit Err,MsgId 0x1806,pipe ES_CMD_PIPE,sender KIT_CI
+EVS Port1 42/2/CFE_ES 36: Stop Application B, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_SB 17: Msg Limit Err,MsgId 0x1806,pipe ES_CMD_PIPE,sender KIT_CI
+EVS Port1 42/2/CFE_SB 17: Msg Limit Err,MsgId 0x1806,pipe ES_CMD_PIPE,sender KIT_CI
+EVS Port1 42/2/CFE_ES 36: Stop Application C, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application D, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application F, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application H, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_SB 25: Pipe Overflow,MsgId 0x808,pipe KIT_TO_PKT_PIPE,sender CFE_ES
+EVS Port1 42/2/CFE_SB 17: Msg Limit Err,MsgId 0x1806,pipe ES_CMD_PIPE,sender KIT_CI
+EVS Port1 42/2/CFE_ES 36: Stop Application K, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_SB 17: Msg Limit Err,MsgId 0x1806,pipe ES_CMD_PIPE,sender KIT_CI
+EVS Port1 42/2/CFE_SB 17: Msg Limit Err,MsgId 0x1806,pipe ES_CMD_PIPE,sender KIT_CI
+EVS Port1 42/2/CFE_SB 17: Msg Limit Err,MsgId 0x1806,pipe ES_CMD_PIPE,sender KIT_CI
+EVS Port1 42/2/CFE_SB 17: Msg Limit Err,MsgId 0x1806,pipe ES_CMD_PIPE,sender KIT_CI
+EVS Port1 42/2/CFE_ES 36: Stop Application L, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application M, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application N, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_SB 25: Pipe Overflow,MsgId 0x808,pipe KIT_TO_PKT_PIPE,sender CFE_ES
+EVS Port1 42/2/CFE_ES 36: Stop Application P, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_SB 25: Pipe Overflow,MsgId 0x808,pipe HS_EVENT_PIPE,sender CFE_ES
+EVS Port1 42/2/CFE_SB 25: Pipe Overflow,MsgId 0x808,pipe KIT_TO_PKT_PIPE,sender CFE_ES
+EVS Port1 42/2/CFE_ES 36: Stop Application U, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_SB 25: Pipe Overflow,MsgId 0x808,pipe HS_EVENT_PIPE,sender CFE_ES
+EVS Port1 42/2/CFE_SB 17: Msg Limit Err,MsgId 0x1806,pipe ES_CMD_PIPE,sender KIT_CI
+EVS Port1 42/2/CFE_SB 25: Pipe Overflow,MsgId 0x808,pipe HS_EVENT_PIPE,sender KIT_CI
+EVS Port1 42/2/CFE_SB 17: Msg Limit Err,MsgId 0x1806,pipe ES_CMD_PIPE,sender KIT_CI
+EVS Port1 42/2/CFE_SB 25: Pipe Overflow,MsgId 0x808,pipe HS_EVENT_PIPE,sender KIT_CI
+EVS Port1 42/2/CFE_SB 17: Msg Limit Err,MsgId 0x1806,pipe ES_CMD_PIPE,sender KIT_CI
+EVS Port1 42/2/CFE_SB 25: Pipe Overflow,MsgId 0x808,pipe HS_EVENT_PIPE,sender KIT_CI
+EVS Port1 42/2/CFE_SB 17: Msg Limit Err,MsgId 0x1806,pipe ES_CMD_PIPE,sender KIT_CI
+EVS Port1 42/2/CFE_SB 25: Pipe Overflow,MsgId 0x808,pipe HS_EVENT_PIPE,sender KIT_CI
+EVS Port1 42/2/CFE_ES 36: Stop Application V, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_SB 25: Pipe Overflow,MsgId 0x808,pipe HS_EVENT_PIPE,sender CFE_ES
+EVS Port1 42/2/CFE_SB 25: Pipe Overflow,MsgId 0x808,pipe KIT_TO_PKT_PIPE,sender CFE_ES
+EVS Port1 42/2/CFE_ES 36: Stop Application W, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_SB 25: Pipe Overflow,MsgId 0x808,pipe HS_EVENT_PIPE,sender CFE_ES
+EVS Port1 42/2/CFE_SB 25: Pipe Overflow,MsgId 0x808,pipe KIT_TO_PKT_PIPE,sender CFE_ES
+EVS Port1 42/2/CFE_ES 36: Stop Application X, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_SB 25: Pipe Overflow,MsgId 0x808,pipe HS_EVENT_PIPE,sender CFE_ES
+EVS Port1 42/2/CFE_SB 25: Pipe Overflow,MsgId 0x808,pipe KIT_TO_PKT_PIPE,sender CFE_ES
+EVS Port1 42/2/CFE_ES 36: Stop Application Y, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AC, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_SB 17: Msg Limit Err,MsgId 0x1806,pipe ES_CMD_PIPE,sender KIT_CI
+EVS Port1 42/2/CFE_ES 36: Stop Application AD, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_SB 17: Msg Limit Err,MsgId 0x1806,pipe ES_CMD_PIPE,sender KIT_CI
+EVS Port1 42/2/CFE_SB 17: Msg Limit Err,MsgId 0x1806,pipe ES_CMD_PIPE,sender KIT_CI
+EVS Port1 42/2/CFE_ES 36: Stop Application AE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AF, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AI, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AN, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AQ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AT, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AZ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application A
+, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application BG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application BH, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application BI, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application BJ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application BN, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application BQ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application BR, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application BS, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application BT, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application BW, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application B
+, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application CA, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application CB, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application CC, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application CG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application CJ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application CK, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application CL, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application CM, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application CO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application CT, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application CU, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application CV, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application CW, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application DA, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application DC, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application DD, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application DE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application DF, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application DH, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application DM, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application DN, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application DO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application DP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application DT, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application DW, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application DX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application DY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application DZ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application EA, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application EF, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application EG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application EH, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application EI, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application EL, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application EP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application EQ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ER, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ES, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application EV, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application EZ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application E
+, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application FA, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application FB, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application FE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application FI, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application FJ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application FK, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application FL, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application FN, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application FS, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application FT, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application FU, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application FV, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GB, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GC, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GD, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GL, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GM, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GN, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GV, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GW, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GZ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application HE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application HF, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application HG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application HH, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application HI, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application HO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application HP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application HQ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application HR, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:05:48.81817 CFE_ES_DeleteApp: Delete Application HS Initiated
+EVS Port1 42/2/KIT_SCH 406: Multiple slots processed: slot = 1, count = 2
+EVS Port1 42/2/CFE_ES 36: Stop Application HY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application HZ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application H
+, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application IA, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:05:49.70077 CFE_ES_ExitApp: Called with invalid status (1).
+1980-012-14:05:49.70083 Application HS called CFE_ES_ExitApp
+EVS Port1 42/2/CFE_ES 36: Stop Application IH, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:05:49.81890 CFE_ES_GetTaskInfo: Task ID Not Valid: 22
+1980-012-14:05:49.81933 CFE_ES_GetTaskInfo: Task ID Not Valid: 22
+1980-012-14:05:49.81949 CFE_ES_GetTaskInfo: Task ID Not Valid: 22
+EVS Port1 42/2/CFE_ES 14: Exit Application HS on Error Completed.
+EVS Port1 42/2/CFE_ES 36: Stop Application II, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application IJ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application IK, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application IO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application IR, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application IS, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application IT, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application IU, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application JA, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application JB, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application JC, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application JD, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:05:53.00222 CFE_TBL:GetAddressInternal-App(12) attempt to access unowned Tbl Handle=46
+1980-012-14:05:53.00232 CFE_TBL:Share-Table 'HS.AppMon_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.AppMon_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.AppMon_Tbl info Share: 0xCC000002, GetInfo: 0xCC000002, GetAddress: 0xCC000009
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.AppMon_Tbl could not be found, skipping
+1980-012-14:05:55.00356 CFE_TBL:GetAddressInternal-App(12) attempt to access unowned Tbl Handle=47
+1980-012-14:05:55.00366 CFE_TBL:Share-Table 'HS.EventMon_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.EventMon_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.EventMon_Tbl info Share: 0xCC000002, GetInfo: 0xCC000002, GetAddress: 0xCC000009
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.EventMon_Tbl could not be found, skipping
+1980-012-14:05:57.00205 CFE_TBL:GetAddressInternal-App(12) attempt to access unowned Tbl Handle=48
+1980-012-14:05:57.00215 CFE_TBL:Share-Table 'HS.MsgActs_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.MsgActs_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.MsgActs_Tbl info Share: 0xCC000002, GetInfo: 0xCC000002, GetAddress: 0xCC000009
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.MsgActs_Tbl could not be found, skipping
+EVS Port1 42/2/KIT_SCH 406: Multiple slots processed: slot = 1, count = 2
+1980-012-14:05:59.00283 CFE_TBL:GetAddressInternal-App(12) attempt to access unowned Tbl Handle=49
+1980-012-14:05:59.00292 CFE_TBL:Share-Table 'HS.ExeCount_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.ExeCount_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.ExeCount_Tbl info Share: 0xCC000002, GetInfo: 0xCC000002, GetAddress: 0xCC000009
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.ExeCount_Tbl could not be found, skipping
+EVS Port1 42/2/CFE_ES 36: Stop Application APPNAME, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:06:33.00299 CFE_TBL:Share-Table 'HS.AppMon_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.AppMon_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.AppMon_Tbl info Share: 0xCC000002, GetInfo: 0x00000000, GetAddress: 0x00000000
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.AppMon_Tbl could not be found, skipping
+EVS Port1 42/2/KIT_SCH 406: Multiple slots processed: slot = 1, count = 2
+1980-012-14:06:35.00276 CFE_TBL:Share-Table 'HS.EventMon_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.EventMon_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.EventMon_Tbl info Share: 0xCC000002, GetInfo: 0x00000000, GetAddress: 0x00000000
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.EventMon_Tbl could not be found, skipping
+EVS Port1 42/2/KIT_SCH 404: Major Frame Sync too noisy (Slot 1). Disabling synchronization.
+1980-012-14:06:37.00335 CFE_TBL:Share-Table 'HS.MsgActs_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.MsgActs_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.MsgActs_Tbl info Share: 0xCC000002, GetInfo: 0x00000000, GetAddress: 0x00000000
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.MsgActs_Tbl could not be found, skipping
+1980-012-14:06:39.00194 CFE_TBL:Share-Table 'HS.ExeCount_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.ExeCount_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.ExeCount_Tbl info Share: 0xCC000002, GetInfo: 0x00000000, GetAddress: 0x00000000
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.ExeCount_Tbl could not be found, skipping
+1980-012-14:07:13.00253 CFE_TBL:Share-Table 'HS.AppMon_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.AppMon_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.AppMon_Tbl info Share: 0xCC000002, GetInfo: 0x00000000, GetAddress: 0x00000000
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.AppMon_Tbl could not be found, skipping
+1980-012-14:07:15.00290 CFE_TBL:Share-Table 'HS.EventMon_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.EventMon_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.EventMon_Tbl info Share: 0xCC000002, GetInfo: 0x00000000, GetAddress: 0x00000000
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.EventMon_Tbl could not be found, skipping
+1980-012-14:07:17.00320 CFE_TBL:Share-Table 'HS.MsgActs_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.MsgActs_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.MsgActs_Tbl info Share: 0xCC000002, GetInfo: 0x00000000, GetAddress: 0x00000000
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.MsgActs_Tbl could not be found, skipping
+1980-012-14:07:19.00368 CFE_TBL:Share-Table 'HS.ExeCount_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.ExeCount_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.ExeCount_Tbl info Share: 0xCC000002, GetInfo: 0x00000000, GetAddress: 0x00000000
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.ExeCount_Tbl could not be found, skipping
+1980-012-14:07:53.00219 CFE_TBL:Share-Table 'HS.AppMon_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.AppMon_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.AppMon_Tbl info Share: 0xCC000002, GetInfo: 0x00000000, GetAddress: 0x00000000
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.AppMon_Tbl could not be found, skipping
+1980-012-14:07:55.00213 CFE_TBL:Share-Table 'HS.EventMon_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.EventMon_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.EventMon_Tbl info Share: 0xCC000002, GetInfo: 0x00000000, GetAddress: 0x00000000
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.EventMon_Tbl could not be found, skipping
+1980-012-14:07:57.00287 CFE_TBL:Share-Table 'HS.MsgActs_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.MsgActs_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.MsgActs_Tbl info Share: 0xCC000002, GetInfo: 0x00000000, GetAddress: 0x00000000
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.MsgActs_Tbl could not be found, skipping
+1980-012-14:07:59.00221 CFE_TBL:Share-Table 'HS.ExeCount_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.ExeCount_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.ExeCount_Tbl info Share: 0xCC000002, GetInfo: 0x00000000, GetAddress: 0x00000000
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.ExeCount_Tbl could not be found, skipping
+

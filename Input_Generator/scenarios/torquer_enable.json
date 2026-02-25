@@ -1,0 +1,17 @@
+{
+    "command1": {
+        "TARGET": "GENERIC_TORQUER",
+        "GENERIC_TORQUER_ENABLE_CC": {
+            "CCSDS_STREAMID": "0x193A",
+            "CCSDS_SEQUENCE": "0xC000",
+            "CCSDS_LENGTH": "1",
+            "CCSDS_FC": "2",
+            "CCSDS_CHECKSUM": "0"
+        },
+        "TIMESTAMP": 0.0,
+        "FUZZ": [
+            "None",
+            0
+        ]
+    }
+}

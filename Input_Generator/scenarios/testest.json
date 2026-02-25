@@ -1,0 +1,69 @@
+{
+    "command1": {
+        "TARGET": "GENERIC_ADCS",
+        "GENERIC_ADCS_SET_MODE_CC": {
+            "CCSDS_STREAMID": "0x1940",
+            "CCSDS_SEQUENCE": "0xC000",
+            "CCSDS_LENGTH": "2",
+            "CCSDS_FC": "2",
+            "CCSDS_CHECKSUM": "0",
+            "GNC_MODE": "0"
+        },
+        "TIMESTAMP": 0.0,
+        "FUZZ": [
+            "None",
+            0
+        ]
+    },
+    "command2": {
+        "TARGET": "GENERIC_REACTION_WHEEL",
+        "GENERIC_RW_SET_TORQUE_CC": {
+            "CCSDS_STREAMID": "0x1992",
+            "CCSDS_SEQUENCE": "0xC000",
+            "CCSDS_LENGTH": "4",
+            "CCSDS_FC": "3",
+            "CCSDS_CHECKSUM": "0",
+            "WHEEL_NUMBER": "0",
+            "TORQUE": "2560"
+        },
+        "TIMESTAMP": 0.0,
+        "FUZZ": [
+            "None",
+            0
+        ]
+    },
+    "command3": {
+        "TARGET": "GENERIC_REACTION_WHEEL",
+        "GENERIC_RW_SET_TORQUE_CC": {
+            "CCSDS_STREAMID": "0x1992",
+            "CCSDS_SEQUENCE": "0xC000",
+            "CCSDS_LENGTH": "4",
+            "CCSDS_FC": "3",
+            "CCSDS_CHECKSUM": "0",
+            "WHEEL_NUMBER": "1",
+            "TORQUE": "2560"
+        },
+        "TIMESTAMP": 0.0,
+        "FUZZ": [
+            "None",
+            0
+        ]
+    },
+    "command4": {
+        "TARGET": "GENERIC_REACTION_WHEEL",
+        "GENERIC_RW_SET_TORQUE_CC": {
+            "CCSDS_STREAMID": "0x1992",
+            "CCSDS_SEQUENCE": "0xC000",
+            "CCSDS_LENGTH": "4",
+            "CCSDS_FC": "3",
+            "CCSDS_CHECKSUM": "0",
+            "WHEEL_NUMBER": "2",
+            "TORQUE": "2560"
+        },
+        "TIMESTAMP": 0.0,
+        "FUZZ": [
+            "None",
+            0
+        ]
+    }
+}

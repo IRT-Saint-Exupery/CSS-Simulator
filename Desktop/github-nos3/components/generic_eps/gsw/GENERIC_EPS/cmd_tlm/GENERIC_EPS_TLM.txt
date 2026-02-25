@@ -1,0 +1,179 @@
+TELEMETRY GENERIC_EPS GENERIC_EPS_HK_TLM LITTLE_ENDIAN "GENERIC_EPS_Hk_tlm_t"
+  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x091A  "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQUENCE       16 UINT         "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_LENGTH         16 UINT         "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SECONDS        32 UINT         "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SUBSECS        16 UINT         "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SPARE          32 UINT         ""
+  APPEND_ITEM    CMD_ERR_COUNT         8 UINT         "Command Error Count"
+  APPEND_ITEM    CMD_COUNT             8 UINT         "Command Count"
+  APPEND_ITEM    DEVICE_ERR_COUNT      8 UINT         "Device Command Error Count"
+  APPEND_ITEM    DEVICE_COUNT          8 UINT         "Device Command Count"
+
+  # GENERIC_EPS_Device_HK_tlm_t
+  APPEND_ITEM    RAW_BATTERY_VOLTAGE      16 UINT     "Battery Voltage"
+  APPEND_ITEM    RAW_BATTERY_TEMPERATURE  16 UINT     "Battery Temperature"
+  APPEND_ITEM    RAW_BUS_3P3V             16 UINT     "Bus 3.3 Volt Rail"
+  APPEND_ITEM    RAW_BUS_5P0V             16 UINT     "Bus 5.0 Volt Rail"
+  APPEND_ITEM    RAW_BUS_12V              16 UINT     "Bus 12 Volt Rail"
+  APPEND_ITEM    RAW_EPS_TEMPERATURE      16 UINT     "EPS Temperature"
+  APPEND_ITEM    RAW_SA_VOLTAGE           16 UINT     "Solar Array Voltage"
+  APPEND_ITEM    RAW_SA_TEMPERATURE       16 UINT     "Solar Array Temperature"
+
+  # GENERIC_EPS_Device_HK_tlm_t - SW0
+  APPEND_ITEM    RAW_SWITCH_0_VOLTAGE     16 UINT     "Switch 0 Voltage"
+  APPEND_ITEM    RAW_SWITCH_0_CURRENT     16 UINT     "Switch 0 Current"
+  APPEND_ITEM    SWITCH_0_STATE        8 UINT         "Switch 0 State"
+    STATE ON  0xAA
+    STATE OFF 0x00
+  APPEND_ITEM    SWITCH_0_FLAGS        8 UINT         "Switch 0 Flags"
+    STATE HEALTHY 0x00 GREEN
+  # GENERIC_EPS_Device_HK_tlm_t - SW1
+  APPEND_ITEM    RAW_SWITCH_1_VOLTAGE     16 UINT     "Switch 1 Voltage"
+  APPEND_ITEM    RAW_SWITCH_1_CURRENT     16 UINT     "Switch 1 Current"
+  APPEND_ITEM    SWITCH_1_STATE        8 UINT         "Switch 1 State"
+    STATE ON  0xAA
+    STATE OFF 0x00  # GENERIC_EPS_Device_HK_tlm_t - SW2
+  APPEND_ITEM    SWITCH_1_FLAGS        8 UINT         "Switch 1 Flags"
+    STATE HEALTHY 0x00 GREEN
+  APPEND_ITEM    RAW_SWITCH_2_VOLTAGE     16 UINT     "Switch 2 Voltage"
+  APPEND_ITEM    RAW_SWITCH_2_CURRENT     16 UINT     "Switch 2 Current"
+  APPEND_ITEM    SWITCH_2_STATE        8 UINT         "Switch 2 State"
+    STATE ON  0xAA
+    STATE OFF 0x00  # GENERIC_EPS_Device_HK_tlm_t - SW3
+  APPEND_ITEM    SWITCH_2_FLAGS        8 UINT         "Switch 2 Flags"
+    STATE HEALTHY 0x00 GREEN
+  APPEND_ITEM    RAW_SWITCH_3_VOLTAGE     16 UINT     "Switch 3 Voltage"
+  APPEND_ITEM    RAW_SWITCH_3_CURRENT     16 UINT     "Switch 3 Current"
+  APPEND_ITEM    SWITCH_3_STATE        8 UINT         "Switch 3 State"
+    STATE ON  0xAA
+    STATE OFF 0x00  # GENERIC_EPS_Device_HK_tlm_t - SW4
+  APPEND_ITEM    SWITCH_3_FLAGS        8 UINT         "Switch 3 Flags"
+    STATE HEALTHY 0x00 GREEN
+  APPEND_ITEM    RAW_SWITCH_4_VOLTAGE     16 UINT     "Switch 4 Voltage"
+  APPEND_ITEM    RAW_SWITCH_4_CURRENT     16 UINT     "Switch 4 Current"
+  APPEND_ITEM    SWITCH_4_STATE        8 UINT         "Switch 4 State"
+    STATE ON  0xAA
+    STATE OFF 0x00  # GENERIC_EPS_Device_HK_tlm_t - SW5
+  APPEND_ITEM    SWITCH_4_FLAGS        8 UINT         "Switch 4 Flags"
+    STATE HEALTHY 0x00 GREEN
+  APPEND_ITEM    RAW_SWITCH_5_VOLTAGE     16 UINT     "Switch 5 Voltage"
+  APPEND_ITEM    RAW_SWITCH_5_CURRENT     16 UINT     "Switch 5 Current"
+  APPEND_ITEM    SWITCH_5_STATE        8 UINT         "Switch 5 State"
+    STATE ON  0xAA
+    STATE OFF 0x00  # GENERIC_EPS_Device_HK_tlm_t - SW6
+  APPEND_ITEM    SWITCH_5_FLAGS        8 UINT         "Switch 5 Flags"
+    STATE HEALTHY 0x00 GREEN
+  APPEND_ITEM    RAW_SWITCH_6_VOLTAGE     16 UINT     "Switch 6 Voltage"
+  APPEND_ITEM    RAW_SWITCH_6_CURRENT     16 UINT     "Switch 6 Current"
+  APPEND_ITEM    SWITCH_6_STATE        8 UINT         "Switch 6 State"
+    STATE ON  0xAA
+    STATE OFF 0x00  # GENERIC_EPS_Device_HK_tlm_t - SW7
+  APPEND_ITEM    SWITCH_6_FLAGS        8 UINT         "Switch 6 Flags"
+    STATE HEALTHY 0x00 GREEN
+  APPEND_ITEM    RAW_SWITCH_7_VOLTAGE     16 UINT     "Switch 7 Voltage"
+  APPEND_ITEM    RAW_SWITCH_7_CURRENT     16 UINT     "Switch 7 Current"
+  APPEND_ITEM    SWITCH_7_STATE        8 UINT         "Switch 7 State"
+    STATE ON  0xAA
+    STATE OFF 0x00
+  APPEND_ITEM    SWITCH_7_FLAGS        8 UINT         "Switch 7 Flags"
+    STATE HEALTHY 0x00 GREEN
+  
+  # DERIVED TELEMETRY
+  ITEM           BATT_VOLTAGE         0 0 DERIVED     "Battery Voltage"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_BATTERY_VOLTAGE' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Volts V
+  ITEM           BATT_TEMPERATURE     0 0 DERIVED     "Battery Temperature"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_BATTERY_TEMPERATURE' 0.01 -60
+    FORMAT_STRING "%0.2f"
+    UNITS Celcuis C
+  ITEM           BUS_3P3V             0 0 DERIVED     "Bus 3.3 Volt Rail"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_BUS_3P3V' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Volts V
+  ITEM           BUS_5P0V             0 0 DERIVED     "Bus 5.0 Volt Rail"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_BUS_5P0V' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Volts V
+  ITEM           BUS_12V              0 0 DERIVED     "Bus 12 Volt Rail"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_BUS_12V' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Volts V
+  ITEM           EPS_TEMPERATURE     0 0 DERIVED     "EPS Temperature"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_EPS_TEMPERATURE' 0.01 -60
+    FORMAT_STRING "%0.2f"
+    UNITS Celcuis C
+  ITEM           SA_VOLTAGE          0 0 DERIVED     "Solar Array Voltage"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_SA_VOLTAGE' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Volts V
+  ITEM           SA_TEMPERATURE      0 0 DERIVED     "Solar Array Temperature"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_SA_TEMPERATURE' 0.01 -60
+    FORMAT_STRING "%0.2f"
+    UNITS Celcuis C
+
+  ITEM           SW_0_VOLTAGE         0 0 DERIVED     "Switch 0 Voltage"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_SWITCH_0_VOLTAGE' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Volts V
+  ITEM           SW_0_CURRENT         0 0 DERIVED     "Switch 0 Current"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_SWITCH_0_CURRENT' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Amps A
+  ITEM           SW_1_VOLTAGE         0 0 DERIVED     "Switch 1 Voltage"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_SWITCH_1_VOLTAGE' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Volts V
+  ITEM           SW_1_CURRENT         0 0 DERIVED     "Switch 1 Current"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_SWITCH_1_CURRENT' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Amps A
+  ITEM           SW_2_VOLTAGE         0 0 DERIVED     "Switch 2 Voltage"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_SWITCH_2_VOLTAGE' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Volts V
+  ITEM           SW_2_CURRENT         0 0 DERIVED     "Switch 2 Current"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_SWITCH_2_CURRENT' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Amps A
+  ITEM           SW_3_VOLTAGE         0 0 DERIVED     "Switch 3 Voltage"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_SWITCH_3_VOLTAGE' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Volts V
+  ITEM           SW_3_CURRENT         0 0 DERIVED     "Switch 3 Current"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_SWITCH_3_CURRENT' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Amps A
+  ITEM           SW_4_VOLTAGE         0 0 DERIVED     "Switch 4 Voltage"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_SWITCH_4_VOLTAGE' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Volts V
+  ITEM           SW_4_CURRENT         0 0 DERIVED     "Switch 4 Current"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_SWITCH_4_CURRENT' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Amps A
+  ITEM           SW_5_VOLTAGE         0 0 DERIVED     "Switch 5 Voltage"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_SWITCH_5_VOLTAGE' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Volts V
+  ITEM           SW_5_CURRENT         0 0 DERIVED     "Switch 5 Current"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_SWITCH_5_CURRENT' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Amps A
+  ITEM           SW_6_VOLTAGE         0 0 DERIVED     "Switch 6 Voltage"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_SWITCH_6_VOLTAGE' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Volts V
+  ITEM           SW_6_CURRENT         0 0 DERIVED     "Switch 6 Current"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_SWITCH_6_CURRENT' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Amps A
+  ITEM           SW_7_VOLTAGE         0 0 DERIVED     "Switch 7 Voltage"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_SWITCH_7_VOLTAGE' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Volts V
+  ITEM           SW_7_CURRENT         0 0 DERIVED     "Switch 7 Current"
+    READ_CONVERSION slope_intercept_conversion.rb 'RAW_SWITCH_7_CURRENT' 0.001 0
+    FORMAT_STRING "%0.3f"
+    UNITS Amps A

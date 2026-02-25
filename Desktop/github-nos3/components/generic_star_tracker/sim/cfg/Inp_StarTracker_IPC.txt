@@ -1,0 +1,10 @@
+**********************************  Star Tracker   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"ST.42"                                 ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42       4282               ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[0].AC.ST"                           ! Prefix 0

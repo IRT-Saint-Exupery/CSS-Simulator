@@ -1,0 +1,33 @@
+{
+    "command1": {
+        "TARGET": "ARDUCAM",
+        "CAM_EXP3_CC": {
+            "CCSDS_STREAMID": "0x18C8",
+            "CCSDS_SEQUENCE": "0xC000",
+            "CCSDS_LENGTH": "1",
+            "CCSDS_FC": "12",
+            "CCSDS_CHECKSUM": "0"
+        },
+        "TIMESTAMP": 0.0,
+        "FUZZ": [
+            "None",
+            0
+        ]
+    },
+    "command2": {
+        "TARGET": "CFS",
+        "CFE_ES_RESTART_APP": {
+            "CCSDS_STREAMID": "0x1806",
+            "CCSDS_SEQUENCE": "0xC000",
+            "CCSDS_LENGTH": "21",
+            "CCSDS_FC": "6",
+            "CCSDS_CHECKSUM": "0",
+            "APPLICATION": "\"CAM\""
+        },
+        "TIMESTAMP": 0.0,
+        "FUZZ": [
+            "None",
+            0
+        ]
+    }
+}

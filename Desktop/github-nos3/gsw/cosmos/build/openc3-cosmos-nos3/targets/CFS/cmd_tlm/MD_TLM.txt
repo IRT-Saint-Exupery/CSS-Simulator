@@ -1,0 +1,43 @@
+TELEMETRY MD MD_DWELLPKT LITTLE_ENDIAN "Memory Dwell Telemetry Packet format"
+  APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x0891 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
+  APPEND_ITEM TABLEID 8 UINT "TableId from 1 to MD_NUM_DWELL_TABLES."
+  APPEND_ITEM ADDRCOUNT 8 UINT "Number of addresses being sent - 1..MD_DWELL_TABLE_SIZE valid."
+  APPEND_ITEM BYTECOUNT 16 UINT "Number of bytes of dwell data contained in packet."
+  APPEND_ITEM RATE 32 UINT "Number of counts between packet sends."
+  <% (1..800).each do |x| %>
+      APPEND_ITEM DATA_<%= x %> 8 UINT "Dwell data (number of bytes varies up to MD_DWELL_TABLE_SIZE *4). byte <%= x %>"
+  <% end %>
+
+TELEMETRY MD MD_HKTLM LITTLE_ENDIAN "Memory Dwell HK Telemetry format"
+  APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x0890 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
+  APPEND_ITEM INVALIDCMDCNTR 8 UINT "Count of invalid commands received."
+  APPEND_ITEM VALIDCMDCNTR 8 UINT "Count of valid commands received."
+  APPEND_ITEM DWELLENABLEDMASK 16 UINT "Each bit in bit mask enables a table 0x0001=TBL1 enable bit,0x0002=TBL2 enable bit, 0x0004=TBL3 enable bit,0x0008=TBL4 enable bit, etc."
+  <% (1..8).each do |x| %>
+      APPEND_ITEM DWELLTBLADDRCOUNT_<%= x %> 8 UINT "Number of dwell addresses in table. byte <%= x %>"
+  <% end %>
+  <% (1..4).each do |x| %>
+      APPEND_ITEM NUMWAITSPERPKT_<%= x %> 16 UINT "Number of delay counts in table. byte <%= x %>"
+  <% end %>
+  <% (1..4).each do |x| %>
+      APPEND_ITEM BYTECOUNT_<%= x %> 16 UINT "Number of bytes of data specified by table. byte <%= x %>"
+  <% end %>
+  <% (1..4).each do |x| %>
+      APPEND_ITEM DWELLPKTOFFSET_<%= x %> 16 UINT "Current write offset within dwell pkt data region. byte <%= x %>"
+  <% end %>
+  <% (1..4).each do |x| %>
+      APPEND_ITEM DWELLTBLENTRY_<%= x %> 16 UINT "Next dwell table entry to be processed. byte <%= x %>"
+  <% end %>
+  <% (1..4).each do |x| %>
+      APPEND_ITEM COUNTDOWN_<%= x %> 16 UINT "Current value of countdown timer. byte <%= x %>"
+  <% end %>

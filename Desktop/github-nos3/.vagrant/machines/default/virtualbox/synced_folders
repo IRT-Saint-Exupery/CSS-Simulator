@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/nos3/Desktop/github-nos3":{"owner":"root","group":"vboxsf","automount":"true","mount_options":["dmode=0770","fmode=0770","uid=0","gid=998","_netdev"],"guestpath":"/home/nos3/Desktop/github-nos3","hostpath":"C:/Users/surbano/nos3","disabled":false,"__vagrantfile":true}}}

@@ -1,0 +1,23 @@
+TELEMETRY ARDUCAM ARDUCAM_EXP_TLM_T LITTLE_ENDIAN "Arducam Experiment Telemetry"
+  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x08C9  "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQ_FLAGS       2 UINT "CCSDS Packet Sequence Flags (binary 11 = unsegmented)" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQ_COUNT      14 UINT "CCSDS Packet Sequence Count" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_LENGTH         16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SECONDS        32 UINT "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SUBSECS        16 UINT "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SPARE          32 UINT  ""
+  APPEND_ITEM    CAM_DATA             8080 BLOCK "CAM Data"
+  APPEND_ITEM    PADDING              16 UINT  ""
+  APPEND_ITEM    MSG_COUNT            32 UINT "CAM Experiment Message Count"
+  APPEND_ITEM    CAM_FIFO_LENGTH      32 UINT "CAM FIFO Length"
+  
+TELEMETRY ARDUCAM ARDUCAM_HK_TLM_T LITTLE_ENDIAN "Arducam CAM_Hk_tlm_t"
+  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x08C8  "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQ_FLAGS       2 UINT "CCSDS Packet Sequence Flags (binary 11 = unsegmented)" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQ_COUNT      14 UINT "CCSDS Packet Sequence Count" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_LENGTH         16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SECONDS        32 UINT "CCSDS Telemetry Secondary Header (seconds)" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SUBSECS        16 UINT "CCSDS Telemetry Secondary Header (subseconds)" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SPARE          32 UINT  ""
+  APPEND_ITEM    COMMANDERRORCOUNT    8 UINT "CommandErrorCount"
+  APPEND_ITEM    COMMANDCOUNT         8 UINT "CommandCount"

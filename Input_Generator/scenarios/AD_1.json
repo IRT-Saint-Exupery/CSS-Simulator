@@ -1,0 +1,35 @@
+{
+    "command1": {
+        "TARGET": "CFS",
+        "FM_DELETE": {
+            "CCSDS_STREAMID": "0x188C",
+            "CCSDS_SEQUENCE": "0xC000",
+            "CCSDS_LENGTH": "65",
+            "CCSDS_FC": "5",
+            "CCSDS_CHECKSUM": "18",
+            "FILENAME": "\"/cf/arducam.so\""
+        },
+        "TIMESTAMP": 0.0,
+        "FUZZ": [
+            "None",
+            0
+        ]
+    },
+    "command2": {
+        "TARGET": "CFS",
+        "CFE_ES_STOP_APP": {
+            "CCSDS_STREAMID": "0x1806",
+            "CCSDS_SEQUENCE": "0xC000",
+            "CCSDS_LENGTH": "25",
+            "CCSDS_FC": "5",
+            "CCSDS_CHECKSUM": "18",
+            "APPLICATION": "\"CAM\"",
+	    "MAC": "\"0000\""
+        },
+        "TIMESTAMP": 0.0,
+        "FUZZ": [
+            "None",
+            0
+        ]
+    }
+}

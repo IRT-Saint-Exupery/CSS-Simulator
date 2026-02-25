@@ -1,0 +1,80 @@
+COMMAND CFE CFE_TBL_ABORT_LOAD <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command will cause Table Services to discard the contents of a table buffer that was previously loaded with the data in a file as specified by a Table Load command. For single buffered tables, the allocated shared working buffer is freed and becomes available for other Table Load commands."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1804 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 41 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 9 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER TABLENAME 320 STRING "default" "Full Name of Table whose load is to be aborted."
+
+COMMAND CFE CFE_TBL_ACTIVATE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command will cause Table Services to notify a table's owner that an update is pending. The owning application will then update the contents of the active table buffer with the contents of the associated inactive table buffer at a time of their convenience."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1804 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 41 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 5 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER TABLENAME 320 STRING "default" "Full Name of Table to be activated."
+
+COMMAND CFE CFE_TBL_DELETE_CDS <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command will delete the Critical Data Store (CDS) associated with the specified Critical Table. Note that any table still present in the Table Registry is unable to be deleted from the Critical Data Store. All Applications that are accessing the critical table must release and unregister their access before the CDS can be deleted."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1804 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 41 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 8 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER TABLENAME 320 STRING "default" "Full Name of Table whose CDS is to be deleted."
+
+COMMAND CFE CFE_TBL_DUMP <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command will cause the Table Services to put the contents of the specified table buffer into the command specified file."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1804 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 107 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 3 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER ACTIVETBLFLAG 16 UINT MIN_UINT16 MAX_UINT16 0 "CFE_TBL_INACTIVE_BUFFER=Inactive Table, CFE_TBL_ACTIVE_BUFFER=Active Table"
+  APPEND_PARAMETER TABLENAME 320 STRING "default" "Full name of table to be dumped."
+  APPEND_PARAMETER DUMPFILENAME 512 STRING "default" "Full Filename where data is to be written."
+
+COMMAND CFE CFE_TBL_DUMP_REG <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command will cause Table Services to write some of the contents of the Table Registry to the command specified file. This allows the operator to see the current state and configuration of all tables that have been registered with the cFE."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1804 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 65 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 6 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER DUMPFILENAME 512 STRING "default" "Full Filename where dumped data is to be written."
+
+COMMAND CFE CFE_TBL_LOAD <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command loads the contents of the specified file into an inactive buffer for the table specified within the file."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1804 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 65 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 2 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER LOADFILENAME 512 STRING "default" "Filename (and path) of data to be loaded."
+
+COMMAND CFE CFE_TBL_NOOP <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command performs no other function than to increment the command execution counter. The command may be used to verify general aliveness of the Table Services task."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1804 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 1 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+
+COMMAND CFE CFE_TBL_RESET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command resets the following counters within the Table Services housekeeping telemetry: Command Execution Counter ($sc_$cpu_TBL_CMDPC)Command Error Counter ($sc_$cpu_TBL_CMDEC)Successful Table Validations Counter ($sc_$cpu_TBL_ValSuccessCtr)Failed Table Validations Counter ($sc_$cpu_TBL_ValFailedCtr)Number of Table Validations Requested ($sc_$cpu_TBL_ValReqCtr)"
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1804 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 1 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 1 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+
+COMMAND CFE CFE_TBL_TLM_REG <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command will cause Table Services to telemeter the contents of the Table Registry for the command specified table."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1804 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 41 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 7 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER TABLENAME 320 STRING "default" "Full Name of Table whose registry entry is to be telemetered."
+
+COMMAND CFE CFE_TBL_VALIDATE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command will cause Table Services to calculate the Data Integrity Value for the specified table and to notify the owning application that the table's validation function should be executed. The results of both the Data Integrity Value computation and the validation function are reported in Table Services Housekeeping Telemetry."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1804 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 43 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 4 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER ACTIVETBLFLAG 16 UINT MIN_UINT16 MAX_UINT16 0 "CFE_TBL_INACTIVE_BUFFER=Inactive Table, CFE_TBL_ACTIVE_BUFFER=Active Table"
+  APPEND_PARAMETER TABLENAME 320 STRING "default" "Full Name of Table to be validated."

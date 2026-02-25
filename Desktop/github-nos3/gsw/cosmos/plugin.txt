@@ -1,0 +1,7 @@
+
+INTERFACE DEBUG udp_interface.rb host.docker.internal 5012 5013 nil nil 128 10.0 nil
+
+INTERFACE SIM_42_TRUTH_INT udp_interface.rb host.docker.internal 5110 5111 nil nil 128 10.0 nil
+   MAP_TARGET SIM_42_TRUTH
+
+# Created on  202409091610

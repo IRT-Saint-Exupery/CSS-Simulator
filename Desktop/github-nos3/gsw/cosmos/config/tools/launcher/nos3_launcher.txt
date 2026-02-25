@@ -1,0 +1,46 @@
+TITLE "NOS3 Launcher"
+TOOL_FONT tahoma 12
+LABEL_FONT tahoma 16
+NUM_COLUMNS 5
+
+MULTITOOL_START "COSMOS" NULL
+  TOOL "LAUNCH CmdTlmServer -c nos3_cmd_tlm_server.txt --system nos3_system.txt"
+  DELAY 1
+  TOOL "LAUNCH CmdSender --system nos3_system.txt"
+  #TOOL "LAUNCH DataViewer --config nos3_data_viewer.txt --system nos3_system.txt"
+  TOOL "LAUNCH PacketViewer --system nos3_system.txt"
+  #TOOL "LAUNCH ScriptRunner --system nos3_system.txt"
+  TOOL "LAUNCH TestRunner --config nos3_test_runner.txt --system nos3_system.txt"
+  #TOOL "LAUNCH TlmGrapher --config nos3.txt --system desired_truth_angles.txt --start"
+  #TOOL "LAUNCH TlmViewer  --system nos3_system.txt"
+MULTITOOL_END
+TOOL "Command and Telemetry Server" "LAUNCH CmdTlmServer" "cts.png" --config nos3_cmd_tlm_server.txt --system nos3_system.txt
+TOOL "Replay" "LAUNCH Replay" "replay.png" --system nos3_system.txt
+TOOL "Limits Monitor" "LAUNCH LimitsMonitor" "limits_monitor.png" --system nos3_system.txt
+AUTO_GEM_TOOLS
+
+DIVIDER
+LABEL "Commanding and Scripting"
+
+TOOL "Command Sender" "LAUNCH CmdSender" "cmd_sender.png" --system nos3_system.txt
+TOOL "Command Sequence" "LAUNCH CmdSequence" "cmd_sequence.png" --system nos3_system.txt
+TOOL "Script Runner" "LAUNCH ScriptRunner" "script_runner.png" --system nos3_system.txt
+TOOL "Test Runner" "LAUNCH TestRunner" "test_runner.png" --config nos3_test_runner.txt --system nos3_system.txt
+TOOL "Command Extractor" "LAUNCH CmdExtractor" "cmd_extractor.png" --system nos3_system.txt
+
+DIVIDER
+LABEL Telemetry
+
+TOOL "Packet Viewer" "LAUNCH PacketViewer" "packet_viewer.png" --system nos3_system.txt
+TOOL "Telemetry Viewer" "LAUNCH TlmViewer" "tlm_viewer.png" --system nos3_system.txt
+TOOL "Telemetry Grapher" "LAUNCH TlmGrapher" "tlm_grapher.png" --system nos3_system.txt
+TOOL "Data Viewer" "LAUNCH DataViewer" "data_viewer.png" --config nos3_data_viewer.txt --system nos3_system.txt
+TOOL "Telemetry Extractor" "LAUNCH TlmExtractor" "tlm_extractor.png" --system nos3_system.txt
+
+DIVIDER
+LABEL Utilities
+
+TOOL "Config Editor" "LAUNCH ConfigEditor" "config_editor.png" --system nos3_system.txt
+TOOL "Handbook Creator" "LAUNCH HandbookCreator" "handbook_creator.png" --system nos3_system.txt
+TOOL "Table Manager" "LAUNCH TableManager" "table_manager.png" --system nos3_system.txt
+TOOL "DART" "LAUNCH_TERMINAL Dart" "dart.png" --system nos3_system.txt

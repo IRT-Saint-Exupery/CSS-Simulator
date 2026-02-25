@@ -1,0 +1,18 @@
+{
+    "command1": {
+        "TARGET": "GENERIC_ADCS",
+        "GENERIC_ADCS_SET_MODE_CC": {
+            "CCSDS_STREAMID": "0x1940",
+            "CCSDS_SEQUENCE": "0xC000",
+            "CCSDS_LENGTH": "2",
+            "CCSDS_FC": "2",
+            "CCSDS_CHECKSUM": "0",
+            "GNC_MODE": "3"
+        },
+        "TIMESTAMP": 0.0,
+        "FUZZ": [
+            "None",
+            0
+        ]
+    }
+}

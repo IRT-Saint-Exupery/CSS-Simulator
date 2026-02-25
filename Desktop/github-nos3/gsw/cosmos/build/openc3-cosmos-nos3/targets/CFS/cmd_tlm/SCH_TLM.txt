@@ -1,0 +1,43 @@
+TELEMETRY SCH SCH_DIAGPACKET LITTLE_ENDIAN "Scheduler Diagnostic Telemetry format"
+  APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x0898 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
+  <% (1..64).each do |x| %>
+      APPEND_ITEM ENTRYSTATES_<%= x %> 16 UINT "States of each Schedule Entry. byte <%= x %>"
+  <% end %>
+  <% (1..500).each do |x| %>
+      APPEND_ITEM MSGIDS_<%= x %> 16 UINT "Message ID of msg associated with each entry. byte <%= x %>"
+  <% end %>
+
+TELEMETRY SCH SCH_HKPACKET LITTLE_ENDIAN "Scheduler HK Telemetry format"
+  APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x0897 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
+  APPEND_ITEM CMDCOUNTER 8 UINT "Command Counter."
+  APPEND_ITEM ERRCOUNTER 8 UINT "Command Error Counter."
+  APPEND_ITEM SYNCTOMET 8 UINT "Status indicating whether slots are synched to MET."
+  APPEND_ITEM MAJORFRAMESOURCE 8 UINT "Major Frame Signal source identifier."
+  APPEND_ITEM SCHEDULEACTIVITYSUCCESSCOUNT 32 UINT "Number of successfully performed activities."
+  APPEND_ITEM SCHEDULEACTIVITYFAILURECOUNT 32 UINT "Number of unsuccessful activities attempted."
+  APPEND_ITEM SLOTSPROCESSEDCOUNT 32 UINT "Total # of Schedule Slots (Minor Frames) Processed."
+  APPEND_ITEM SKIPPEDSLOTSCOUNT 16 UINT "Number of times that slots were skipped."
+  APPEND_ITEM MULTIPLESLOTSCOUNT 16 UINT "Number of times that multiple slots processed."
+  APPEND_ITEM SAMESLOTCOUNT 16 UINT "# of times SCH woke up in the same slot as last time"
+  APPEND_ITEM BADTABLEDATACOUNT 16 UINT "# of times corrupted table entries were processed"
+  APPEND_ITEM TABLEVERIFYSUCCESSCOUNT 16 UINT "# of times table loads successfully verified"
+  APPEND_ITEM TABLEVERIFYFAILURECOUNT 16 UINT "# of times table loads unsuccessfully verified"
+  APPEND_ITEM TABLEPASSCOUNT 32 UINT "# of times Schedule Table has been processed"
+  APPEND_ITEM VALIDMAJORFRAMECOUNT 32 UINT "# of valid Major Frame tones received"
+  APPEND_ITEM MISSEDMAJORFRAMECOUNT 32 UINT "# of missing Major Frame tones"
+  APPEND_ITEM UNEXPECTEDMAJORFRAMECOUNT 32 UINT "# of unexpected Major Frame tones"
+  APPEND_ITEM MINORFRAMESSINCETONE 16 UINT "# of Minor Frames since last Major Frame tone"
+  APPEND_ITEM NEXTSLOTNUMBER 16 UINT "Next Minor Frame to be processed."
+  APPEND_ITEM LASTSYNCMETSLOT 16 UINT "Slot number where Time Sync last occurred."
+  APPEND_ITEM IGNOREMAJORFRAME 8 UINT "Major Frame too noisy to trust."
+  APPEND_ITEM UNEXPECTEDMAJORFRAME 8 UINT "Most Recent Major Frame signal was unexpected."

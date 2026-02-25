@@ -1,0 +1,537 @@
+00002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GF, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GJ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GN, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GQ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GT, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application GZ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application G
+, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application HA, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application HF, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application HG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application HH, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application HI, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application HM, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application HP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application HQ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application HR, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:04:35.19339 CFE_ES_DeleteApp: Delete Application HS Initiated
+EVS Port1 42/2/CFE_ES 36: Stop Application HY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application HZ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application H
+, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application IA, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application IB, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:04:35.69408 CFE_ES_GetTaskInfo: Task ID Not Valid: 22
+1980-012-14:04:35.69420 CFE_ES_GetTaskInfo: Task ID Not Valid: 22
+1980-012-14:04:35.69424 CFE_ES_GetTaskInfo: Task ID Not Valid: 22
+EVS Port1 42/2/CFE_ES 8: Stop Application HS Completed.
+EVS Port1 42/2/CFE_ES 36: Stop Application IF, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application II, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application IJ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application IK, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application IL, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:04:36.20229 CFE_TBL:GetAddressInternal-App(12) attempt to access unowned Tbl Handle=47
+1980-012-14:04:36.20235 CFE_TBL:Share-Table 'HS.EventMon_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.EventMon_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.EventMon_Tbl info Share: 0xCC000002, GetInfo: 0xCC000002, GetAddress: 0xCC000009
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.EventMon_Tbl could not be found, skipping
+EVS Port1 42/2/CFE_ES 36: Stop Application IR, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application IS, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application IT, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application IU, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application IY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application JA, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application JB, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application JC, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application JD, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application JK, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application JL, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application JM, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application JN, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application JU, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application JV, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application JW, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application JX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application KA, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:04:38.20166 CFE_TBL:GetAddressInternal-App(12) attempt to access unowned Tbl Handle=48
+1980-012-14:04:38.20176 CFE_TBL:Share-Table 'HS.MsgActs_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.MsgActs_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.MsgActs_Tbl info Share: 0xCC000002, GetInfo: 0xCC000002, GetAddress: 0xCC000009
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.MsgActs_Tbl could not be found, skipping
+EVS Port1 42/2/CFE_ES 36: Stop Application KC, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application KD, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application KE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application KF, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application KM, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application KN, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application KO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application KP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application KW, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application KX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application KY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application KZ, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:04:39.70288 CFE_ES_DeleteApp: Delete Application LC Initiated
+EVS Port1 42/2/CFE_ES 36: Stop Application LE, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:04:40.20302 CFE_TBL:GetAddressInternal-App(12) attempt to access unowned Tbl Handle=49
+1980-012-14:04:40.20312 CFE_TBL:Share-Table 'HS.ExeCount_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.ExeCount_Tbl', Status=0xCC000002
+EVS Port1 42/2/CFE_ES 36: Stop Application LF, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application LG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.ExeCount_Tbl info Share: 0xCC000002, GetInfo: 0xCC000002, GetAddress: 0xCC000009
+EVS Port1 42/2/CFE_ES 36: Stop Application LH, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:04:40.20449 CFE_ES_GetTaskInfo: Task ID Not Valid: 9
+EVS Port1 42/2/CFE_ES 8: Stop Application LC Completed.
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.ExeCount_Tbl could not be found, skipping
+EVS Port1 42/2/CFE_ES 36: Stop Application LI, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application LP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application LQ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application LR, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application LS, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application LY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application LZ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application L
+, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application MA, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ME, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application MH, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application MI, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application MJ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application MK, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:04:41.70602 CFE_ES_DeleteApp: Delete Application MM Initiated
+EVS Port1 42/2/CFE_ES 36: Stop Application MR, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application MS, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application MT, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application MU, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application NA, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:04:42.70787 CFE_ES_GetTaskInfo: Task ID Not Valid: 13
+EVS Port1 42/2/CFE_ES 8: Stop Application MM Completed.
+EVS Port1 42/2/CFE_ES 36: Stop Application NB, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application NC, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ND, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application NI, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application NJ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application NK, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application NL, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application NM, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application NR, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application NT, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application NU, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application NV, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application NW, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application NX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application OC, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application OD, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application OE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application OF, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application OJ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application OM, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ON, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application OO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application OP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application OR, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application OV, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application OW, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application OX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application OY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application PB, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application PE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application PF, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application PG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application PH, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application PO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application PP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application PQ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application PR, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application PY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application PZ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application P
+, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application QA, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application QE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application QG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application QH, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application QI, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application QJ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application QQ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application QR, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application QS, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application QT, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application Q
+, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application RA, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application RB, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application RC, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application RG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application RJ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application RK, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application RL, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application RM, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application RR, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application RS, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application RT, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application RU, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application RV, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application SB, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:04:49.71798 CFE_ES_DeleteApp: Delete Application SC Initiated
+EVS Port1 42/2/CFE_ES 36: Stop Application SD, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application SE, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:04:50.20281 CFE_ES_ExitApp: Called with invalid status (1).
+1980-012-14:04:50.20292 Application SC called CFE_ES_ExitApp
+EVS Port1 42/2/CFE_ES 36: Stop Application SL, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:04:50.21873 CFE_ES_GetTaskInfo: Task ID Not Valid: 11
+EVS Port1 42/2/CFE_ES 14: Exit Application SC on Error Completed.
+EVS Port1 42/2/CFE_ES 36: Stop Application SM, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application SN, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application SO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application SR, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application SV, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application SW, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application SX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application SY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application TD, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application TE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application TF, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application TG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application TM, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application TN, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application TO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application TP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application TQ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application TX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application TY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application TZ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application T
+, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application UE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application UG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application UH, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application UI, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application UJ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application UL, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application UP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application UQ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application UR, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application US, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application UX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application UZ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application U
+, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application VA, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application VB, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application VD, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application VI, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application VJ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application VK, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application VL, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application VS, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application VT, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application VU, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application VV, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application VX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application WA, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application WB, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application WC, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application WD, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application WH, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application WK, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application WL, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application WM, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application WN, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application WP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application WU, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application WV, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application WW, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application WX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application WY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application XD, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application XE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application XF, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application XG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application XM, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application XN, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application XO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application XP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application XQ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application XW, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application XX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application XY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application XZ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application YF, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application YG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application YH, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application YI, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application YP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application YQ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application YR, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application YS, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application YW, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application YY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application YZ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application Y
+, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ZA, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ZD, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ZH, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ZI, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ZJ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ZK, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ZO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ZR, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ZS, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ZT, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ZU, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ZW, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application 
+A, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application 
+B, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application 
+C, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application 
+D, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application 
+K, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application 
+L, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application 
+M, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application 
+N, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application 
+T, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application 
+U, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application 
+V, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application 
+W, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ABB, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ABC, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ABD, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ABE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ABH, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ABL, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ABM, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ABN, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ABO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ABU, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ABV, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ABW, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ABX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ABY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ACB, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ACD, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ACE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ACF, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ACG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ACL, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ACN, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ACO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ACP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ACQ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ACX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ACY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ACZ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AC
+, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ADG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ADH, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ADI, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ADJ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ADK, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ADP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ADQ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ADR, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ADS, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ADZ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AD
+, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AEA, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AEB, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AEI, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AEJ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AEK, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AEL, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AES, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AET, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AEU, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AEV, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AFA, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AFB, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AFC, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AFD, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AFE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AFK, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AFL, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AFM, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AFN, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AFQ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AFU, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AFV, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AFW, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AFX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AGB, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AGD, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AGE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AGF, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AGG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AGM, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AGN, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AGO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AGP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AGW, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AGX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AGY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AGZ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AG
+, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AHF, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AHG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AHH, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AHI, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AHP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AHQ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AHR, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AHS, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AHT, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AHY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AHZ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AH
+, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AIA, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AIB, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AIH, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AII, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AIJ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AIK, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AIL, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AIR, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AIS, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AIT, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AIU, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AJA, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AJB, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AJC, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AJD, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AJE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AJJ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AJK, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AJL, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AJM, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:05:14.20259 CFE_TBL:GetAddressInternal-App(12) attempt to access unowned Tbl Handle=46
+1980-012-14:05:14.20270 CFE_TBL:Share-Table 'HS.AppMon_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.AppMon_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.AppMon_Tbl info Share: 0xCC000002, GetInfo: 0xCC000002, GetAddress: 0xCC000009
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.AppMon_Tbl could not be found, skipping
+EVS Port1 42/2/CFE_ES 36: Stop Application AJT, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AJU, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AJV, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AJW, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AJX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AKC, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AKD, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AKE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AKF, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AKJ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AKM, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AKN, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AKO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AKP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AKV, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AKW, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AKX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AKY, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:05:16.20263 CFE_TBL:Share-Table 'HS.EventMon_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.EventMon_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.EventMon_Tbl info Share: 0xCC000002, GetInfo: 0x00000000, GetAddress: 0x00000000
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.EventMon_Tbl could not be found, skipping
+EVS Port1 42/2/CFE_ES 36: Stop Application ALE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ALF, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ALG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ALH, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ALI, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ALO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ALP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ALQ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ALR, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ALX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ALY, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ALZ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AL
+, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AMG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AMH, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AMI, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AMJ, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:05:18.20147 CFE_TBL:Share-Table 'HS.MsgActs_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.MsgActs_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.MsgActs_Tbl info Share: 0xCC000002, GetInfo: 0x00000000, GetAddress: 0x00000000
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.MsgActs_Tbl could not be found, skipping
+EVS Port1 42/2/CFE_ES 36: Stop Application AMQ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AMR, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AMS, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AMT, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AM
+, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ANA, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ANB, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ANC, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ANE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ANI, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ANJ, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ANK, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ANL, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ANP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ANS, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ANT, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ANU, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ANV, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application ANZ, GetAppIDByName failed. RC = 0xC4000002.
+1980-012-14:05:20.20218 CFE_TBL:Share-Table 'HS.ExeCount_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.ExeCount_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.ExeCount_Tbl info Share: 0xCC000002, GetInfo: 0x00000000, GetAddress: 0x00000000
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.ExeCount_Tbl could not be found, skipping
+EVS Port1 42/2/CFE_ES 36: Stop Application AOB, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AOC, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AOD, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AOE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AOL, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AOM, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AON, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AOO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AOT, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AOU, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AOV, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AOW, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application AOX, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application APB, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application APD, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application APE, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application APF, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application APG, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application APN, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application APO, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_ES 36: Stop Application APP, GetAppIDByName failed. RC = 0xC4000002.
+EVS Port1 42/2/CFE_TIME 21: Stop FLYWHEEL
+EVS Port1 42/2/CFE_TIME 20: Start FLYWHEEL
+1980-012-14:05:54.20285 CFE_TBL:Share-Table 'HS.AppMon_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.AppMon_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.AppMon_Tbl info Share: 0xCC000002, GetInfo: 0x00000000, GetAddress: 0x00000000
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.AppMon_Tbl could not be found, skipping
+1980-012-14:05:56.20338 CFE_TBL:Share-Table 'HS.EventMon_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.EventMon_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.EventMon_Tbl info Share: 0xCC000002, GetInfo: 0x00000000, GetAddress: 0x00000000
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.EventMon_Tbl could not be found, skipping
+1980-012-14:05:58.20159 CFE_TBL:Share-Table 'HS.MsgActs_Tbl' not found in Registry
+EVS Port1 42/2/CFE_TBL 91: CS Failed to Share 'HS.MsgActs_Tbl', Status=0xCC000002
+EVS Port1 42/2/CS 121: CS Tables: Problem Getting table HS.MsgActs_Tbl info Share: 0xCC000002, GetInfo: 0x00000000, GetAddress: 0x00000000
+EVS Port1 42/2/CS 94: Tables table computing: Table HS.MsgActs_Tbl could not be found, skipping
+

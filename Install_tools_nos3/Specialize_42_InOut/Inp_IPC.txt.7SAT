@@ -1,0 +1,982 @@
+<<<<<<<<<<<<<<< 42: InterProcess Comm Configuration File >>>>>>>>>>>>>>>>
+98                                      ! Number of Sockets
+**********************************  RW 0 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat1.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42  4278                    ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[0]"                                 ! Prefix 1
+**********************************  RW 0 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat1.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42      4277                ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[0]"                                 ! Prefix 1
+**********************************  RW 1 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat1.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4378                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[0]"                                 ! Prefix 1
+**********************************  RW 1 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat1.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4377                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[0]"                                 ! Prefix 1
+**********************************  RW 2 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat1.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42  4478                    ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[0]"                                 ! Pref
+**********************************  RW 2 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat1.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4477                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[0]"                                 ! Prefix 1
+**********************************  Torquer   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"Torquer_sat1.Rx"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4279                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[0]"                                 ! Prefix 1
+**********************************  IPC 4   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State03_sat1.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4245                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[0]"                                 ! Prefix 1
+**********************************  CSS     *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State04_sat1.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4227                 ! Server Host Name, Port
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[0].AC.CSS"                          ! Prefix 1
+**********************************  MAG     *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State05_sat1.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4234                 ! Server Host Name, Port
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[0].AC.MAG"                          ! Prefix 1
+**********************************  FSS   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"FSS_sat1.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4281                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[0]"                                 ! Prefix 1
+**********************************  GENERIC_IMU   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"IMU_sat1.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4280                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[0]"                                 ! Prefix 1
+**********************************  Star Tracker 1  *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"ST0_sat1.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42       4282               ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[0].AC.ST"                           ! Prefix 0
+**********************************  Star Tracker 2 *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"ST1_sat1.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42       4283               ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[0].AC.ST"                           ! Prefix 0
+**********************************  RW 0 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat2.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     5278                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[1]"                                 ! Prefix 1
+**********************************  RW 0 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat2.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42      5277                ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[1]"                                 ! Prefix 1
+**********************************  RW 1 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat2.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     5378                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[1]"                                 ! Prefix 1
+**********************************  RW 1 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat2.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     5377                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[1]"                                 ! Prefix 1
+**********************************  RW 2 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat2.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42  5478                    ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[1]"                                 ! Pref
+**********************************  RW 2 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat2.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     5477                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[1]"                                 ! Prefix 1
+**********************************  Torquer   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"Torquer_sat2.Rx"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4279                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[1]"                                 ! Prefix 1
+**********************************  IPC 4   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State03_sat2.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     5245                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[1]"                                 ! Prefix 1
+**********************************  CSS     *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State04_sat2.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4227                 ! Server Host Name, Port
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[1].AC.CSS"                          ! Prefix 1
+**********************************  MAG     *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State05_sat2.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4234                 ! Server Host Name, Port
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[1].AC.MAG"                          ! Prefix 1
+**********************************  FSS   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"FSS_sat2.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     5281                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[1]"                                 ! Prefix 1
+**********************************  GENERIC_IMU   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"IMU_sat2.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4280                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[1]"                                 ! Prefix 1
+**********************************  Star Tracker 1  *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"ST0_sat2.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42       5282               ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[1].AC.ST"                           ! Prefix 0
+**********************************  Star Tracker 2 *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"ST1_sat2.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42       5283               ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[1].AC.ST"                           ! Prefix 0
+**********************************  RW 0 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat3.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42  6278                    ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[2]"                                 ! Prefix 1
+**********************************  RW 0 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat3.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42      6277                ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[2]"                                 ! Prefix 1
+**********************************  RW 1 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat3.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     6378                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[2]"                                 ! Prefix 1
+**********************************  RW 1 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat3.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     6377                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[2]"                                 ! Prefix 1
+**********************************  RW 2 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat3.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42  6478                    ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[2]"                                 ! Pref
+**********************************  RW 2 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat3.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     6477                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[2]"                                 ! Prefix 1
+**********************************  Torquer   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"Torquer_sat3.Rx"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4279                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[2]"                                 ! Prefix 1
+**********************************  IPC 4   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State03_sat3.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     6245                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[2]"                                 ! Prefix 1
+**********************************  CSS     *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State04_sat3.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4227                 ! Server Host Name, Port
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[2].AC.CSS"                          ! Prefix 1
+**********************************  MAG     *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State05_sat3.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4234                 ! Server Host Name, Port
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[2].AC.MAG"                          ! Prefix 1
+**********************************  FSS   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"FSS_sat3.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     6281                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[2]"                                 ! Prefix 1
+**********************************  GENERIC_IMU   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"IMU_sat3.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4280                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[2]"                                 ! Prefix 1
+**********************************  Star Tracker 1  *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"ST0_sat3.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42       6282               ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[2].AC.ST"                           ! Prefix 0
+**********************************  Star Tracker 2 *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"ST1_sat3.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42       6283               ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[2].AC.ST"                           ! Prefix 0
+**********************************  RW 0 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat4.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42  7278                    ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[3]"                                 ! Prefix 1
+**********************************  RW 0 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat4.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42      7277                ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[3]"                                 ! Prefix 1
+**********************************  RW 1 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat4.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     7378                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[3]"                                 ! Prefix 1
+**********************************  RW 1 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat4.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     7377                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[3]"                                 ! Prefix 1
+**********************************  RW 2 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat4.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42  7478                    ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[3]"                                 ! Pref
+**********************************  RW 2 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat4.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     7477                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[3]"                                 ! Prefix 1
+**********************************  Torquer   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"Torquer_sat4.Rx"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4279                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[3]"                                 ! Prefix 1
+**********************************  IPC 4   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State03_sat4.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     7245                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[3]"                                 ! Prefix 1
+**********************************  CSS     *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State04_sat4.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4227                 ! Server Host Name, Port
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[3].AC.CSS"                          ! Prefix 1
+**********************************  MAG     *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State05_sat4.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4234                 ! Server Host Name, Port
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[3].AC.MAG"                          ! Prefix 1
+**********************************  FSS   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"FSS_sat4.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     7281                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[3]"                                 ! Prefix 1
+**********************************  GENERIC_IMU   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"IMU_sat4.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4280                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[3]"                                 ! Prefix 1
+**********************************  Star Tracker 1  *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"ST0_sat4.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42       7282               ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[3].AC.ST"                           ! Prefix 0
+**********************************  Star Tracker 2 *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"ST1_sat4.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42       7283               ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[3].AC.ST"                           ! Prefix 0
+**********************************  RW 0 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat5.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42  8278                    ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[4]"                                 ! Prefix 1
+**********************************  RW 0 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat5.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42      8277                ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[4]"                                 ! Prefix 1
+**********************************  RW 1 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat5.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     8378                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[4]"                                 ! Prefix 1
+**********************************  RW 1 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat5.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     8377                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[4]"                                 ! Prefix 1
+**********************************  RW 2 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat5.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42  8478                    ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[4]"                                 ! Pref
+**********************************  RW 2 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat5.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     8477                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[4]"                                 ! Prefix 1
+**********************************  Torquer   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"Torquer_sat5.Rx"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4279                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[4]"                                 ! Prefix 1
+**********************************  IPC 4   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State03_sat5.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     8245                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[4]"                                 ! Prefix 1
+**********************************  CSS     *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State04_sat5.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4227                 ! Server Host Name, Port
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[4].AC.CSS"                          ! Prefix 1
+**********************************  MAG     *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State05_sat5.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4234                 ! Server Host Name, Port
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[4].AC.MAG"                          ! Prefix 1
+**********************************  FSS   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"FSS_sat5.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     8281                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[4]"                                 ! Prefix 1
+**********************************  GENERIC_IMU   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"IMU_sat5.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4280                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[4]"                                 ! Prefix 1
+**********************************  Star Tracker 1  *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"ST0_sat5.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42       8282               ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[4].AC.ST"                           ! Prefix 0
+**********************************  Star Tracker 2 *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"ST1_sat5.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42       8283               ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[4].AC.ST"                           ! Prefix 0
+**********************************  RW 0 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat6.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42  9278                    ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[5]"                                 ! Prefix 1
+**********************************  RW 0 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat6.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42      9277                ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[5]"                                 ! Prefix 1
+**********************************  RW 1 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat6.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     9378                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[5]"                                 ! Prefix 1
+**********************************  RW 1 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat6.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     9377                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[5]"                                 ! Prefix 1
+**********************************  RW 2 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat6.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42  9478                    ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[5]"                                 ! Pref
+**********************************  RW 2 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat6.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     9477                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[5]"                                 ! Prefix 1
+**********************************  Torquer   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"Torquer_sat6.Rx"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4279                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[5]"                                 ! Prefix 1
+**********************************  IPC 4   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State03_sat6.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     9245                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[5]"                                 ! Prefix 1
+**********************************  CSS     *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State04_sat6.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4227                 ! Server Host Name, Port
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[5].AC.CSS"                          ! Prefix 1
+**********************************  MAG     *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State05_sat6.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4234                 ! Server Host Name, Port
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[5].AC.MAG"                          ! Prefix 1
+**********************************  FSS   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"FSS_sat6.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     9281                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[5]"                                 ! Prefix 1
+**********************************  GENERIC_IMU   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"IMU_sat6.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4280                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[5]"                                 ! Prefix 1
+**********************************  Star Tracker 1  *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"ST0_sat6.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42       9282               ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[5].AC.ST"                           ! Prefix 0
+**********************************  Star Tracker 2 *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"ST1_sat6.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42       9283               ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[5].AC.ST"                           ! Prefix 0
+**********************************  RW 0 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat7.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42  10278                    ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[6]"                                 ! Prefix 1
+**********************************  RW 0 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat7.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42      10277                ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[6]"                                 ! Prefix 1
+**********************************  RW 1 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat7.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     10378                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[6]"                                 ! Prefix 1
+**********************************  RW 1 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat7.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     10377                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[6]"                                 ! Prefix 1
+**********************************  RW 2 to 42   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State01_sat7.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42  10478                    ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[6]"                                 ! Pref
+**********************************  RW 2 from 42   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"State02_sat7.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     10477                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[6]"                                 ! Prefix 1
+**********************************  Torquer   *****************************
+RX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+1                                       ! AC.ID for ACS mode
+"Torquer_sat7.Rx"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4279                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[6]"                                 ! Prefix 1
+**********************************  IPC 4   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State03_sat7.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     10245                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[6]"                                 ! Prefix 1
+**********************************  CSS     *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State04_sat7.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4227                 ! Server Host Name, Port
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[6].AC.CSS"                          ! Prefix 1
+**********************************  MAG     *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"State05_sat7.42"                       ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4234                 ! Server Host Name, Port
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[6].AC.MAG"                          ! Prefix 1
+**********************************  FSS   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"FSS_sat7.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     10281                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[6]"                                 ! Prefix 1
+**********************************  GENERIC_IMU   *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"IMU_sat7.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42     4280                 ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[6]"                                 ! Prefix 1
+**********************************  Star Tracker 1  *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"ST0_sat7.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42       10282              ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[6].AC.ST"                           ! Prefix 0
+**********************************  Star Tracker 2 *****************************
+TX                                      ! IPC Mode (OFF,TX,RX,TXRX,ACS,WRITEFILE,READFILE)
+0                                       ! AC.ID for ACS mode
+"ST1_sat7.42"                           ! File name for WRITE or READ
+SERVER                                  ! Socket Role (SERVER,CLIENT,GMSEC_CLIENT)
+192.168.100.42       10283              ! Server Host Name, Port 
+FALSE                                   ! Allow Blocking (i.e. wait on RX)
+FALSE                                   ! Echo to stdout
+1                                       ! Number of TX prefixes
+"SC[6].AC.ST"                           ! Prefix 0

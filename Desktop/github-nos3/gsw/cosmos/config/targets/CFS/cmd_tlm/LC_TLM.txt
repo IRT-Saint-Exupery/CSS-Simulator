@@ -1,0 +1,73 @@
+TELEMETRY LC LC_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Housekeeping Packet Structure"
+  APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x08A7 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
+  APPEND_ITEM CMDCOUNT 8 UINT "LC Application Command Counter."
+  APPEND_ITEM CMDERRCOUNT 8 UINT "LC Application Command Error Counter."
+  APPEND_ITEM CURRENTLCSTATE 8 UINT "Current LC application operating state."
+    STATE ACTIVE   1 
+    STATE PASSIVE  2
+    STATE DISABLED 3
+    STATE FROM_CDS 4
+  APPEND_ITEM PAD8 8 UINT ""
+  <% (0..43).each do |x| %>
+    <% (3).downto(0) do |y| %>
+      APPEND_ITEM WPRESULTS_<%= (4*x) + y %> 2 UINT "Packed watchpoint results data, 2 bits per watchpoint."
+        STATE STALE 3
+        STATE FALSE 0
+        STATE TRUE  1
+        STATE ERROR 2 
+    <% end %>
+  <% end %>
+
+  <% (0..87).each do |x| %>
+    <% (1).downto(0) do |y| %>
+      APPEND_ITEM APRESULTS_<%= (2*x) + y %> 4 UINT "Packed actionpoint results data, 4 bits per actionpoint. byte <%= x %>"
+        STATE NOT_USED_PASS 0
+        STATE NOT_USED_FAIL 1
+        STATE NOT_USED_ERROR 2
+        STATE NOT_USED_STALE 3
+        STATE ACTIVE_PASS 4
+        STATE ACTIVE_FAIL 5
+        STATE ACTIVE_ERROR 6
+        STATE ACTIVE_STALE 7
+        STATE PASSIVE_PASS 8
+        STATE PASSIVE_FAIL 9
+        STATE PASSIVE_ERROR 10
+        STATE PASSIVE_STALE 11
+        STATE DISABLED_PASS 12
+        STATE DISABLED_FAIL 13
+        STATE DISABLED_ERROR 14
+        STATE DISABLED_STALE 15
+    <% end %>
+  <% end %>
+
+  #<% 44.times do |x| %>
+  #APPEND_ITEM WPRESULTS_<%= x %> 8 UINT "Packed watchpoint results data, 2 bits per watchpoint." 
+  #ITEM           WP_<%= (x * 4) + 0 %> 0 0 DERIVED     ""
+  #  READ_CONVERSION bit_field_conversion.rb 'WP_<%= (x * 4) + 0 %>' 0
+  #ITEM           WP_<%= (x * 4) + 1 %> 0 0 DERIVED     ""
+  #  READ_CONVERSION bit_field_conversion.rb 'WP_<%= (x * 4) + 1 %>' 2
+  #ITEM           WP_<%= (x * 4) + 2 %> 0 0 DERIVED     ""
+  #  READ_CONVERSION bit_field_conversion.rb 'WP_<%= (x * 4) + 2 %>' 4
+  #ITEM           WP_<%= (x * 4) + 3 %> 0 0 DERIVED     ""
+  #  READ_CONVERSION bit_field_conversion.rb 'WP_<%= (x * 4) + 3 %>' 6
+  #<% end %>
+  #<% 88.times do |x| %>
+  #APPEND_ITEM APRESULTS_<%= x %> 8 UINT "Packed actionpoint results data, 4 bits per actionpoint." 
+  #ITEM           AP_<%= (x * 2) + 0 %> 0 0 DERIVED     ""
+  #  READ_CONVERSION bit_field_conversion.rb 'WP_<%= (x * 2) + 0 %>' 0
+  #ITEM           AP_<%= (x * 2) + 1 %> 0 0 DERIVED     ""
+  #  READ_CONVERSION bit_field_conversion.rb 'WP_<%= (x * 2) + 1 %>' 2
+  #<% end %>
+
+  APPEND_ITEM PASSIVERTSEXECCOUNT 16 UINT "Total count of RTS sequences not initiated because the LC state is set to LC_STATE_PASSIVE."
+  APPEND_ITEM WPSINUSE 16 UINT "How many watchpoints are currently in effect."
+  APPEND_ITEM ACTIVEAPS 16 UINT "How many actionpoints are currently active."
+  APPEND_ITEM PAD16 16 UINT ""
+  APPEND_ITEM APSAMPLECOUNT 32 UINT "Total count of Actionpoints sampled."
+  APPEND_ITEM MONITOREDMSGCOUNT 32 UINT "Total count of messages monitored for watchpoints."
+  APPEND_ITEM RTSEXECCOUNT 32 UINT "Total count of RTS sequences initiated."

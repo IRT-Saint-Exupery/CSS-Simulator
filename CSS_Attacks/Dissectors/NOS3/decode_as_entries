@@ -1,0 +1,7 @@
+# "Decode As" entries file for Wireshark 4.4.6.
+#
+# This file is regenerated each time "Decode As" preferences
+# are saved within Wireshark. Making manual changes should be safe,
+# however.
+decode_as_entry: udp.port,5011,(none),CSS_NETW
+decode_as_entry: udp.port,5012,(none),CSS_NETW

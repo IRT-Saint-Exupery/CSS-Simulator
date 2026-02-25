@@ -1,0 +1,84 @@
+# ============================================
+# Scenario Configuration Template (v0.1)
+# ============================================
+
+# --------------------------------------------------------------------
+# REQUIRED — Version of this scenario configuration template
+# --------------------------------------------------------------------
+template_version: "v0.1"    # string
+
+# --------------------------------------------------------------------
+# REQUIRED — Unique identifier for this scenario
+# --------------------------------------------------------------------
+scenario_id: SC001          # string, must follow dataset naming conventions
+
+# --------------------------------------------------------------------
+# REQUIRED — Unique identifier for the underlying mission
+# --------------------------------------------------------------------
+mission_id: M001            # string, must follow dataset naming conventions
+
+# --------------------------------------------------------------------
+# REQUIRED — Total simulation time, even if the mission is not completed
+# --------------------------------------------------------------------
+end_time: 600.0             # float: simulation end time
+# NOTE: Use a special value (e.g., -1 or null) if the simulation should run until mission completion
+
+# --------------------------------------------------------------------
+# REQUIRED — Number of satellites involved in this scenario
+# --------------------------------------------------------------------
+nb_satellites: 1            # int >= 1 
+
+# --------------------------------------------------------------------
+# REQUIRED — Split to which the scenario will belong
+# Should be one of ["train", "validation", "test"]
+# --------------------------------------------------------------------
+split: "train"            # string: one of "train", "validation" and "test"
+
+# --------------------------------------------------------------------
+# OPTIONAL — Output directory for generated files
+# If empty or omitted, default = "/tmp/scenario_output"
+# --------------------------------------------------------------------
+output_dir: "/tmp/scenario_output"   # string
+
+# --------------------------------------------------------------------
+# OPTIONAL — Short human-readable description of this scenario
+# --------------------------------------------------------------------
+description: "Single-satellite scenario with a replay attack targeting SAT01."
+
+# --------------------------------------------------------------------
+# OPTIONAL — List of attacks included in this scenario
+# If omitted or empty ⇒ the scenario contains no attacks
+# --------------------------------------------------------------------
+attacks:
+  - id: ATTCK05                # REQUIRED int: unique attack identifier
+    command_to_launch: 5       # REQUIRED int: ID of the command to issue for this attack
+    time: 300.0                # REQUIRED float: simulation time at which the attack is triggered
+  - id: ATTCK05
+    command_to_launch: 5
+    time: 400.0
+  - id: ATTCK20
+    command_to_launch: 20
+    time: 500.0
+
+# NOTE: Future versions may extend each attack entry with optional fields such as:
+#   parameters: {}              # dictionary of type-specific parameters
+#   payload_pattern: ""         # string pattern
+#   effect_delay: 0.0           # float — useful when IDS is disabled in later versions
+
+# --------------------------------------------------------------------
+# OPTIONAL — High-level IDS activation state for the entire scenario
+# If omitted, IDS is assumed to be active
+# --------------------------------------------------------------------
+ids_active: true               # boolean 
+
+# --------------------------------------------------------------------
+# OPTIONAL — High-level encryption activation state for the entire scenario
+# If omitted, encryption is assumed to be in clear mode (no encryption)
+# --------------------------------------------------------------------
+encryption_active: false       # boolean
+
+# --------------------------------------------------------------------
+# OPTIONAL — Version information for reproducibility
+# If omitted, default values are assumed
+# --------------------------------------------------------------------
+simulator_version: "0.0.1"     # optional string

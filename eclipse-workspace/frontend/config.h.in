@@ -1,0 +1,2 @@
+#define frontend_VERSION_MAJOR @frontend_VERSION_MAJOR@
+#define frontend_VERSION_MINOR @frontend_VERSION_MINOR@

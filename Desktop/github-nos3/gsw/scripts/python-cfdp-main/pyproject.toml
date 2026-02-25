@@ -1,0 +1,12 @@
+[project]
+name = "cfdp"
+version = "0.2.0"
+authors = [
+    { name = "LibreCube", email = "info@librecube.org" },
+]
+description = "Python implementation of CCSDS File Delivery Protocol"
+readme = "README.md"
+license = { text = "MIT License" }
+
+[tool.setuptools.packages.find]
+where = ["src"]

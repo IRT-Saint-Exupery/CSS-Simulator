@@ -1,0 +1,11 @@
+REQUIRE vector_magnitude.rb
+REQUIRE orbit_normal.rb
+REQUIRE svn.rb
+REQUIRE beta_angle.rb
+REQUIRE in_sun.rb
+REQUIRE x_ram_angle.rb
+REQUIRE xz_ram_angle.rb
+REQUIRE z_nadir_angle.rb
+REQUIRE ram_in_body.rb
+REQUIRE nadir_in_body.rb
+REQUIRE geocentric_latitude.rb

@@ -1,0 +1,20 @@
+{
+    "command1": {
+        "TARGET": "CFS",
+        "CF_UPLINK_FILE": {
+            "CCSDS_STREAMID": "0x18B3",
+            "CCSDS_SEQUENCE": "0xC000",
+            "CCSDS_LENGTH": "130",
+            "CCSDS_FC": "30",
+            "CCSDS_CHECKSUM": "0",
+            "CLASS": "0",
+            "SRCFILENAME": "\"Inp_ADAC_Mal.txt\"",
+            "DSTFILENAME": "\"Inp_ADAC.txt\""
+        },
+        "TIMESTAMP": 0.0,
+        "FUZZ": [
+            "None",
+            0
+        ]
+    }
+}

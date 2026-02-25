@@ -1,0 +1,170 @@
+COMMAND FM FM_CONCAT <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command concatenates two source files into the target file. Sources must both be existing files and target must not exist. Sources and target may be on different file systems. Because of the possibility that this command might take a very long time to complete, command argument validation will be done immediately but copying the first source file to the target file and then appending the second source file to the target file will be performed by a lower priority child task. As such, the return value for this function only refers to the result of command argument verification and being able to place the command on the child task interface queue."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 193 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 9 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER SOURCE1 512 STRING "default" "Source 1 filename." 
+  APPEND_PARAMETER SOURCE2 512 STRING "default" "Source 2 filename." 
+  APPEND_PARAMETER TARGET 512 STRING "default" "Target filename." 
+
+COMMAND FM FM_COPY <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command copies the source file to the target file. The source must be an existing file and the target must not be a directory name. If the Overwrite command argument is TRUE, then the target may be an existing file, provided that the file is closed. If the Overwrite command argument is FALSE, then the target must not exist. The source and target may be on different file systems. Because of the possibility that this command might take a very long time to complete, command argument validation will be done immediately but copying the file will be performed by a lower priority child task. As such, the command result for this function only refers to the result of command argument verification and being able to place the command on the child task interface queue."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 131 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 2 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER OVERWRITE 16 UINT MIN_UINT16 MAX_UINT16 0 "Allow overwrite." 
+  APPEND_PARAMETER SOURCE 512 STRING "default" "Source filename." 
+  APPEND_PARAMETER TARGET 512 STRING "default" "Target filename." 
+
+COMMAND FM FM_CREATE_DIR <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command creates the source directory. Source must be a valid directory name that does not exist."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 65 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 12 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER DIRECTORY 512 STRING "default" "Directory name." 
+
+COMMAND FM FM_DECOMPRESS <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command invokes a CFE function to decompress the source file into the target file. Source must be an existing file and target must not exist. Source and target may be on different file systems. Because of the possibility that this command might take a very long time to complete, command argument validation will be done immediately but decompressing the source file into the target file will be performed by a lower priority child task. As such, the return value for this function only refers to the result of command argument verification and being able to place the command on the child task interface queue."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 129 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 8 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER SOURCE 512 STRING "default" "Source filename." 
+  APPEND_PARAMETER TARGET 512 STRING "default" "Target filename." 
+
+COMMAND FM FM_DELETE_ALL <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command deletes all files in the source directory. Source must be an existing directory. Open files and sub-directories are not deleted. Because of the possibility that this command might take a very long time to complete, command argument validation will be done immediately but reading the directory and deleting each file will be performed by a lower priority child task. As such, the return value for this function only refers to the result of command argument verification and being able to place the command on the child task interface queue."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 65 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 7 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER DIRECTORY 512 STRING "default" "Directory name." 
+
+COMMAND FM FM_DELETE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command deletes the source file. Source must be an existing file that is not open."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 65 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 5 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER FILENAME 512 STRING "default" "Delete filename." 
+
+COMMAND FM FM_DELETE_DIR <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command deletes the source directory, it does not delete the contents of the directory. Source must be a valid directory name that exists."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 65 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 13 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER DIRECTORY 512 STRING "default" "Directory name." 
+
+COMMAND FM FM_DELETE_INT <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This is a special version of the FM_DELETE_CC command for use when the command is sent by another application, rather than from the ground. This version of the command will not generate a success event, nor will the command increment the command success counter. The intent is to avoid confusion resulting from telemetry representing the results of delete commands sent by other applications and those sent from the ground. Refer to FM_DELETE_CC command for use details."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 65 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 18 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER FILENAME 512 STRING "default" "Delete filename." 
+
+COMMAND FM FM_GET_DIR_FILE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command writes a listing of the contents of the source directory to the target file. If the target filename buffer is empty, then the default target filename FM_DIR_LIST_FILE_DEFNAME is used. The command will overwrite a previous copy of the target file, if one exists. Because of the possibility that this command might take a very long time to complete, command argument validation will be done immediately but reading the directory will be performed by a lower priority child task. As such, the return value for this function only refers to the result of command argument verification and being able to place the command on the child task interface queue."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 133 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 14 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER DIRECTORY 512 STRING "default" "Directory name." 
+  APPEND_PARAMETER FILENAME 512 STRING "default" "Filename." 
+  APPEND_PARAMETER GETSIZETIMEMODE 32 UINT MIN_UINT32 MAX_UINT32 1 "Option to query size, time, and mode of files (CPU intensive)" 
+
+COMMAND FM FM_GET_DIR_PKT <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command creates a telemetry packet FM_DirListPkt_t that contains a listing of the entries in the specified directory. Since the packet will likely hold fewer entries than will be possible in a directory, the command also provides an index argument to define which entry in the directory is the first entry reported in the telemetry packet. After reading the directory list and skipping entries until reaching the index of the first entry reported, the remaining entries in the packet are filled sequentially until either the packet is full or until there are no more entries in the directory. The first entry index is zero based - thus, when the first entry index is zero the first directory entry will be the first packet entry. The number of entries per packet FM_DIR_LIST_PKT_ENTRIES is a platform configuration definition. Because of the possibility that this command might take a very long time to complete, command argument validation will be done immediately but reading the directory will be performed by a lower priority child task. As such, the return value for this function only refers to the result of command argument verification and being able to place the command on the child task interface queue."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 73 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 15 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER DIRECTORY 512 STRING "default" "Directory name." 
+  APPEND_PARAMETER DIRLISTOFFSET 32 UINT MIN_UINT32 MAX_UINT32 0 "Index of 1st dir entry to put in packet." 
+  APPEND_PARAMETER GETSIZETIMEMODE 32 UINT MIN_UINT32 MAX_UINT32 1 "Option to query size, time, and mode of files (CPU intensive)" 
+
+COMMAND FM FM_GET_FILE_INFO <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command creates an FM file information telemetry packet for the source file. The file information packet includes status that indicates whether source is a file that is open or closed, a directory, or does not exist. The file information data also includes a CRC, file size, last modify time and the source name. Because of the possibility that this command might take a very long time to complete, command argument validation will be done immediately but collecting the status data and calculating the CRC will be performed by a lower priority child task. As such, the return value for this function only refers to the result of command argument verification and being able to place the command on the child task interface queue."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 69 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 10 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER FILENAME 512 STRING "default" "Filename." 
+  APPEND_PARAMETER FILEINFOCRC 32 UINT MIN_UINT32 MAX_UINT32 0 "File info CRC method." 
+
+COMMAND FM FM_GET_FREE_SPACE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command queries the amount of free space for each of the enabled entries in the file system free space table. The data is then placed in a telemetry packet and sent to ground."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 1 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 16 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+
+COMMAND FM FM_GET_OPEN_FILES <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command creates an FM open files telemetry packet. The open files packet includes the number of open files and for each open file, the name of the file and the name of the application that has the file opened."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 1 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 11 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+
+COMMAND FM FM_MOVE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command moves the source file to the target file. The source must be an existing file and the target must not be a directory name. If the Overwrite command argument is TRUE, then the target may be an existing file, provided that the file is closed. If the Overwrite command argument is FALSE, then the target must not exist. Source and target must both be on the same file system. The move command does not actually move any file data. The command modifies the file system directory structure to create a different file entry for the same file data. If the user wishes to move a file across file systems, he must first copy the file and then delete the original."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 131 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 3 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER OVERWRITE 16 UINT MIN_UINT16 MAX_UINT16 0 "Allow overwrite." 
+  APPEND_PARAMETER SOURCE 512 STRING "default" "Source filename." 
+  APPEND_PARAMETER TARGET 512 STRING "default" "Target filename." 
+
+COMMAND FM FM_NOOP <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command performs no operation other than to generate an informational event that also contains software version data. The command is most often used as a general aliveness test by demonstrating that the application can receive commands and generate telemetry."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 1 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+
+COMMAND FM FM_RENAME <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command renames the source file to the target file. Source must be an existing file and target must not exist. Source and target must both be on the same file system. The rename command does not actually move any file data. The command modifies the file system directory structure to create a different file entry for the same file data. If the user wishes to rename a file across file systems, he must first copy the file and then delete the original."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 129 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 4 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER SOURCE 512 STRING "default" "Source filename." 
+  APPEND_PARAMETER TARGET 512 STRING "default" "Target filename." 
+
+COMMAND FM FM_RESET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command resets the following housekeeping telemetry: Command success counter /FM_CMDPCCommand error counter /FM_CMDECCommand warning counter /FM_WarnCtrChild cmd success counter /FM_ChildCMDPCChild cmd error counter /FM_ChildCMDECChild cmd warning counter /FM_ChildWarnCtr "
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 1 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 1 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+
+COMMAND FM FM_SET_TABLE_STATE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command enables or disables a single entry in the FM file system free space table. Only table entries that are currently enabled or disabled may be modified by command. Unused table entries cannot be modified."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 9 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 17 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER TABLEENTRYINDEX 32 UINT MIN_UINT32 MAX_UINT32 0 "Table entry index." 
+  APPEND_PARAMETER TABLEENTRYSTATE 32 UINT MIN_UINT32 MAX_UINT32 0 "New table entry state." 
+
+COMMAND FM FM_SET_FILE_PERM <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Set Permissions of a file."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188C "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 9 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 17 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER FILENAME 512 STRING "default" "File name of the permissions to set." 
+  APPEND_PARAMETER MODE 32 UINT MIN_UINT32 MAX_UINT32 0 "Permissions, passed directly to OS_chmod." 
+
+
+COMMAND FM FM_SEND_HK <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Request FM HK"
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x188D "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 1 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"

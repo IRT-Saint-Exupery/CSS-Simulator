@@ -1,0 +1,27 @@
+# Requires for additinal .rb files
+REQUIRE cfdp_defines.rb
+
+# Ignored Parameters
+# IGNORE_PARAMETER parameter_name
+
+# CCSDS 
+IGNORE_PARAMETER CCSDS_STREAMID
+IGNORE_PARAMETER CCSDS_SEQUENCE
+IGNORE_PARAMETER CCSDS_LENGTH
+IGNORE_PARAMETER CCSDS_SPARE
+IGNORE_PARAMETER CCSDS_FC  
+IGNORE_PARAMETER CCSDS_CHECKSUM 
+
+# Ignored Parameters
+IGNORE_PARAMETER FUNC_ID
+
+# Ignored Items
+#IGNORE_ITEM CCSDS_STREAMID
+#IGNORE_ITEM CCSDS_SEQUENCE
+#IGNORE_ITEM CCSDS_LENGTH
+
+# Explicitly define command and telemetry files
+# If not given then all the files in cmd/tlm will be processed in
+# alphabetical order
+#COMMANDS cfdp_cmd.txt
+#TELEMETRY cfdp_tlm.txt

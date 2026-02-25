@@ -1,0 +1,54 @@
+#!/bin/bash -i
+#
+# Convenience script for NOS3 development
+#
+
+SCRIPT_DIR=$(cd `dirname $0` && pwd)
+BASE_DIR=$(cd `dirname $SCRIPT_DIR`/.. && pwd)
+FSW_BIN=$BASE_DIR/fsw/build/exe/cpu1
+SIM_BIN=$BASE_DIR/sims/build/bin
+SIMS=$(cd $SIM_BIN; ls nos3*simulator)
+
+# Debugging
+#echo "Script directory = " $SCRIPT_DIR
+#echo "Base directory   = " $BASE_DIR
+#echo "FSW directory    = " $FSW_BIN
+#echo "Sim directory    = " $SIM_BIN
+#echo "Sim list         = " $SIMS
+#exit
+
+#echo "Make /tmp folders..."
+mkdir /tmp/data 2> /dev/null
+mkdir /tmp/data/hk 2> /dev/null
+mkdir /tmp/uplink 2> /dev/null
+
+echo "Make data folders..."
+# FSW Side
+mkdir $FSW_BIN/data 2> /dev/null
+mkdir $FSW_BIN/data/cam 2> /dev/null
+mkdir $FSW_BIN/data/evs 2> /dev/null
+mkdir $FSW_BIN/data/hk 2> /dev/null
+mkdir $FSW_BIN/data/inst 2> /dev/null
+# GSW Side
+mkdir /tmp/data 2> /dev/null
+mkdir /tmp/data/cam 2> /dev/null
+mkdir /tmp/data/evs 2> /dev/null
+mkdir /tmp/data/hk 2> /dev/null
+mkdir /tmp/data/inst 2> /dev/null
+mkdir /tmp/uplink 2> /dev/null
+cp $BASE_DIR/fsw/build/exe/cpu1/cf/cfe_es_startup.scr /tmp/uplink/tmp0.so 2> /dev/null
+cp $BASE_DIR/fsw/build/exe/cpu1/cf/sample.so /tmp/uplink/tmp1.so 2> /dev/null
+
+echo "42..."
+cd /opt/nos3/42/
+#sudo chmod 775 -R .
+
+sudo rm -rf NOS3InOut
+sudo mkdir -p NOS3InOut
+sudo cp -r $BASE_DIR/sims/cfg/InOut/* /opt/nos3/42/NOS3InOut
+sudo chown -R nos3 NOS3InOut
+
+gnome-terminal --tab --title="42 Dynamic Simulator" -- /opt/nos3/42/42 NOS3InOut 
+#gnome-terminal --window-with-profile=KeepOpen --title="42 Dynamic Simulator" -- /opt/nos3/42/42 NOS3InOut
+
+

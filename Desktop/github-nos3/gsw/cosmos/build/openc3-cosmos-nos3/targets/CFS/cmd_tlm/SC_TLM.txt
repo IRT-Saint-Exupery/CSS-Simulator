@@ -1,0 +1,104 @@
+TELEMETRY SC SC_HKTLM LITTLE_ENDIAN "Housekeeping Packet Structure"
+  APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x08AA "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
+  APPEND_ITEM ATSNUMBER 8 UINT "current ATS number 1 = ATS A, 2 = ATS B"
+    STATE A 0
+    STATE B 1
+  APPEND_ITEM ATPSTATE 8 UINT "current ATP state valid values are: 2 = IDLE, 5 = EXECUTING"
+    STATE IDLE 2
+    STATE EXECUTING 5
+  APPEND_ITEM CONTINUEATSONFAILUREFLAG 8 UINT "In the event of ATS execution failure (ats command fails checksum) , the ATS execution will continue if this flag is set to TRUE and will stop if this flag is set to FALSE."
+    STATE STOP 0
+    STATE CONTINUE 1
+  APPEND_ITEM CMDERRCTR 8 UINT "Counts Request Errors."
+  APPEND_ITEM CMDCTR 8 UINT "Counts Ground Requests."
+  APPEND_ITEM PADDING8 8 UINT ""
+  APPEND_ITEM SWITCHPENDFLAG 16 UINT "is an ats switch pending? 0 = NO, 1 = YES This means that the ATS switch is waiting until a safe time"
+    STATE NO 0
+    STATE YES 1
+  APPEND_ITEM NUMRTSACTIVE 16 UINT "number of RTSs currently active"
+  APPEND_ITEM RTSNUMBER 16 UINT "next RTS number"
+  APPEND_ITEM RTSACTIVECTR 16 UINT "Increments when an RTS is started without error."
+  APPEND_ITEM RTSACTIVEERRCTR 16 UINT "Increments when an attempt to start an RTS fails."
+  APPEND_ITEM ATSCMDCTR 16 UINT "Total ATS cmd cnter counts commands sent by the ATS."
+  APPEND_ITEM ATSCMDERRCTR 16 UINT "Total ATS cmd Error ctr command errors in the ATS."
+  APPEND_ITEM RTSCMDCTR 16 UINT "Counts TOTAL rts cmds that were sent out from ALL active RTSs."
+  APPEND_ITEM RTSCMDERRCTR 16 UINT "Counts TOTAL number of errs from ALL RTSs that are active."
+  APPEND_ITEM LASTATSERRSEQ 16 UINT "Last ATS Errant Sequence Num Values: 1 or 2."
+  APPEND_ITEM LASTATSERRCMD 16 UINT "Last ATS Errant Command Num."
+  APPEND_ITEM LASTRTSERRSEQ 16 UINT "Last RTS Errant Sequence Num."
+  APPEND_ITEM LASTRTSERRCMD 16 UINT "The OFFSET in the RTS buffer of the command that had an error It will be a WORD value i.e. 1st command had an error, this value would be 0, if the 2nd command started at int8 10 in the buffer, this value would be 5."
+  APPEND_ITEM APPENDCMDARG 16 UINT "ATS selection argument from most recent Append ATS command."
+  APPEND_ITEM APPENDENTRYCOUNT 16 UINT "Number of cmd entries in current Append ATS table."
+  APPEND_ITEM APPENDBYTECOUNT 16 UINT "Size of cmd entries in current Append ATS table."
+  APPEND_ITEM APPENDLOADCOUNT 16 UINT "Total number of Append ATS table loads."
+  APPEND_ITEM ATPCMDNUMBER 32 UINT "current command number"
+  <% (1..2).each do |x| %>
+      APPEND_ITEM ATPFREEBYTES_<%= x %> 32 UINT "Free Bytes in each ATS. byte <%= x %>"
+  <% end %>
+  APPEND_ITEM NEXTRTSTIME 32 UINT "next RTS cmd Absolute Time"
+  APPEND_ITEM NEXTATSTIME 32 UINT "Next ATS Command Time (seconds)."
+
+  APPEND_ITEM RTSEXECUTINGSTATUS_1  16 UINT "RTS 1-16 Executing Status"
+  <% (0..15).each do |x| %>
+  ITEM           RTS<%= x + 1 %>_EXECUTING 0 0 DERIVED ""
+    READ_CONVERSION bit_field_conversion.rb 'RTSEXECUTINGSTATUS_1' <%= x %>
+    STATE NO 0
+    STATE YES 1
+  <% end %>
+  APPEND_ITEM RTSEXECUTINGSTATUS_17 16 UINT "RTS 17-32 Executing Status"
+  <% (0..15).each do |x| %>
+  ITEM           RTS<%= x + 17 %>_EXECUTING 0 0 DERIVED ""
+    READ_CONVERSION bit_field_conversion.rb 'RTSEXECUTINGSTATUS_17' <%= x %>
+    STATE NO 0
+    STATE YES 1
+  <% end %>
+  APPEND_ITEM RTSEXECUTINGSTATUS_33 16 UINT "RTS 33-48 Executing Status"
+  <% (0..15).each do |x| %>
+  ITEM           RTS<%= x + 33 %>_EXECUTING 0 0 DERIVED ""
+    READ_CONVERSION bit_field_conversion.rb 'RTSEXECUTINGSTATUS_33' <%= x %>
+    STATE NO 0
+    STATE YES 1
+  <% end %>
+  APPEND_ITEM RTSEXECUTINGSTATUS_49 16 UINT "RTS 49-64 Executing Status"
+  <% (0..15).each do |x| %>
+  ITEM           RTS<%= x + 49 %>_EXECUTING 0 0 DERIVED ""
+    READ_CONVERSION bit_field_conversion.rb 'RTSEXECUTINGSTATUS_49' <%= x %>
+    STATE NO 0
+    STATE YES 1
+  <% end %>
+  #APPEND_ARRAY_ITEM RTSEXECUTINGSTATUS 16 UINT 64 "RTS executing status bit map where each uint16 represents 16 RTS numbers. Note: array index numbers and bit numbers use base zero indexing, but RTS numbers use base one indexing. Thus, the LSB (bit zero) of uint16 array index zero represents RTS number 1, and bit one of uint16 array index zero represents RTS number 2, etc. If an RTS is IDLE, then the corresponding bit is zero. If an RTS is EXECUTING, then the corresponding bit is one."
+  
+  APPEND_ITEM RTSDISABLEDSTATUS_1  16 UINT "RTS 1-16 Disabled Status"
+  <% (0..15).each do |x| %>
+  ITEM           RTS<%= x + 1 %>_DISABLED 0 0 DERIVED ""
+    READ_CONVERSION bit_field_conversion.rb 'RTSDISABLEDSTATUS_1' <%= x %>
+    STATE ENABLED 0 GREEN
+    STATE DISABLED 1
+  <% end %>
+  APPEND_ITEM RTSDISABLEDSTATUS_17 16 UINT "RTS 17-32 Disabled Status"
+  <% (0..15).each do |x| %>
+  ITEM           RTS<%= x + 17 %>_DISABLED 0 0 DERIVED ""
+    READ_CONVERSION bit_field_conversion.rb 'RTSDISABLEDSTATUS_17' <%= x %>
+    STATE ENABLED 0 GREEN
+    STATE DISABLED 1
+  <% end %>
+  APPEND_ITEM RTSDISABLEDSTATUS_33 16 UINT "RTS 33-48 Disabled Status"
+  <% (0..15).each do |x| %>
+  ITEM           RTS<%= x + 33 %>_DISABLED 0 0 DERIVED ""
+    READ_CONVERSION bit_field_conversion.rb 'RTSDISABLEDSTATUS_33' <%= x %>
+    STATE ENABLED 0 GREEN
+    STATE DISABLED 1
+  <% end %>
+  APPEND_ITEM RTSDISABLEDSTATUS_49 16 UINT "RTS 49-64 Disabled Status"
+  <% (0..15).each do |x| %>
+  ITEM           RTS<%= x + 49 %>_DISABLED 0 0 DERIVED ""
+    READ_CONVERSION bit_field_conversion.rb 'RTSDISABLEDSTATUS_49' <%= x %>
+    STATE ENABLED 0 GREEN
+    STATE DISABLED 1
+  <% end %>
+  #APPEND_ARRAY_ITEM RTSDISABLEDSTATUS 16 UINT 64 "RTS disabled status bit map where each uint16 represents 16 RTS numbers. Note: array index numbers and bit numbers use base zero indexing, but RTS numbers use base one indexing. Thus, the LSB (bit zero) of uint16 array index zero represents RTS number 1, and bit one of uint16 array index zero represents RTS number 2, etc. If an RTS is ENABLED, then the corresponding bit is zero. If an RTS is DISABLED, then the corresponding bit is one."

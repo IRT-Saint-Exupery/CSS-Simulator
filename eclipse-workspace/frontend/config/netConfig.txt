@@ -1,0 +1,23 @@
+//FE Configuration
+// 		FE TC		FE TM
+// 		rcv port	rcv port
+PORTS	8010		5011
+//			IP				Cosmos		List of Sat id
+//							rcv port
+COSMOS		192.168.100.5	8011		1
+COSMOS	    192.168.100.5	8013		2
+COSMOS		192.168.100.5	8015		3
+COSMOS	    192.168.100.5	8017		4
+COSMOS		192.168.100.5	8019		5
+COSMOS	    192.168.100.5	8021		6
+COSMOS	    192.168.100.5	8023		7
+//
+//		Sat iD	Sat IP		Sat rcv
+//							port
+SAT		1	192.168.100.11	5012 	
+SAT	    2	192.168.100.12	5012	
+SAT	    3	192.168.100.13	5012	
+SAT	    4	192.168.100.14	5012 	
+SAT	    5	192.168.100.15	5012 	
+SAT	    6	192.168.100.16	5012	
+SAT	    7	192.168.100.17	5012	

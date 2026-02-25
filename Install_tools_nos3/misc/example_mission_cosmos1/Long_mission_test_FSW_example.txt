@@ -1,0 +1,395 @@
+OS_BSP_Initialize():Maximum user msg queue depth = 500
+   *                                      *                    *
+       *                                                  *                *             
+            ]]]]]]]]]]]]  ]]]]]]]]]]]]]]]]]  ]]]]]]]]]]]]]]]]            ]]]]]]
+          ]]]]]]]]]]]]]  ]]]]]]]]]]]]]]]]]  ]]]]]]]]]]]]]]]]            ]]]]]] 
+    *    ]]]]]]]]]]]]]  ]]]]]]]]]]]]]]]]]  ]]]]]]]]]]]]]]]]            ]]]]]]  
+         ]]]]]]              ]]]]]]       ]]]]]]]                     ]]]]]]   
+         ]]]]]]]]       *   ]]]]]]       ]]]]]]]]]]]]]]   ]]]]]]]]   ]]]]]]    
+ *        ]]]]]]]]         ]]]]]]       ]]]]]]]]]]]]]]   ]]]]]]]]   ]]]]]]     
+             ]]]]]]      ]]]]]]]  *    ]]]]]]]                     ]]]]]]      
+   ]]]]]]]]]]]]]]]      ]]]]]]]       ]]]]]]]   FLIGHT SOFTWARE   ]]]]]]     *  
+  ]]]]]]]]]]]]]]]      ]]]]]]]       ]]]]]]]                     ]]]]]]        
+ ]]]]]]]]]]]]]]       ]]]]]]]       ]]]]]]]                     ]]]]]]
+      *                        *                        *                         *
+ *                                     *                                *               *
+                *
+*
+
+CFE_PSP: Reset Type: PO
+CFE_PSP: Default Reset SubType = 1
+CFE_PSP: Default CPU ID = 1
+CFE_PSP: Default Spacecraft ID = 1
+CFE_PSP: Default CPU Name: cpu1
+OS_Posix_GetSchedulerParams():191:Policy 1: available, min-max: 1-99
+OS_Posix_GetSchedulerParams():191:Policy 2: available, min-max: 1-99
+OS_Posix_TaskAPI_Impl_Init():377:Selected policy 2 for RT tasks, root task = 99
+initializing nos engine link...
+pthread_setname_np to timer.0 in  OS_TaskCreate
+CFE_PSP: initializing module 'eeprom_notimpl' with ID 0110ff00
+CFE_PSP: EEPROM access not implemented
+CFE_PSP: initializing module 'port_notimpl' with ID 0110ff01
+CFE_PSP: I/O Port access not implemented
+CFE_PSP: initializing module 'ram_notimpl' with ID 0110ff02
+CFE_PSP: Physical RAM access not implemented
+CFE_PSP: Starting the cFE with a POWER ON reset.
+CFE_PSP: Clearing out CFE CDS Shared memory segment.
+CFE_PSP: Clearing out CFE Reset Shared memory segment.
+CFE_PSP: Clearing out CFE User Reserved Shared memory segment.
+2000-001-00:00:11.17000 CFE_ES_SetupResetVariables: POWER ON RESET due to Power Cycle (Power Cycle).
+2000-001-00:00:11.17000 CFE_ES_Main: CFE_ES_Main in EARLY_INIT state
+CFE_PSP: CFE_PSP_AttachExceptions Called
+2000-001-00:00:11.17000 CFE_ES_Main: CFE_ES_Main entering CORE_STARTUP state
+2000-001-00:00:11.17000 CFE_ES_CreateObjects: Starting Object Creation calls.
+2000-001-00:00:11.17000 CFE_ES_CreateObjects: Calling CFE_Config_Init
+2000-001-00:00:11.17000 CFE_ES_CreateObjects: Calling CFE_ES_CDSEarlyInit
+2000-001-00:00:11.17000 CFE_ES_CreateObjects: Calling CFE_EVS_EarlyInit
+2000-001-00:00:11.17000 CFE_EVS_EarlyInit: Event Log cleared following power-on reset
+2000-001-00:00:11.17000 CFE_ES_CreateObjects: Calling CFE_SB_EarlyInit
+2000-001-00:00:11.17000 CFE_ES_CreateObjects: Calling CFE_TIME_EarlyInit
+2000-001-00:00:00.00000 CFE_ES_CreateObjects: Calling CFE_TBL_EarlyInit
+2000-001-00:00:00.00000 CFE_ES_CreateObjects: Calling CFE_FS_EarlyInit
+pthread_setname_np to CFE_EVS in  OS_TaskCreate
+EVS Port1 1/1/CFE_EVS 1: cFE EVS Initialized:  cFE DEVELOPMENT BUILD v7.0.0-rc4+dev246 (Codename: Draco), Last Official Release: cfe v6.7.0
+pthread_setname_np to CFE_SB in  OS_TaskCreate
+2000-001-00:00:00.14999 CFE_SB_AppInit: Registered 4 events for filtering
+EVS Port1 1/1/CFE_SB 1: cFE SB Initialized:  cFE DEVELOPMENT BUILD v7.0.0-rc4+dev246 (Codename: Draco), Last Official Release: cfe v6.7.0
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x808,sender CFE_SB
+pthread_setname_np to CFE_ES in  OS_TaskCreate
+EVS Port1 1/1/CFE_ES 1: cFE ES Initialized:  cFE DEVELOPMENT BUILD v7.0.0-rc4+dev246 (Codename: Draco), Last Official Release: cfe v6.7.0
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x808,sender CFE_ES
+EVS Port1 1/1/CFE_ES 2: cFS Versions: cfe v7.0.0-rc4+dev246, osal v6.0.0-rc4+dev183, psp v1.6.0-rc4+dev67. cFE chksm 11915
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x808,sender CFE_ES
+EVS Port1 1/1/CFE_ES 91: Version Info: Mission NOS3, version git:06d6b52-dirty
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x808,sender CFE_ES
+EVS Port1 1/1/CFE_ES 91: Version Info: Module CORE_API, version git:06d6b52-dirty
+EVS Port1 1/1/CFE_ES 91: Version Info: Module ES, version git:06d6b52-dirty
+EVS Port1 1/1/CFE_ES 91: Version Info: Module EVS, version git:06d6b52-dirty
+EVS Port1 1/1/CFE_ES 91: Version Info: Module FS, version git:06d6b52-dirty
+EVS Port1 1/1/CFE_ES 91: Version Info: Module SB, version git:06d6b52-dirty
+EVS Port1 1/1/CFE_ES 91: Version Info: Module TBL, version git:06d6b52-dirty
+EVS Port1 1/1/CFE_ES 91: Version Info: Module TIME, version git:06d6b52-dirty
+EVS Port1 1/1/CFE_ES 91: Version Info: Module OSAL, version git:06d6b52-dirty
+EVS Port1 1/1/CFE_ES 91: Version Info: Module PSP, version git:06d6b52-dirty
+EVS Port1 1/1/CFE_ES 91: Version Info: Module MSG, version git:06d6b52-dirty
+EVS Port1 1/1/CFE_ES 91: Version Info: Module SBR, version git:06d6b52-dirty
+EVS Port1 1/1/CFE_ES 91: Version Info: Module RESOURCEID, version git:06d6b52-dirty
+EVS Port1 1/1/CFE_ES 91: Version Info: Module CONFIG, version git:06d6b52-dirty
+EVS Port1 1/1/CFE_ES 92: Build 202504021445 by nos3@nos3, config nos3
+pthread_setname_np to ES_BG_TASK in  OS_TaskCreate
+pthread_setname_np to CFE_TIME in  OS_TaskCreate
+pthread_setname_np to TIME_TONE_TASK in  OS_TaskCreate
+pthread_setname_np to TIME_1HZ_TASK in  OS_TaskCreate
+EVS Port1 1/1/CFE_TIME 1: cFE TIME Initialized:  cFE DEVELOPMENT BUILD v7.0.0-rc4+dev246 (Codename: Draco), Last Official Release: cfe v6.7.0
+pthread_setname_np to CFE_TBL in  OS_TaskCreate
+EVS Port1 1/1/CFE_TBL 1: cFE TBL Initialized:  cFE DEVELOPMENT BUILD v7.0.0-rc4+dev246 (Codename: Draco), Last Official Release: cfe v6.7.0
+2000-001-00:00:00.50000 CFE_ES_CreateObjects: Finished ES CreateObject table entries.
+2000-001-00:00:00.50000 CFE_ES_Main: CFE_ES_Main entering CORE_READY state
+2000-001-00:00:00.50000 CFE_ES_StartApplications: Opened ES App Startup file: /cf/cfe_es_startup.scr
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading shared library: /cf/hwlib.so
+HWLIB Initialized. Version 2.0.0.0 
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading shared library: /cf/crypto.so
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading shared library: /cf/io_lib.so
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/sch.so, APP: SCH
+pthread_setname_np to SCH in  OS_TaskCreate
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/ci.so, APP: CI
+pthread_setname_np to CI in  OS_TaskCreate
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/to.so, APP: TO
+pthread_setname_np to TO in  OS_TaskCreate
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/cf.so, APP: CF
+pthread_setname_np to CF in  OS_TaskCreate
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/ds.so, APP: DS
+pthread_setname_np to DS in  OS_TaskCreate
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/fm.so, APP: FM
+pthread_setname_np to FM in  OS_TaskCreate
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/lc.so, APP: LC
+pthread_setname_np to LC in  OS_TaskCreate
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/sc.so, APP: SC
+pthread_setname_np to SC in  OS_TaskCreate
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/arducam.so, APP: CAM
+pthread_setname_np to CAM in  OS_TaskCreate
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/generic_adcs.so, APP: ADCS
+pthread_setname_np to ADCS in  OS_TaskCreate
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/generic_css.so, APP: CSS
+pthread_setname_np to CSS in  OS_TaskCreate
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/generic_eps.so, APP: EPS
+pthread_setname_np to EPS in  OS_TaskCreate
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/generic_fss.so, APP: FSS
+pthread_setname_np to FSS in  OS_TaskCreate
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/generic_imu.so, APP: IMU
+pthread_setname_np to IMU in  OS_TaskCreate
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/generic_mag.so, APP: MAG
+pthread_setname_np to MAG in  OS_TaskCreate
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/generic_rw.so, APP: RW
+pthread_setname_np to RW in  OS_TaskCreate
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/generic_torquer.so, APP: TORQUER
+pthread_setname_np to TORQUER in  OS_TaskCreate
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/novatel_oem615.so, APP: NAV
+pthread_setname_np to NAV in  OS_TaskCreate
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/isl.so, APP: ISL
+pthread_setname_np to ISL in  OS_TaskCreate
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/generic_st.so, APP: ST
+pthread_setname_np to ST in  OS_TaskCreate
+2000-001-00:00:00.50000 CFE_ES_ParseFileEntry: Loading file: /cf/ids.so, APP: IDS
+pthread_setname_np to IDS in  OS_TaskCreate
+2000-001-00:00:00.55000 CFE_EVS_Register: Filter limit truncated to 8
+2000-001-00:00:00.55000 CFE_EVS_Register: Filter limit truncated to 8
+pthread_setname_np to CI Custom Main Task in  OS_TaskCreate
+pthread_setname_np error in OS_TaskCreate: Numerical result out of range
+EVS Port1 1/1/CI 2: Application initialized
+pthread_setname_np to timer.0 in  OS_TaskCreate
+EVS Port1 1/1/SCH 13: OS Timer Accuracy (10000 > reqd 101 usec) requires Minor Frame MET sync
+EVS Port1 1/1/SCH 1: SCH Initialized. Version 2.2.1.0
+EVS Port1 1/1/TO 2: Application initialized
+EVS Port1 1/1/CF 20: CF Initialized. Version 3.0.99.0
+EVS Port1 1/1/FM 97: Free Space Table verify results: good entries = 3, bad = 0, unused = 5
+EVS Port1 1/1/DS 10: Destination file table verify results: good entries = 6, bad = 0, unused = 10
+pthread_setname_np to FM_CHILD_TASK in  OS_TaskCreate
+EVS Port1 1/1/DS 12: Filter table verify results: good entries = 14, bad = 0, unused = 242
+EVS Port1 1/1/FM 1: Initialization complete: version 2.6.99.0
+EVS Port1 1/1/DS 1: Application initialized, version 2.6.99.0, data at 0xf1868260
+EVS Port1 1/1/LC 56: WDT verify results: good = 0, bad = 0, unused = 176
+EVS Port1 1/1/LC 66: ADT verify results: good = 0, bad = 0, unused = 176
+EVS Port1 1/1/LC 23: LC use of Critical Data Store disabled, activity mask = 0x00991990
+EVS Port1 1/1/LC 2: LC Initialized. Version 2.2.99.0
+EVS Port1 1/1/SC 21: RTS table files not loaded at initialization = 0 of 64
+EVS Port1 1/1/SC 9: SC Initialized. Version 3.1.99.0
+pthread_setname_np to CAM_CHILD_TASK in  OS_TaskCreate
+EVS Port1 1/1/CAM 1: CAM App Initialized. Version 1.0.0.1
+EVS Port1 1/1/CSS 1: GENERIC_CSS App Initialized. Version 1.0.0.0
+EVS Port1 1/1/ADCS 1: Generic_ADCS App Initialized. Version 1.0.0.0
+EVS Port1 1/1/FSS 1: GENERIC_FSS App Initialized. Version 1.0.0.0
+EVS Port1 1/1/MAG 1: GENERIC_MAG App Initialized. Version 1.0.0.0
+pthread_setname_np to NAV_CHILD_TASK in  OS_TaskCreate
+EVS Port1 1/1/TORQUER 1: GENERIC_TORQUER App Initialized. Version 1.0.0.0
+EVS Port1 1/1/NAV 12: NOVATEL_OEM615: RESET counters command received
+EVS Port1 1/1/NAV 1: NOVATEL_OEM615 App Initialized. Version 1.0.0.0
+EVS Port1 1/1/IDS 1: IDS App Initialized. Version 1.0.0.0
+pthread_setname_np to ISL_ISL in  OS_TaskCreate
+EVS Port1 1/1/ISL 1: ISL App Initialized. Version 1.0.0.0
+EVS Port1 1/1/EPS 1: GENERIC_EPS App Initialized. Version 1.0.0.0
+EVS Port1 1/1/IMU 1: GENERIC_IMU App Initialized. Version 1.0.0.0
+EVS Port1 1/1/ST 1: GENERIC_STAR_TRACKER App Initialized. Version 1.0.0.0
+EVS Port1 1/1/ISL 61: ISL: Child task registration complete
+EVS Port1 1/1/NAV 46: NOVATEL_OEM615: child task started, runStatus = 1
+EVS Port1 1/1/CAM 28: CAM child task initialization complete
+EVS Port1 1/1/FM 89: Child Task initialization complete
+EVS Port1 1/1/RW 1: GENERIC_RW App Initialized. Version 0.1.0.0
+2000-001-00:00:00.64999 CFE_ES_Main: CFE_ES_Main entering APPS_INIT state
+2000-001-00:00:00.64999 CFE_ES_Main: CFE_ES_Main entering OPERATIONAL state
+EVS Port1 1/1/CFE_TIME 21: Stop FLYWHEEL
+EVS Port1 1/1/SC 73: RTS Number 001 Started
+EVS Port1 1/1/SCH 21: Major Frame Sync too noisy (Slot 1). Disabling synchronization.
+EVS Port1 1/1/DS 35: APP STATE command: state = 1
+EVS Port1 1/1/SC 86: RTS 001 Execution Completed
+EVS Port1 1/1/SC 121: Enable RTS group: FirstID=3, LastID=64, Modified=62
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/TO 3: Recvd ENABLE_OUTPUT cmd (2)
+EVS Port1 1/1/TO 7: IO_TransUDP: Destination IP set to 127.0.0.1:5011
+EVS Port1 1/1/TO 3: ENABLE OUTPUT CMD Succesful for Routes:0x0001
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 192.168.100.5:5011
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/NAV 13: NOVATEL_OEM615: Enable command received
+EVS Port1 1/1/NAV 14: NOVATEL_OEM615: Device enabled
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/TORQUER 13: GENERIC_TORQUER: Enable command received
+EVS Port1 1/1/TORQUER 14: GENERIC_TORQUER: Device enabled
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/MAG 13: GENERIC_MAG: Enable command received
+EVS Port1 1/1/MAG 14: GENERIC_MAG: Device enabled
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/IMU 13: GENERIC_IMU: Enable command received
+EVS Port1 1/1/IMU 14: GENERIC_IMU: Device enabled
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CSS 13: GENERIC_CSS: Enable command received
+EVS Port1 1/1/CSS 14: GENERIC_CSS: Device enabled
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/FSS 13: GENERIC_FSS: Enable command received
+EVS Port1 1/1/FSS 14: GENERIC_FSS: Device enabled
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ST 13: GENERIC_STAR_TRACKER: Enable command received
+EVS Port1 1/1/ST 14: GENERIC_STAR_TRACKER: Device enabled
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CAM 43: CAM App: Hardware Checked Out
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 21: ***ADCS*** Changed momentum management to: 1
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 20: ***ADCS*** Changed mode to: 3
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 22: ***ADCS*** Target set to LAT / LONG : 43.604500 1.444000
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CAM 42: CAM App: EXP 3 Command - Large Picture
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 22: ***ADCS*** Target set to LAT / LONG : 38.116600 13.366600
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CAM 42: CAM EXP3 Complete
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CAM 42: CAM App: EXP 3 Command - Large Picture
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 22: ***ADCS*** Target set to LAT / LONG : 30.033300 31.233299
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x881,sender TO
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x885,sender CI
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x881,sender TO
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x885,sender CI
+EVS Port1 1/1/CAM 42: CAM EXP3 Complete
+EVS Port1 1/1/CFE_SB 25: Pipe Overflow,MsgId 0x911,pipe TO_TLM_PIPE_0,sender CSS
+EVS Port1 1/1/CFE_SB 25: Pipe Overflow,MsgId 0x92b,pipe TO_TLM_PIPE_0,sender MAG
+EVS Port1 1/1/CFE_SB 25: Pipe Overflow,MsgId 0x921,pipe TO_TLM_PIPE_0,sender FSS
+EVS Port1 1/1/CFE_SB 25: Pipe Overflow,MsgId 0x926,pipe TO_TLM_PIPE_0,sender IMU
+EVS Port1 1/1/CFE_SB 25: Pipe Overflow,MsgId 0x870,pipe TO_TLM_PIPE_0,sender NAV
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CAM 42: CAM App: EXP 3 Command - Large Picture
+EVS Port1 1/1/CAM 42: CAM EXP3 Complete
+EVS Port1 1/1/CFE_SB 25: Pipe Overflow,MsgId 0x8c8,pipe TO_TLM_PIPE_0,sender CAM
+EVS Port1 1/1/CFE_SB 25: Pipe Overflow,MsgId 0x8c8,pipe TO_TLM_PIPE_0,sender CAM
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CFE_ES 19: Cleared ES Exception and Reset Log data
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CFE_ES 17: Cleared Executive Services log data
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 20: ***ADCS*** Changed mode to: 2
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/FSS 11: GENERIC_FSS: NOOP command received
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CSS 11: GENERIC_CSS: NOOP command received
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x885,sender CI
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x881,sender TO
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x885,sender CI
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x881,sender TO
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CF 110: CF: No-Op received, Version 3.0.99.0
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CFE_EVS 42: Max filter count reached, AppName = CFE_SB, EventID = 0x0000000e: Filter locked until reset
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 20: ***ADCS*** Changed mode to: 1
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 20: ***ADCS*** Changed mode to: 2
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 21: ***ADCS*** Changed momentum management to: 0
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 20: ***ADCS*** Changed mode to: 0
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 21: ***ADCS*** Changed momentum management to: 1
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 20: ***ADCS*** Changed mode to: 3
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 22: ***ADCS*** Target set to LAT / LONG : 43.604500 -26.556000
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CAM 42: CAM App: EXP 3 Command - Large Picture
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 22: ***ADCS*** Target set to LAT / LONG : 38.116600 -14.633400
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CAM 42: CAM EXP3 Complete
+EVS Port1 1/1/CFE_SB 25: Pipe Overflow,MsgId 0x8c8,pipe TO_TLM_PIPE_0,sender CAM
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CAM 42: CAM App: EXP 3 Command - Large Picture
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 22: ***ADCS*** Target set to LAT / LONG : 30.033300 3.233300
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x885,sender CI
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x881,sender TO
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x885,sender CI
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x881,sender TO
+EVS Port1 1/1/CAM 42: CAM EXP3 Complete
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CAM 42: CAM App: EXP 3 Command - Large Picture
+EVS Port1 1/1/CAM 42: CAM EXP3 Complete
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CFE_ES 19: Cleared ES Exception and Reset Log data
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CFE_ES 17: Cleared Executive Services log data
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 20: ***ADCS*** Changed mode to: 2
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/FSS 11: GENERIC_FSS: NOOP command received
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CSS 11: GENERIC_CSS: NOOP command received
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x881,sender TO
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x885,sender CI
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x881,sender TO
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x885,sender CI
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CF 110: CF: No-Op received, Version 3.0.99.0
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CFE_EVS 42: Max filter count reached, AppName = CFE_SB, EventID = 0x0000000e: Filter locked until reset
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 20: ***ADCS*** Changed mode to: 1
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 20: ***ADCS*** Changed mode to: 2
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 21: ***ADCS*** Changed momentum management to: 0
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 20: ***ADCS*** Changed mode to: 0
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 21: ***ADCS*** Changed momentum management to: 1
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 20: ***ADCS*** Changed mode to: 3
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 22: ***ADCS*** Target set to LAT / LONG : 43.604500 -54.556000
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CAM 42: CAM App: EXP 3 Command - Large Picture
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 22: ***ADCS*** Target set to LAT / LONG : 38.116600 -42.633400
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CAM 42: CAM EXP3 Complete
+EVS Port1 1/1/CFE_SB 25: Pipe Overflow,MsgId 0x870,pipe TO_TLM_PIPE_0,sender NAV
+EVS Port1 1/1/CFE_SB 25: Pipe Overflow,MsgId 0x926,pipe TO_TLM_PIPE_0,sender IMU
+EVS Port1 1/1/CFE_SB 25: Pipe Overflow,MsgId 0x936,pipe TO_TLM_PIPE_0,sender ST
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CAM 42: CAM App: EXP 3 Command - Large Picture
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 22: ***ADCS*** Target set to LAT / LONG : 30.033300 -24.766701
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x881,sender TO
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x885,sender CI
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x881,sender TO
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x885,sender CI
+EVS Port1 1/1/CFE_SB 25: Pipe Overflow,MsgId 0x92a,pipe TO_TLM_PIPE_0,sender MAG
+EVS Port1 1/1/CAM 42: CAM EXP3 Complete
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CAM 42: CAM App: EXP 3 Command - Large Picture
+EVS Port1 1/1/CFE_SB 25: Pipe Overflow,MsgId 0x92a,pipe TO_TLM_PIPE_0,sender MAG
+EVS Port1 1/1/CFE_SB 25: Pipe Overflow,MsgId 0x870,pipe TO_TLM_PIPE_0,sender NAV
+EVS Port1 1/1/CAM 42: CAM EXP3 Complete
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CFE_ES 19: Cleared ES Exception and Reset Log data
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CFE_ES 17: Cleared Executive Services log data
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 20: ***ADCS*** Changed mode to: 2
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/FSS 11: GENERIC_FSS: NOOP command received
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CSS 11: GENERIC_CSS: NOOP command received
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x881,sender TO
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x885,sender CI
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x881,sender TO
+EVS Port1 1/1/CFE_SB 14: No subscribers for MsgId 0x885,sender CI
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CF 110: CF: No-Op received, Version 3.0.99.0
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/CFE_EVS 42: Max filter count reached, AppName = CFE_SB, EventID = 0x0000000e: Filter locked until reset
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 20: ***ADCS*** Changed mode to: 1
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 20: ***ADCS*** Changed mode to: 2
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 21: ***ADCS*** Changed momentum management to: 0
+EVS Port1 1/1/ISL 7: IO_TransUDP: Destination IP set to 0.0.0.0:5010
+EVS Port1 1/1/ADCS 20: ***ADCS*** Changed mode to: 0

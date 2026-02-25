@@ -1,0 +1,35 @@
+TELEMETRY NOVATEL_OEM615 NOVATEL_OEM615_HK_TLM LITTLE_ENDIAN "NOVATEL_OEM615_Hk_tlm_t"
+  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x0870  "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQUENCE       16 UINT         "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_LENGTH         16 UINT         "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SECONDS        32 UINT         "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM    CCSDS_SUBSECS        16 UINT         "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM    CCSDS_SPARE          32 UINT         ""
+  APPEND_ITEM    CMD_ERR_COUNT         8 UINT         "Command Error Count"
+  APPEND_ITEM    CMD_COUNT             8 UINT         "Command Count"
+  APPEND_ITEM    DEVICE_ERR_COUNT      8 UINT         "Device Command Error Count"
+  APPEND_ITEM    DEVICE_COUNT          8 UINT         "Device Command Count"
+  APPEND_ITEM    DEVICE_ENABLED        8 UINT         "Device Enable Status"
+    STATE DISABLED 0
+    STATE ENABLED  1 
+  # NOVATEL_OEM615_Device_HK_tlm_t
+  APPEND_ITEM    DEVICE_COUNTER       32 UINT         "Reported Device Command Counter"
+  APPEND_ITEM    DEVICE_CONFIG        32 UINT         "Reported Device Configuration"
+  APPEND_ITEM    DEVICE_STATUS        32 UINT         "Reported Device Status"
+
+TELEMETRY NOVATEL_OEM615 NOVATEL_OEM615_DATA_TLM LITTLE_ENDIAN "NOVATEL_OEM615_Device_tlm_t"
+  APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x0871 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQUENCE 16 UINT        "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_LENGTH   16 UINT        "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SECONDS  32 UINT        "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM    CCSDS_SUBSECS  16 UINT        "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM    CCSDS_SPARE    32 UINT        ""
+  APPEND_ITEM    GPS_WEEKS      16 UINT        "GPS Week Number"
+  APPEND_ITEM    GPS_SECONDS    32 UINT        "GPS Seconds into the Week"
+  APPEND_ITEM    GPS_FRAC_SECS  64 FLOAT       "GPS Fractions of a Second"
+  APPEND_ITEM    ECEF_X         64 FLOAT       "ECEF Position X (meters)"
+  APPEND_ITEM    ECEF_Y         64 FLOAT       "ECEF Position Y (meters)"
+  APPEND_ITEM    ECEF_Z         64 FLOAT       "ECEF Position Z (meters)"
+  APPEND_ITEM    VEL_X          64 FLOAT       "ECEF Velocity X (m/s)"
+  APPEND_ITEM    VEL_Y          64 FLOAT       "ECEF Velocity Y (m/s)"
+  APPEND_ITEM    VEL_Z          64 FLOAT       "ECEF Velocity Z (m/s)"

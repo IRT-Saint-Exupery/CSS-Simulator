@@ -1,0 +1,30 @@
+TELEMETRY GENERIC_CSS GENERIC_CSS_HK_TLM LITTLE_ENDIAN "GENERIC_CSS_Hk_tlm_t"
+  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x0910  "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQUENCE       16 UINT         "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_LENGTH         16 UINT         "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SECONDS        32 UINT         "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM    CCSDS_SUBSECS        16 UINT         "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM    CCSDS_SPARE          32 UINT         ""
+  APPEND_ITEM    CMD_ERR_COUNT         8 UINT         "Command Error Count"
+  APPEND_ITEM    CMD_COUNT             8 UINT         "Command Count"
+  APPEND_ITEM    DEVICE_ERR_COUNT      8 UINT         "Device Command Error Count"
+  APPEND_ITEM    DEVICE_COUNT          8 UINT         "Device Command Count"
+  APPEND_ITEM    DEVICE_ENABLED        8 UINT         "Device Enable Status"
+    STATE DISABLED 0
+    STATE ENABLED  1 
+
+TELEMETRY GENERIC_CSS GENERIC_CSS_DATA_TLM LITTLE_ENDIAN "GENERIC_CSS_Device_tlm_t"
+  APPEND_ID_ITEM CCSDS_STREAMID       16 UINT 0x0911  "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SEQUENCE       16 UINT         "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_LENGTH         16 UINT         "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM    CCSDS_SECONDS        32 UINT         "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM    CCSDS_SUBSECS        16 UINT         "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM    CCSDS_SPARE          32 UINT         ""
+  # GENERIC_CSS_Device_Data_tlm_t
+  APPEND_ITEM    RAW_CSS_0            16 UINT         "Raw css[0] (0-65535)"
+  APPEND_ITEM    RAW_CSS_1            16 UINT         "Raw css[1] (0-65535)"
+  APPEND_ITEM    RAW_CSS_2            16 UINT         "Raw css[2] (0-65535)"
+  APPEND_ITEM    RAW_CSS_3            16 UINT         "Raw css[3] (0-65535)"
+  APPEND_ITEM    RAW_CSS_4            16 UINT         "Raw css[4] (0-65535)"
+  APPEND_ITEM    RAW_CSS_5            16 UINT         "Raw css[5] (0-65535)"
+  

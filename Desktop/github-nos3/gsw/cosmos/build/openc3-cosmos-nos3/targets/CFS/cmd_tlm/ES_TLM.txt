@@ -1,0 +1,117 @@
+TELEMETRY CFS CFE_ES_HKPACKET LITTLE_ENDIAN "Executive Services Housekeeping Packet"
+  APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x0800 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
+  APPEND_ITEM CMDCOUNTER 8 UINT "The ES Application Command Counter."
+  APPEND_ITEM ERRCOUNTER 8 UINT "The ES Application Command Error Counter."
+
+  APPEND_ITEM CFECORECHECKSUM 16 UINT "Checksum of cFE Core Code."
+  APPEND_ITEM CFEMAJORVERSION 8 UINT "Major Version Number of cFE."
+  APPEND_ITEM CFEMINORVERSION 8 UINT "Minor Version Number of cFE."
+  APPEND_ITEM CFEREVISION 8 UINT "Sub-Minor Version Number of cFE."
+  APPEND_ITEM CFEMISSIONREVISION 8 UINT "Mission Version Number of cFE."
+  
+  APPEND_ITEM OSALMAJORVERSION 8 UINT "OS Abstraction Layer Major Version Number."
+  APPEND_ITEM OSALMINORVERSION 8 UINT "OS Abstraction Layer Minor Version Number."
+  APPEND_ITEM OSALREVISION 8 UINT "OS Abstraction Layer Revision Number."
+  APPEND_ITEM OSALMISSIONREVISION 8 UINT "OS Abstraction Layer MissionRevision Number."
+  
+  APPEND_ITEM PSP_MAJORVERSION 8 UINT "Platform Support Package Major Version Number."
+  APPEND_ITEM PSP_MINORVERSION 8 UINT "Platform Support Package Minor Version Number."
+  APPEND_ITEM PSP_REVISION 8 UINT "Platform Support Package Revision Number."
+  APPEND_ITEM PSP_MISSIONREVISION 8 UINT "Platform Support Package MissionRevision Number."
+  
+  APPEND_ITEM SYSLOGBYTESUSED 32 UINT "Total number of bytes used in system log."
+  APPEND_ITEM SYSLOGSIZE 32 UINT "Total size of the system log."
+  APPEND_ITEM SYSLOGENTRIES 32 UINT "Number of entries in the system log."
+  APPEND_ITEM SYSLOGMODE 32 UINT "Write/Overwrite Mode."
+
+  APPEND_ITEM ERLOGINDEX 32 UINT "Current index of the ER Log (wraps around)."
+  APPEND_ITEM ERLOGENTRIES 32 UINT "Number of entries made in the ER Log since the power on."
+  APPEND_ITEM REGISTEREDCOREAPPS 32 UINT "Number of Applications registered with ES."
+  APPEND_ITEM REGISTEREDEXTERNALAPPS 32 UINT "Number of Applications registered with ES."
+  APPEND_ITEM REGISTEREDTASKS 32 UINT "Number of Tasks ( main AND child tasks ) registered with ES."
+  APPEND_ITEM REGISTEREDLIBS 32 UINT "Number of Libraries registered with ES."
+  
+  APPEND_ITEM RESETTYPE 32 UINT "Reset type ( PROCESSOR or POWERON )."
+  APPEND_ITEM RESETSUBTYPE 32 UINT "Reset Sub Type."
+  APPEND_ITEM PROCESSORRESETS 32 UINT "Number of processor resets since last power on."
+  APPEND_ITEM MAXPROCESSORRESETS 32 UINT "Max processor resets before a power on is done."
+  APPEND_ITEM BOOTSOURCE 32 UINT "Boot source ( as provided from BSP )."
+
+  APPEND_ITEM PERFSTATE 32 UINT "Current state of Performance Analyzer."
+  APPEND_ITEM PERFMODE 32 UINT "Current mode of Performance Analyzer."
+  APPEND_ITEM PERFTRIGGERCOUNT 32 UINT "Number of Times Perfomance Analyzer has Triggered."
+  <% (1..4).each do |x| %>
+      APPEND_ITEM PERFFILTERMASK_<%= x %> 32 UINT "Current Setting of Performance Analyzer Filter <%= x %> Masks."
+  <% end %>
+  <% (1..4).each do |x| %>
+      APPEND_ITEM PERFTRIGGERMASK_<%= x %> 32 UINT "Current Setting of Performance Analyzer Trigger <%= x %> Masks."
+  <% end %>
+  APPEND_ITEM PERFDATASTART 32 UINT "Identifies First Stored Entry in Performance Analyzer Log."
+  APPEND_ITEM PERFDATAEND 32 UINT "Identifies Last Stored Entry in Performance Analyzer Log."
+  APPEND_ITEM PERFDATACOUNT 32 UINT "Number of Entries Put Into the Performance Analyzer Log."
+  APPEND_ITEM PERFDATATOWRITE 32 UINT "Number of Performance Analyzer Log Entries Left to be Written to Log Dump File."
+  APPEND_ITEM HEAPBYTESFREE 32 UINT "Number of free bytes remaining in the OS heap."
+  APPEND_ITEM HEAPBLOCKSFREE 32 UINT "Number of free blocks remaining in the OS heap."
+  APPEND_ITEM HEAPMAXBLOCKSIZE 32 UINT "Number of bytes in the largest free block."
+  
+TELEMETRY CFS CFE_ES_ONEAPPTLM LITTLE_ENDIAN "Single Application Information Packet"
+  APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x080B "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
+  APPEND_ITEM APPINFO_APPID 32 UINT "Application ID for this Application. (Parent: For more information, see CFE_ES_AppInfo_t.)"
+  APPEND_ITEM APPINFO_TYPE 32 UINT "The type of App: CORE or EXTERNAL. (Parent: For more information, see CFE_ES_AppInfo_t.)"
+  APPEND_ITEM APPINFO_NAME 160 STRING "The Registered Name of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)"
+  APPEND_ITEM APPINFO_ENTRYPOINT 160 STRING "The Entry Point label for the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)"
+  APPEND_ITEM APPINFO_FILENAME 512 STRING "The Filename of the file containing the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)"
+  APPEND_ITEM APPINFO_STACKSIZE 32 UINT "The Stack Size of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)"
+  APPEND_ITEM APPINFO_MODULEID 32 UINT "The ID of the Loadable Module for the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)"
+  APPEND_ITEM APPINFO_ADDRESSESAREVALID 32 UINT "Indicates that the Code, Data, and BSS addresses/sizes are valid. (Parent: For more information, see CFE_ES_AppInfo_t.)"
+  APPEND_ITEM APPINFO_CODEADDRESS 32 UINT "The Address of the Application Code Segment. (Parent: For more information, see CFE_ES_AppInfo_t.)"
+  APPEND_ITEM APPINFO_CODESIZE 32 UINT "The Code Size of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)"
+  APPEND_ITEM APPINFO_DATAADDRESS 32 UINT "The Address of the Application Data Segment. (Parent: For more information, see CFE_ES_AppInfo_t.)"
+  APPEND_ITEM APPINFO_DATASIZE 32 UINT "The Data Size of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)"
+  APPEND_ITEM APPINFO_BSSADDRESS 32 UINT "The Address of the Application BSS Segment. (Parent: For more information, see CFE_ES_AppInfo_t.)"
+  APPEND_ITEM APPINFO_BSSSIZE 32 UINT "The BSS Size of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)"
+  APPEND_ITEM APPINFO_STARTADDRESS 32 UINT "The Start Address of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)"
+  APPEND_ITEM APPINFO_EXCEPTIONACTION 16 UINT "What should occur if Application has an exception (Restart Application OR Restart Processor). (Parent: For more information, see CFE_ES_AppInfo_t.)"
+  APPEND_ITEM APPINFO_PRIORITY 16 UINT "The Priority of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)"
+  APPEND_ITEM APPINFO_MAINTASKID 32 UINT "The Application's Main Task ID. (Parent: For more information, see CFE_ES_AppInfo_t.)"
+  APPEND_ITEM APPINFO_EXECUTIONCOUNTER 32 UINT "The Application's Main Task Execution Counter. (Parent: For more information, see CFE_ES_AppInfo_t.)"
+  APPEND_ITEM APPINFO_MAINTASKNAME 160 STRING "The Application's Main Task ID. (Parent: For more information, see CFE_ES_AppInfo_t.)"
+  APPEND_ITEM APPINFO_NUMOFCHILDTASKS 32 UINT "Number of Child tasks for an App. (Parent: For more information, see CFE_ES_AppInfo_t.)"
+
+TELEMETRY CFS CFE_ES_POOLSTATSTLM LITTLE_ENDIAN "Memory Pool Statistics Packet"
+  APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x0810 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
+  APPEND_ITEM POOLHANDLE 32 UINT "Handle of memory pool whose stats are being telemetered."
+  APPEND_ITEM POOLSTATS_POOLSIZE 32 UINT "Size of Memory Pool (in bytes). (Parent: For more info, see CFE_ES_MemPoolStats_t.)"
+  APPEND_ITEM POOLSTATS_NUMBLOCKSREQUESTED 32 UINT "Number of times a memory block has been allocated. (Parent: For more info, see CFE_ES_MemPoolStats_t.)"
+  APPEND_ITEM POOLSTATS_CHECKERRCTR 32 UINT "Number of errors detected when freeing a memory block. (Parent: For more info, see CFE_ES_MemPoolStats_t.)"
+  APPEND_ITEM POOLSTATS_NUMFREEBYTES 32 UINT "Number of bytes never allocated to a block. (Parent: For more info, see CFE_ES_MemPoolStats_t.)"
+  <% (1..17).each do |x| %>
+      APPEND_ITEM BLOCKSTATS_<%= x %>_SIZE        32 UINT ""
+      APPEND_ITEM BLOCKSTATS_<%= x %>_NUM_CREATED 32 UINT ""
+      APPEND_ITEM BLOCKSTATS_<%= x %>_NUM_FREE    32 UINT ""
+  <% end %>
+
+TELEMETRY CFS CFE_ES_SHELLPACKET LITTLE_ENDIAN "OS Shell Output Packet"
+  APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x080F "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  <% (1..64).each do |x| %>
+      APPEND_ITEM SHELLOUTPUT_<%= x %> 8 UINT "ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte <%= x %>"
+  <% end %>

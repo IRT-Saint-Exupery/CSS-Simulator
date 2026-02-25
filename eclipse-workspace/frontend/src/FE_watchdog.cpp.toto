@@ -1,0 +1,82 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
+#include <time.h>
+#include <string.h>
+#include <unistd.h>
+
+void timer_handler(int sig) {
+    static bool first = 1;
+    static uint8 command[] = {0x02,0x20,0x01,0x10,0x11,0x00,0x00,0x00} ;
+        
+    if(first == 1) {    
+	    command[2] = 100;
+	    uint16_t fecfout = Crypto_Calc_FECF((uint8_t*)command+1, 8-3);
+	    writeFECF((uint8_t*)command+1, 7, fecfout);
+	    first = 0;
+    }
+    
+    int sendSocket = createSendSocket();
+    for (FE_satConnection_t *connection : g_satConnections) {
+        int destSatId = connection->satId;
+    	if (g_routesMap.find(destSatId) != g_routesMap.end()) { 
+    		if(destSatId == g_routesMap[destSatId]) { // destSatId is visible 
+			sendToSpace (sendSocket, connection->distaddr, command, sizeof(command));
+    		}
+    	}
+    
+    }
+    
+    
+    
+    
+    //count++;
+    //printf("Timer triggered %d second(s)\n", count);
+}
+
+int main() {
+    struct sigaction sa;
+    struct sigevent sev;
+    struct itimerspec its;
+    timer_t timerid;
+
+    // Set up signal handler
+    memset(&sa, 0, sizeof(sa));
+    sa.sa_handler = timer_handler;
+    sigaction(SIGRTMIN, &sa, NULL);
+
+    // Create timer
+    memset(&sev, 0, sizeof(sev));
+    sev.sigev_notify = SIGEV_SIGNAL;
+    sev.sigev_signo = SIGRTMIN;
+    if (timer_create(CLOCK_REALTIME, &sev, &timerid) == -1) {
+        perror("timer_create");
+        exit(EXIT_FAILURE);
+    }
+
+    // Set timer to trigger every 1 second
+    its.it_value.tv_sec = 1;        // Initial delay
+    its.it_value.tv_nsec = 0;
+    its.it_interval.tv_sec = 1;     // Interval
+    its.it_interval.tv_nsec = 0;
+
+    if (timer_settime(timerid, 0, &its, NULL) == -1) {
+        perror("timer_settime");
+        exit(EXIT_FAILURE);
+    }
+
+    printf("Timer started. Waiting...\n");
+
+    // Let it run for 10 seconds
+    sleep(10);
+
+    // Clean up
+    if (timer_delete(timerid) == -1) {
+        perror("timer_delete");
+        exit(EXIT_FAILURE);
+    }
+
+    printf("Timer stopped.\n");
+    return 0;
+}
+

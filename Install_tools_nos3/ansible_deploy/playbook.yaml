@@ -1,0 +1,106 @@
+---
+- name: Configure Ubuntu machines
+  hosts: ubuntu_machines
+  become: yes
+  become_method: sudo
+  vars:
+    ansible_user: nos3
+    ansible_password: nos3123!
+    background_images:
+      host1: /home/nos3/Pictures/Nos3_back/Picture10.png
+      host2: /home/nos3/Pictures/Nos3_back/Picture10.png
+      host3: /home/nos3/Pictures/Nos3_back/Picture9.png
+      host4: /home/nos3/Pictures/Nos3_back/Picture8.png
+
+  tasks:
+    - name: Check if background image exists locally on the host
+      stat:
+        path: "{{ background_images[inventory_hostname] }}"
+      register: img_status
+
+    - name: Fail if background image missing on host
+      fail:
+        msg: "Missing background image at {{ background_images[inventory_hostname] }} on host {{ inventory_hostname }}"
+      when: not img_status.stat.exists
+
+    - name: Set GNOME desktop background URI for user nos3
+      become_user: nos3
+      community.general.dconf:
+        key: "/org/gnome/desktop/background/picture-uri"
+        value: "'file://{{ background_images[inventory_hostname] }}'"
+        state: present
+
+    - name: Inform user about need for session reload
+      debug:
+        msg: "Ensure user nos3 has logged in at least once on {{ inventory_hostname }} and restart GNOME shell or log out/in to apply desktop background."
+
+- name: Host1 connectivity and script execution
+  hosts: host1
+  gather_facts: no
+  vars:
+    other_hosts: "{{ groups['all'] | difference(['host1']) }}"
+  tasks:
+    - name: Wait for SSH availability on other hosts
+      wait_for:
+        host: "{{ hostvars[item].ansible_host | default(item) }}"
+        port: 22
+        timeout: 60
+      loop: "{{ other_hosts }}"
+      delegate_to: localhost
+
+    - name: Ping other hosts to verify network
+      command: "ping -c 3 {{ hostvars[item].ansible_host | default(item) }}"
+      register: ping_result
+      changed_when: false
+      failed_when: ping_result.rc != 0
+      loop: "{{ other_hosts }}"
+
+    - name: Run local script on host1 and wait for completion
+      shell: ./Simple_Deploy.sh
+      args:
+        chdir: /home/nos3/Install_tools_nos3
+        executable: /bin/bash
+      register: script1_result
+      failed_when: script1_result.rc != 0
+
+    - name: Show output from host1 script
+      debug:
+        var: script1_result.stdout
+
+- name: Execute first script on host3 with automated '1' inputs
+  hosts: host3
+  gather_facts: no
+  tasks:
+    - name: Run first script as sudo from Install_tools_nos3 with automated '1's
+      become: yes
+      shell: yes 1 | ./launch_containers.sh
+      args:
+        chdir: /home/nos3/Install_tools_nos3
+        executable: /bin/bash
+      register: script2_result
+      failed_when: script2_result.rc != 0
+
+    - name: Show output from first host3 script
+      debug:
+        var: script2_result.stdout
+
+- name: Run make target as sudo from github-nos3 on host3
+  hosts: host3
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: Execute make target
+      community.general.make:
+        chdir: /home/nos3/Desktop/github-nos3
+        target: all
+      register: make_result
+      failed_when: make_result.failed
+      tags:
+        - make_task
+
+    - name: Show output from make command
+      debug:
+        var: make_result.stdout
+      tags:
+        - make_task
+

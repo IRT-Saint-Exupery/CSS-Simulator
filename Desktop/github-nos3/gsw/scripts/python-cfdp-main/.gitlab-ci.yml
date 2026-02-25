@@ -1,0 +1,26 @@
+stages:
+  - test
+  - publish
+
+testing:
+  stage: test
+  image: python:3
+  script:
+    - pip install .
+    - pip install zmq
+    - pip install spacepacket
+    - pip install pytest
+    - cd tests
+    - pytest
+
+publish:
+  stage: publish
+  image: python:3
+  script:
+    - pip install twine
+    - pip install build
+    - python -m build
+    - twine check dist/*
+    - twine upload dist/* --non-interactive
+  only:
+    - main

@@ -1,0 +1,180 @@
+COMMAND CFE CFE_EVS_ADD_EVENT_FILTER <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command adds the given filter for the given application identifier and event identifier. Note: In order for this command to take effect, applications must be registered for Event Service."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 25 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 15 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER APPNAME 160 STRING "default" "Application name to use in the command."
+  APPEND_PARAMETER EVENTID 16 UINT MIN_UINT16 MAX_UINT16 0 "Event ID to use in the command."
+  APPEND_PARAMETER MASK 16 UINT MIN_UINT16 MAX_UINT16 0 "Mask to use in the command."
+
+COMMAND CFE CFE_EVS_CLEAR_LOG <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command clears the contents of the local event log."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 1 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 20 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+
+COMMAND CFE CFE_EVS_DELETE_EVENT_FILTER <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command removes the given filter for the given application identifier and event identifier. Note: In order for this command to take effect, applications must be registered for Event Service."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 23 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 16 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER APPNAME 160 STRING "default" "Application name to use in the command."
+  APPEND_PARAMETER EVENTID 16 UINT MIN_UINT16 MAX_UINT16 0 "Event ID to use in the command."
+
+COMMAND CFE CFE_EVS_DISABLE_APP_EVENTS <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command disables the command specified application from sending events through Event Service. Note: In order for this command to take effect, applications must be registered for Event Service."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 21 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 8 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER APPNAME 160 STRING "default" "Application name to use in the command."
+
+COMMAND CFE CFE_EVS_DISABLE_APP_EVENT_TYPE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command disables the command specified event type for the command specified application, preventing the application from sending event messages of the command specified event type through Event Service. An Event Type is defined to be a classification of an Event Message such as debug, informational, critical, and error. Note: In order for this command to take effect, applications must be registered for Event Service."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 23 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 6 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER APPNAME 160 STRING "default" "Application name to use in the command."
+  APPEND_PARAMETER BITMASK 8 UINT MIN_UINT8 MAX_UINT8 0 "BitMask to use in the command."
+  APPEND_PARAMETER SPARE 8 UINT MIN_UINT8 MAX_UINT8 0 "Pad to even byte."
+
+COMMAND CFE CFE_EVS_DISABLE_EVENT_TYPE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command disables the command specified Event Type preventing event messages of this type to be sent through Event Service. An Event Type is defined to be a classification of an Event Message such as debug, informational, error and critical. This command is a global disable of a particular event type, it applies to all applications."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 3 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 3 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER BITMASK 8 UINT MIN_UINT8 MAX_UINT8 0 "BitMask to use in the command."
+  APPEND_PARAMETER SPARE 8 UINT MIN_UINT8 MAX_UINT8 0 "Pad to even byte."
+
+COMMAND CFE CFE_EVS_DISABLE_PORTS <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command disables the specified port from outputting event messages."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 3 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 12 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER BITMASK 8 UINT MIN_UINT8 MAX_UINT8 0 "BitMask to use in the command."
+  APPEND_PARAMETER SPARE 8 UINT MIN_UINT8 MAX_UINT8 0 "Pad to even byte."
+
+COMMAND CFE CFE_EVS_ENABLE_APP_EVENTS <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command enables the command specified application to send events through the Event Service. Note: In order for this command to take effect, applications must be registered for Event Service."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 21 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 7 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER APPNAME 160 STRING "default" "Application name to use in the command."
+
+COMMAND CFE CFE_EVS_ENABLE_APP_EVENT_TYPE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command enables the command specified event type for the command specified application, allowing the application to send event messages of the command specified event type through Event Service. An Event Type is defined to be a classification of an Event Message such as debug, informational, critical, and error. Note: In order for this command to take effect, applications must be registered for Event Service."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 23 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 5 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER APPNAME 160 STRING "default" "Application name to use in the command."
+  APPEND_PARAMETER BITMASK 8 UINT MIN_UINT8 MAX_UINT8 0 "BitMask to use in the command."
+  APPEND_PARAMETER SPARE 8 UINT MIN_UINT8 MAX_UINT8 0 "Pad to even byte."
+
+COMMAND CFE CFE_EVS_ENABLE_EVENT_TYPE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command enables the command specified Event Type allowing event messages of this type to be sent through Event Service. An Event Type is defined to be a classification of an Event Message such as debug, informational, error and critical. This command is a global enable of a particular event type, it applies to all applications."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 3 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 2 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER BITMASK 8 UINT MIN_UINT8 MAX_UINT8 0 "BitMask to use in the command."
+  APPEND_PARAMETER SPARE 8 UINT MIN_UINT8 MAX_UINT8 0 "Pad to even byte."
+
+COMMAND CFE CFE_EVS_ENABLE_PORTS <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command enables the command specified port to output event messages"
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 3 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 11 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER BITMASK 8 UINT MIN_UINT8 MAX_UINT8 0 "BitMask to use in the command."
+  APPEND_PARAMETER SPARE 8 UINT MIN_UINT8 MAX_UINT8 0 "Pad to even byte."
+
+COMMAND CFE CFE_EVS_FILE_WRITE_APP_DATA <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command writes all application data to a file for all applications that have registered with the EVS. The application data includes the Application ID, Active Flag, Event Count, Event Types Active Flag, and Filter Data."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 65 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 17 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER APPDATAFILENAME 512 STRING "default" "Filename where applicaton data is to be written."
+
+COMMAND CFE CFE_EVS_FILE_WRITE_LOG_DATA <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command requests the Event Service to generate a file containing the contents of the local event log."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 65 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 18 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER LOGFILENAME 512 STRING "default" "Filename where log data is to be written."
+
+COMMAND CFE CFE_EVS_NO_OPERATION <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command performs no other function than to increment the command execution counter. The command may be used to verify general aliveness of the Event Services task."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 1 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+
+COMMAND CFE CFE_EVS_RESET_ALL_FILTERS <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command resets all of the command specified applications event filters. Note: In order for this command to take effect, applications must be registered for Event Service."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 21 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 14 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER APPNAME 160 STRING "default" "Application name to use in the command."
+
+COMMAND CFE CFE_EVS_RESET_APP_COUNTER <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command sets the command specified application's event counter to zero. Note: In order for this command to take effect, applications must be registered for Event Service."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 21 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 9 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER APPNAME 160 STRING "default" "Application name to use in the command."
+
+COMMAND CFE CFE_EVS_RESET_COUNTERS <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command resets the following counters within the Event Services housekeeping telemetry:  Command Execution Counter ($sc_$cpu_EVS_CMDPC)Command Error Counter ($sc_$cpu_EVS_CMDEC) "
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 1 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 1 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+
+COMMAND CFE CFE_EVS_RESET_FILTER <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command resets the command specified application's event filter for the command specified event ID. Note: In order for this command to take effect, applications must be registered for Event Service."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 23 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 13 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER APPNAME 160 STRING "default" "Application name to use in the command."
+  APPEND_PARAMETER EVENTID 16 UINT MIN_UINT16 MAX_UINT16 0 "Event ID to use in the command."
+
+COMMAND CFE CFE_EVS_SET_EVENT_FORMAT_MODE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command sets the event format mode to the command specified value. The event format mode may be either short or long. A short event format detaches the Event Data from the event message and only includes the following information in the event packet: Processor ID, Application ID, Event ID, and Event Type. Refer to section 5.3.3.4 for a description of the Event Service event packet contents. Event Data is defined to be data describing an Event that is supplied to the cFE Event Service. ASCII text strings are used as the primary format for Event Data because heritage ground systems use string compares as the basis for their automated alert systems. Two systems, ANSR and SERS were looked at for interface definitions. The short event format is used to accommodate experiences with limited telemetry bandwidth. The long event format includes all event information included within the short format along with the Event Data."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 3 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 4 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER MODE 8 UINT MIN_UINT8 MAX_UINT8 0 "Mode to use in the command."
+  APPEND_PARAMETER SPARE 8 UINT MIN_UINT8 MAX_UINT8 0 "Pad to even byte."
+
+COMMAND CFE CFE_EVS_SET_FILTER <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command sets the command specified application's event filter mask to the command specified value for the command specified event. Note: In order for this command to take effect, applications must be registered for Event Service."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 25 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 10 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER APPNAME 160 STRING "default" "Application name to use in the command."
+  APPEND_PARAMETER EVENTID 16 UINT MIN_UINT16 MAX_UINT16 0 "Event ID to use in the command."
+  APPEND_PARAMETER MASK 16 UINT MIN_UINT16 MAX_UINT16 0 "Mask to use in the command."
+
+COMMAND CFE CFE_EVS_SET_LOG_MODE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command sets the logging mode to the command specified value."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x1801 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 3 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 19 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER MODE 8 UINT MIN_UINT8 MAX_UINT8 0 "Mode to use in the command."
+  APPEND_PARAMETER SPARE 8 UINT MIN_UINT8 MAX_UINT8 0 "Pad to even byte."

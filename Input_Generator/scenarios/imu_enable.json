@@ -1,0 +1,17 @@
+{
+    "command1": {
+        "TARGET": "GENERIC_IMU",
+        "GENERIC_IMU_ENABLE_CC": {
+            "CCSDS_STREAMID": "0x1925",
+            "CCSDS_SEQUENCE": "0xC000",
+            "CCSDS_LENGTH": "1",
+            "CCSDS_FC": "2",
+            "CCSDS_CHECKSUM": "0"
+        },
+        "TIMESTAMP": 0.0,
+        "FUZZ": [
+            "None",
+            0
+        ]
+    }
+}

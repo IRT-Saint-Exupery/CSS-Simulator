@@ -1,0 +1,10 @@
+TELEMETRY CFS TO_DEBUG_HKPACKET LITTLE_ENDIAN "Housekeeping Packet Structure"
+  APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x08E8 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SEQUENCE    16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM CCSDS_LENGTH      16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SECONDS     32 UINT "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM CCSDS_SUBSECS     16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CMDCOUNTER         8 UINT "Count of all commands received."
+  APPEND_ITEM ERRCOUNTER         8 UINT "Count of command errors."
+  APPEND_ITEM SPARE_0            8 UINT ""
+  APPEND_ITEM SPARE_1            8 UINT ""

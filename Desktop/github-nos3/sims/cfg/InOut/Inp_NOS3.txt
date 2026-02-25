@@ -1,0 +1,3 @@
+<<<<<<<<<<<<<<<<  42 NOS3 Time Configuration File  >>>>>>>>>>>>>>>>>>>
+command                         !  NOS3 Time Bus
+tcp://192.168.100.11:12001      !  NOS3 Time Connection String

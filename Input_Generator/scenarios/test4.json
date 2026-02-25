@@ -1,0 +1,17 @@
+{
+    "command1": {
+        "TARGET": "CFS",
+        "CFE_ES_NOOP": {
+            "CCSDS_STREAMID": "0x1806",
+            "CCSDS_SEQUENCE": "0xC000",
+            "CCSDS_LENGTH": "0x7000",
+            "CCSDS_FC": "0",
+            "CCSDS_CHECKSUM": "0"
+        },
+        "TIMESTAMP": 0.0,
+        "FUZZ": [
+            "None",
+            0
+        ]
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "command1": {
+        "TARGET": "NOVATEL_OEM615",
+        "NOVATEL_OEM615_ENABLE_CC": {
+            "CCSDS_STREAMID": "0x1870",
+            "CCSDS_SEQUENCE": "0xC000",
+            "CCSDS_LENGTH": "1",
+            "CCSDS_FC": "2",
+            "CCSDS_CHECKSUM": "0"
+        },
+        "TIMESTAMP": 0.0,
+        "FUZZ": [
+            "None",
+            0
+        ]
+    }
+}

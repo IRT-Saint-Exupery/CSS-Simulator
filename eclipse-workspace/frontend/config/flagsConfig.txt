@@ -1,0 +1,11 @@
+PEAK_SPACE_SIDE	0
+PEAK_GROUND_SIDE	0
+PEAK_IP_ADRESS		192.168.100.8
+
+// Inversion TC sat1 et TC sat2
+ATTACK_16	0
+
+// Duplication TC sat 1 vers sat2
+ATTACK_17	0
+
+TC_VERBOSE	1

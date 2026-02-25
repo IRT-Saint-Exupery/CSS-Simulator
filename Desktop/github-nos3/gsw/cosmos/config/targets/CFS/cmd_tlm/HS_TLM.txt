@@ -1,0 +1,28 @@
+TELEMETRY HS HS_HKPACKET <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "Housekeeping Packet Structure"
+  APPEND_ID_ITEM CCSDS_STREAMID 16 UINT 0x08AD "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SEQUENCE 16 UINT "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_ITEM CCSDS_LENGTH 16 UINT "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_ITEM CCSDS_SECONDS 32 UINT "CCSDS Telemetry Secondary Header (seconds)"
+  APPEND_ITEM CCSDS_SUBSECS 16 UINT "CCSDS Telemetry Secondary Header (subseconds)"
+  APPEND_ITEM CCSDS_SPARE 32 UINT ""
+  APPEND_ITEM CMDCOUNT 8 UINT "HS Application Command Counter."
+  APPEND_ITEM CMDERRCOUNT 8 UINT "HS Application Command Error Counter."
+  APPEND_ITEM CURRENTAPPMONSTATE 8 UINT "Status of HS Critical Application Monitor."
+  APPEND_ITEM CURRENTEVENTMONSTATE 8 UINT "Status of HS Critical Events Monitor."
+  APPEND_ITEM CURRENTALIVENESSSTATE 8 UINT "Status of HS Aliveness Indicator."
+  APPEND_ITEM CURRENTCPUHOGSTATE 8 UINT "Status of HS Hogging Indicator."
+  APPEND_ITEM STATUSFLAGS 8 UINT "Internal HS Error States."
+  APPEND_ITEM SPAREBYTES 8 UINT "Alignment Spares."
+  APPEND_ITEM RESETSPERFORMED 16 UINT "HS Performed Processor Reset Count."
+  APPEND_ITEM MAXRESETS 16 UINT "HS Maximum Processor Reset Count."
+  APPEND_ITEM EVENTSMONITOREDCOUNT 32 UINT "Total count of Event Messages Monitored by the Critical Events Monitor."
+  APPEND_ITEM INVALIDEVENTMONCOUNT 32 UINT "Total count of Invalid Event Monitors Monitored by the Critical Events Monitor."
+  <% (1..1).each do |x| %>
+      APPEND_ITEM APPMONENABLES_<%= x %> 32 UINT "Enable states of App Monitor Entries. byte <%= x %>"
+  <% end %>
+  APPEND_ITEM MSGACTEXEC 32 UINT "Number of Software Bus Message Actions Executed."
+  APPEND_ITEM UTILCPUAVG 32 UINT "Current CPU Utilization Average."
+  APPEND_ITEM UTILCPUPEAK 32 UINT "Current CPU Utilization Peak."
+  <% (1..32).each do |x| %>
+      APPEND_ITEM EXECOUNTS_<%= x %> 32 UINT "Execution Counters. byte <%= x %>"
+  <% end %>

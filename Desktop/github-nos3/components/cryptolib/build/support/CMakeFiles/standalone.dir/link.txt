@@ -1,0 +1,1 @@
+/usr/bin/cc -m32 -Wall -Wextra -Werror -g -O0   CMakeFiles/standalone.dir/standalone/standalone.c.o  -o standalone  -Wl,-rpath,/home/nos3/Desktop/github-nos3/components/cryptolib/build/src ../src/libcrypto.so -lpthread -lgcrypt 

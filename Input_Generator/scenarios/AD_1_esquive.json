@@ -1,0 +1,40 @@
+{
+    "command1": {
+        "TARGET": "CFS",
+        "FM_DELETE": {
+            "CCSDS_STREAMID": "0x188C",
+            "CCSDS_SEQUENCE": "0xC000",
+            "CCSDS_LENGTH": "65",
+            "CCSDS_FC": "5",
+            "CCSDS_CHECKSUM": "0",
+            "FILENAME": "\"/cf/arducam.so\""
+        },
+        "TIMESTAMP": 0.0,
+        "FUZZ": [
+            "None",
+            0
+        ]
+    },
+    "command2": {
+        "TARGET": "CFS",
+        "CF_PLAYBACK_FILE": {
+            "CCSDS_STREAMID": "0x18B3",
+            "CCSDS_SEQUENCE": "0xC000",
+            "CCSDS_LENGTH": "149",
+            "CCSDS_FC": "2",
+            "CCSDS_CHECKSUM": "0",
+            "CLASS": "1",
+            "CHAN": "0",
+            "PRIORITY": "1",
+            "PRESERVE": "1",
+            "PEER_ENTITY_ID": "\"0.21\"",
+            "SRCFILENAME": "\"/data/arducam.so\"",
+            "DSTFILENAME": "\"/cf/arducam.so\""
+        },
+        "TIMESTAMP": 0.0,
+        "FUZZ": [
+            "None",
+            0
+        ]
+    }
+}

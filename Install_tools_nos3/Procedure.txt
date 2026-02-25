@@ -1,0 +1,59 @@
+CSS Deployment Procedure:
+
+#### SIMPLIFIED : I feel lucky!
+NB: by default MCS = 192.168.100.5, NASA 42 = 192.168.100.42, SAT1 = 192.168.100.11, SAT2 = 192.168.100.12, etc
+
+0 - adapt static IP in /etc/netplan/01-netcfg.yaml for each VM. ### this step can be different as a function of how you manage the ip route of the VM (automatic in CITEF)
+1 - modify IP_Scenarios.sh to choose the NBSAT in VM .11.
+2 - call ./Simple_Deploy.sh in VM .11 (wait for the process to complete).
+3 - log into VM .5 (MCS), open a terminal as root, call Install_tools_nos3/launch_containers.sh, then in github-nos3 call make (still as root).
+4 - now you can start/stop the simulator in github-nos3 of VM .11 using start.sh / stop.sh.
+
+#### NB: if you need to redeploy with different NBSAT call Do_MakeClean_All_VM.sh + Do_Make_All_VM.sh
+
+#### COMPLETE : step by step 
+#### IP configuration of the VM
+0 - sudo -s
+  - vim /etc/netplan/01-netcfg.yaml
+  - adapt the IP address of the VM
+  - sudo netplan apply 
+  - NB: by default the VM has static IP = 192.168.100.11
+
+#### IP configuration of the constellation and SAT number 
+1 - modify IP_Scenarios.sh (if needed for your scenario) --- choose IP and Number of SAT
+
+  - NB: by default MCS = 192.168.100.5, NASA 42 = 192.168.100.42, SAT1 = 192.168.100.11, SAT2 = 192.168.100.12, etc
+  - check ping between Vms
+  - check ssh is working between main VM and the others (key generation!) - this is ok for default IP and 7 SAT configuration. 
+
+#### Adapt main VM code to the constellation you want to deploy
+2 - call Do_Adapt_Address.sh 
+  - call Do_Adapt_NbSAT.sh
+  
+  AUTO:
+  - adapt /MakefileMCS to choose the NSAT (decomment the create_cosmos_gem_satX.sh for ALL X <= NBSAT) 	// AUTO this step is automatic ! 
+  - adapt /gsw/scripts/launch_mcs.sh (decomment the firefox line corresponding to the NSAT in your scenario)   // AUTO this step is automatic !
+  - adapt Specialize_42.sh to the number of satellites in your constellation (substitute .txt.XSAT)		 // AUTO this step is automatic !
+  - adapt Specialize_SAT.sh to the number of satellites in your constellation (substitute .txt.XSAT) 		 // AUTO this step is automatic !
+  
+### Specalize the VMs in the Scenario (SAT1, SAT2, ... , MCS, 42)
+3 - call Do_Specialize_All_VM.sh 
+  - call Do_Update_All.sh  (diffuse + specialize)							
+
+### Do make on all the VMs and launch containers in VM MCS 
+4 - call Do_Make_All_VM.sh (call Do_MakeClean_All_VM.sh before if needed)
+  - log in VM MCS and do make for frontEnd (/eclipse-workspace/frontend/build/default) - optional 
+  - log in VM MCS, call launch_containers.sh (as root) 
+  - log in VM MCS and do make (as root) in github-nos3 to launch all COSMOS containers (you can check Makefile and IP_Scenarios are updated before make).
+  
+### START/STOP
+5 - adapt the start.sh / stop.sh to launch your constellation							// AUTO this step is automatic !
+  - you can now launch the simulator : ./start.sh   
+  
+### after a modification 
+6 - Do_Update_All.sh 
+  - Specialize_All (only if necessary)
+  - Do_MakeClean_All_VM.sh (only if necessary)
+  - Do_Make_All_VM.sh
+
+

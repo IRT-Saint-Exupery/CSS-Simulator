@@ -1,0 +1,17 @@
+{
+   "plugins": [
+        "uart"
+    ],
+
+    "server_uris": [
+        {
+            "name": "fsw",
+            "server_uri": "tcp://192.168.100.11:12000"
+        },
+        {
+            "name": "nos3",
+            "server_uri": "tcp://192.168.100.11:12001"
+        }
+    ]
+}
+

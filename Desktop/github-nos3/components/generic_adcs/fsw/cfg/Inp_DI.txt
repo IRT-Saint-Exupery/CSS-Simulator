@@ -1,0 +1,19 @@
+!!!!!!!!!!!!!!! Magnetometer !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ 0.0     0.0     0.0     1.0         ! Quaternion from sensor to body frame
+!!!!!!!!!!!!!!! Fine Sun Sensor !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ 0.0    -0.7071  0.0     0.7071      ! Quaternion from sensor to body frame
+!!!!!!!!!!!!!!! Coarse Sun Sensors !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ 1.0     0.0     0.0     0.001       ! Axis in body, scale factor
+-1.0     0.0     0.0     0.001       ! Axis in body, scale factor
+ 0.0     1.0     0.0     0.001       ! Axis in body, scale factor
+ 0.0    -1.0     0.0     0.001       ! Axis in body, scale factor
+ 0.0     0.0     1.0     0.001       ! Axis in body, scale factor
+ 0.0     0.0    -1.0     0.001       ! Axis in body, scale factor
+!!!!!!!!!!!!!!! Inertial Measurement Unit !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+0.5     -0.5     0.5    -0.5         ! Quaternion from sensor to body frame
+0.5      1.0     1.5                 ! Position of sensor in body
+!!!!!!!!!!!!!!! Reaction Wheels !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ 1.0     0.0     0.0   0.01082       ! Axis in body, Maximum momentum
+ 0.0     1.0     0.0   0.01082       ! Axis in body, Maximum momentum
+ 0.0     0.0     1.0   0.01082       ! Axis in body, Maximum momentum
+
