@@ -1,5 +1,0 @@
-#/bin/sh
-
-ssh nos3@192.168.100.8 "cd github-nos3; make launch"
-ssh nos3@192.168.100.42 "cd github-nos3; make launch"
-make launch
