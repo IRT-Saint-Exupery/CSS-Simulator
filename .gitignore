@@ -23,7 +23,6 @@
 /Desktop/github-nos3/sims/cfg/routeConfig.txt
 /eclipse-workspace/frontend/build/
 /eclipse-workspace/mission/build/
-/Input_Generator/*.txt
 /Input_Generator/__pycache__
 !/Input_Generator/README.txt
 /home/nos3/Install_tools_nos3/Usage
@@ -49,3 +48,4 @@
 /home/nos3/eclipse-workspace/mission/.settings
 /home/nos3/eclipse-workspace/mission/.project
 /home/nos3/eclipse-workspace/mission/.cproject
+/home/nos3/Desktop/github-nos3/components/cryptolib/build
