@@ -107,21 +107,23 @@ In the context of CSS project, it has been decided to split the simulator on mul
 
 Please note that CSS Platform is composed by multiple repositories :
 
-1. */home/nos3/Install_tools_nos3* : this is to deploy a constellation and to diffuse updates (see *Procedure.txt* for all the detailed steps). Example to diffuse updates to all satellites: *./Do_Update_All.sh*
-2. */home/nos3/CSS_Attacks* : this is the folder containing the exploits developed for CSS project. For help *./Master_Attacks_Scripts.sh 0*
-3. */home/nos3/Input_Generator* : the python code of the input generator is here. 
-4. */home/nos3/Desktop/github-nos3* : the modified NOS3 code is here (including ISL and IDS/IPS). Example to launch the simulator : *./start.sh* (and *./stop.sh* to stop the simulator).
-5. */home/nos3/eclipse-workspace/frontend* : the FrontEnd component code is here. 
-6. */home/nos3/eclipse-workspace/imager* : the imager component code is here. 
-7. */home/nos3/eclipse-workspace/mission* : the automatic mission component code is here. 
-8. */home/nos3/Scenario_Manager* : the code of the scenario manager is here (launch a sequence of simulations and save the data). 
-9. */opt/nos3/* : NASA 42 and COSMOS code are here (included in the project VM). Cosmos folders are duplicated for each satellite in the constellation (cosmos1, cosmos2, etc).
-10. */Dataset_Utils/*: code for automatic dataset generation (included as external repository).
+1. [*Install_tools_nos3*](/Install_tools_nos3): this is to deploy a constellation and to diffuse updates (see *Procedure.txt* for all the detailed steps). Example to diffuse updates to all satellites: *./Do_Update_All.sh*
+2. [*CSS_Attacks*](/CSS_Attacks): this is the folder containing the exploits developed for CSS project. For help you can use *./Master_Attacks_Scripts.sh 0*
+3. [*Input_Generator*](/Input_Generator): the python code of the input generator is here. You can define and automate the TC sent to the constellation.
+4. [*Github-nos3*](/Desktop/github-nos3): the modified NOS3 code is here (including ISL and IDS/IPS). Example to start(stop) the simulator : *./start.sh* (*./stop.sh*).
+5. [*FrontEnd*](/eclipse-workspace/frontend): the FrontEnd component code is here. 
+6. [*Imager*](/eclipse-workspace/imager): the imager component code is here. 
+7. [*Mission*](/eclipse-workspace/mission): the automatic mission component code is here. 
+8. [*Scenario_Manager*](/eclipse-workspace/Scenario_Manager): the code of the scenario manager is here (launch one or several simulations and save the data). 
+9. */opt/nos3/*: NASA 42 and COSMOS are installed here in the VM. Cosmos folders are duplicated for each satellite in the constellation (cosmos1, cosmos2, etc).
+10. [*/Dataset_Utils/*](): code for automatic dataset generation (included as external repository).
 
 Limitations:
  
 1. The simulator architecture is adapted only for small constellations. 
 2. The RF layer is not simulated.
+
+A simple guide for this simulator can be found in [WORK IN PROGRESS]() 
 
 ### Prerequisites
 
