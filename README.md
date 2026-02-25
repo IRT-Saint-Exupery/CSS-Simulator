@@ -114,7 +114,7 @@ Please note that CSS Platform is composed by multiple repositories :
 5. [*FrontEnd*](/eclipse-workspace/frontend): the FrontEnd component code is here. 
 6. [*Imager*](/eclipse-workspace/imager): the imager component code is here. 
 7. [*Mission*](/eclipse-workspace/mission): the automatic mission component code is here. 
-8. [*Scenario_Manager*](/eclipse-workspace/Scenario_Manager): the code of the scenario manager is here (launch one or several simulations and save the data). 
+8. [*Scenario_Manager*](/Scenario_Manager): the code of the scenario manager is here (launch one or several simulations and save the data). 
 9. */opt/nos3/*: NASA 42 and COSMOS are installed here in the VM. Cosmos folders are duplicated for each satellite in the constellation (cosmos1, cosmos2, etc).
 10. [*/Dataset_Utils/*](): code for automatic dataset generation (included as external repository).
 
