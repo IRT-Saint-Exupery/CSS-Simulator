@@ -1,0 +1,32 @@
+******
+This LOG file track the main modifications / alterations with respect to NASA NOS3 software v1.6.2.
+
+DATE 04/2025: 
+
+- CryptoLib and CryptoLib Standalone have been modified to manage a constellation of satellites and to correct some bugs. 
+- Generic ADCS has been modified to introduce a new control mode (normal mode).
+- CI/TO have been modified.
+- SCH has been modified.
+- NASA 42 sockets have been modified.
+- start/stop and Makefiles have been modified.
+- 2 star trackers have been integrated.
+- several modifications have been added to cFS (and to NOS3 in general) and marked with //IRT CSS.
+- several utility scipts have been introduced.
+
+New Components (not included with NASA NOS3):
+
+- ISL/RM 
+- FrontEnd 
+- Imager 
+- CSS_Attacks
+- IDS/IPS
+- Input_Generator 
+- Generic mission 
+- Scenario_Manager
+- ...
+
+
+CSS project (2023 - 2026) is led by the French Institute for Technological Research (IRT) in Toulouse, more info are available in the README file.
+
+
+
