@@ -107,16 +107,16 @@ In the context of CSS project, it has been decided to split the simulator on mul
 
 Please note that CSS Platform is composed by multiple repositories :
 
-1. [*Install_tools_nos3*](/Install_tools_nos3): this is to deploy a constellation and to diffuse updates (see *Procedure.txt* for all the detailed steps). Example to diffuse updates to all satellites: *./Do_Update_All.sh*
-2. [*CSS_Attacks*](/CSS_Attacks): this is the folder containing the exploits developed for CSS project. For help you can use *./Master_Attacks_Scripts.sh 0*
+1. [*Install_tools_nos3*](/Install_tools_nos3): this is to deploy a satellite or a constellation and to diffuse updates.
+2. [*CSS_Attacks*](/CSS_Attacks): this is the folder containing the exploits developed for CSS project.
 3. [*Input_Generator*](/Input_Generator): the python code of the input generator is here. You can define and automate the TC sent to the constellation.
-4. [*Github-nos3*](/Desktop/github-nos3): the modified NOS3 code is here (including ISL and IDS/IPS). Example to start(stop) the simulator : *./start.sh* (*./stop.sh*).
+4. [*Github-nos3*](/Desktop/github-nos3): the modified NOS3 code is here (including [ISL](/Desktop/github-nos3/components/isl) and [IDS](/Desktop/github-nos3/components/ids)).
 5. [*FrontEnd*](/eclipse-workspace/frontend): the FrontEnd component code is here. 
 6. [*Imager*](/eclipse-workspace/imager): the imager component code is here. 
 7. [*Mission*](/eclipse-workspace/mission): the automatic mission component code is here. 
 8. [*Scenario_Manager*](/Scenario_Manager): the code of the scenario manager is here (launch one or several simulations and save the data). 
 9. */opt/nos3/*: NASA 42 and COSMOS are installed here in the VM. Cosmos folders are duplicated for each satellite in the constellation (cosmos1, cosmos2, etc).
-10. [*/Dataset_Utils/*](): code for automatic dataset generation (included as external repository).
+10. [*/Dataset_Utils/*](): the code for automatic dataset generation is here (included as separate GitHub repository).
 
 Limitations:
  
@@ -144,9 +144,7 @@ However, a priori it is possible to deploy and test the simulator locally (or on
 
 ### Installation
 
-For deployment and installation, once you have downloaded the main VM, there are two options.
-
-1. You have access to **CITEF** (or similar software) and you have created your scenario and the associated network. For example the following scenario : 
+For deployment and installation, once you have downloaded the main VM, you should create your own scenario using for example **CITEF** or VirtualBox. For example the following scenario: 
 
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
@@ -155,17 +153,9 @@ For deployment and installation, once you have downloaded the main VM, there are
 
 <div align="left">
 
-  In this case you can simply log into the VM representing the first satellite of your constellation (SAT1) and you can follow the steps described in the *Procedure.txt* file in */home/nos3/Install_tools_nos3*. 
+Once all VMs are launched, you can simply log into the VM representing the first satellite of your constellation (SAT1) and you can follow the steps described in [README](/Install_tools_nos3/README.md).
   
-  - modify *IP_Scenarios.sh* to choose *NBSAT* (number of satellites).
-  - call *./Simple_Deploy.sh* and wait for the script to complete (update and specialize the VMs).
-  - log into VM MCS, open a terminal as root, call *launch_containers.sh*, then in *github-nos3* folder call *make*.
-
-2. You have access to Virtual Box (or similar software) and you have created your scenario and the associated network manually. In this case, once all VMs are launched, you can simply log into the VM representing the first satellite of your constellation (SAT1) and you can follow the steps described in the *Procedure.txt* file in */home/nos3/Install_tools_nos3*. 
-
-  - WORK IN PROGRESS
-
-Here an example of CITEF scenario with 7 satellites : 
+Here is also an example of CITEF scenario with 7 satellites: 
 
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
@@ -178,7 +168,12 @@ Here an example of CITEF scenario with 7 satellites :
 
 ## Usage
 
-To **launch the simulator** just log to the first satellite (ex. *SAT1(.11)*) and use *./start.sh*  (and *./stop.sh* to stop the simulator) in *github-nos3* folder.
+To **launch the simulator** just log to the first satellite (ex. *SAT1(.11)*) and use 
+
+```bash
+./start.sh
+```
+in [*Github-nos3*](/Desktop/github-nos3) folder (*./stop.sh* to stop the simulator).
 
 After launch (generally 1 to 2 minutes) : 
 1. NOS3 flight software tabs will be available in each SAT VM. 
@@ -194,37 +189,36 @@ After launch (generally 1 to 2 minutes) :
 
 <div align="left">
 
-The **automatic mission** defined in mission component will start a few minutes after starting the simulator. In particular, the targets of the mission are defined in *~/eclipse-workspace/mission/config/targets.txt*. TO Telemetry, Sensors and Normal mode are activated by TC during the mission. You can also craft your own mission/test using the scriptrunner menu of COSMOS.
+The **automatic mission** defined in mission component will start a few minutes after starting the simulator. In particular, the targets of the mission are defined in [targets.txt](/eclipse-workspace/mission/config/targets.txt). TO Telemetry, Sensors and Normal mode are activated by TC during the mission.
  
 You can test some **attacks** using:
- - *./Master_Attacks_Scripts.sh 0* for help.
- - *./Master_Attacks_Scripts.sh* \< *number of the exploit* \>
 
-See *CSS_Attacks* folder and CSS manual for more details on the attacks. 
+```bash
+./Master_Attacks_Scripts.sh <exploit_number>
+```
+
+See [*CSS_Attacks*](/CSS_Attacks) folder and CSS manual for more details. 
 
 A live demonstration of CSS simulation platform has been presented at:
 
 * [CYSAT 2025](https://cysat.eu/cysat-europe)
 * [Starion/Nexova Tech Talks](https://youtu.be/7SkSOk2pjhM?feature=shared)
-* [WORK IN PROGRESS]()
 
 
 **Notes and Limitations:**
-1. IDS/IPS component is active by default, you should modify the script */github-nos3/components/ids/fsw/src/ids_probes.h* to disable the 3 probes and recompile the simulator. The IDS is in mode "prevention" by default once activated. Logs about attacks are dropped in */tmp* folder. 
+1. IDS/IPS component is active by default, you should modify the script [ids_probes.h](/github-nos3/components/ids/fsw/src/ids_probes.h) to disable the 3 probes and recompile the simulator. The IDS is in mode "prevention" by default once activated. Logs about attacks are dropped in */tmp* folder. 
 2. TTL (Time To Leave) information is added by default in front of each TF (1 octet) in order to avoid loops into the constellation network. A counter about dropped packets is available in ISL Telemetry. In order to deactivate TTL check in, one can use *ISL_TTL_FEATURE=0* in *isl_app.h*. Warning: *ISL_TTL_INIT* in ISL and *TTL_INIT* in FrontEnd shall be the same. 
-3. A check for new routing tables received by TC is added by default in ISL to avoid loops. Comment the *#define ISL_LOOP_CHECK* in *isl_app.h* to deactivate this feature. 
-4. A dummy MAC is introduced to identify some Critical TCs as *CFE_ES_STOP_APP* and *GENERIC_ADCS_SET_MODE_CC* (end of the SPP packet). One can use the same approach to define other critical TCs.
+3. A check for new routing tables received by TC is added by default in ISL to avoid loops. Comment *#define ISL_LOOP_CHECK* in *isl_app.h* to deactivate this feature. 
+4. A dummy MAC is introduced to identify some Critical TCs as *CFE_ES_STOP_APP* and *GENERIC_ADCS_SET_MODE_CC* (end of SPP packet). One can use the same approach to define other critical TCs.
 5. Watchdog messages are exchanged among the satellites via the ISL (as TM messages). 
 6. CFDP layer is based on external python library [here](https://gitlab.com/librecube/lib/python-cfdp). See *CF_UPLINK_FILE* / *CF_DOWNLINK_FILE* commands.
-7. The ground stations used for visibility computation are in *Inp_Sim.txt*. The simulator consider a simple dynamic routing algorithm by default (simple ring topology with 1 feeder link). 
+7. The ground stations used for visibility computation are in *Inp_Sim.txt*. 
+8. The simulator consider a simple dynamic routing algorithm by default (simple ring topology with 1 feeder link).
+
+More information can be found in the simulator guide. 
 
 **Development**
-1. The simulator development can be managed completely from SAT1 VM. We suggest to modify only SAT1 and then to diffuse the modifications. This is managed via bash scripts in *Install_tools_nos3* folder.
- - *./Do_Update_All.sh* to diffuse the modifications 
- - *./Do_Make_All_VM.sh* to recompile
- - Only for modifications in COSMOS files, compile (as root) also on MCS VM (call *make* in github-nos3 folder).
-2. You can clean using *./Do_MakeClean_All_VM.sh* plus *./Do_Make_All_VM.sh* to recompile.
-
+1. The simulator development can be managed completely from SAT1 VM. We suggest to modify only SAT1 and then to diffuse the modifications. This is managed via bash scripts in [*Install_tools_nos3*](/Install_tools_nos3) folder, see [README](/Install_tools_nos3/README.md).
 
 <!-- PUBLICATIONS EXAMPLES -->
 ## Publications
@@ -235,8 +229,6 @@ A live demonstration of CSS simulation platform has been presented at:
 * [WORK IN PROGRESS]()
 
 If you find this work useful, please acknowledge it by citing these papers.
-
-A simple guide for this simulator can be found in [WORK IN PROGRESS]() 
 
 <!-- LICENSE -->
 ## License

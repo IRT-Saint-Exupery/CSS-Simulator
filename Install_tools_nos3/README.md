@@ -136,6 +136,8 @@ If you need to modify or develop the code:
 - All VMs must be on the same network.
 - Ensure SSH access is properly configured.
 - Always wait for deployment scripts to fully complete before proceeding.
+- Only for modifications in COSMOS files, recompile (as root) also on MCS VM.
+- See Procedure.txt and simulator guide for more details.
 
 ---
 

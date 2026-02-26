@@ -1,7 +1,7 @@
 ******
 This LOG file track the main modifications / alterations with respect to NASA NOS3 software v1.6.2.
 
-DATE 04/2025: 
+DATE 02/2026: 
 
 - CryptoLib and CryptoLib Standalone have been modified to manage a constellation of satellites and to correct some bugs. 
 - Generic ADCS has been modified to introduce a new control mode (normal mode).
@@ -23,10 +23,11 @@ New Components (not included with NASA NOS3):
 - Input_Generator 
 - Generic mission 
 - Scenario_Manager
+- Dataset_Utils
 - ...
 
 
-CSS project (2023 - 2026) is led by the French Institute for Technological Research (IRT) in Toulouse, more info are available in the README file.
+CSS project (2023 - 2026) is led by the French Institute for Technological Research (IRT) in Toulouse, more info are available in the README file and in the guide of the simulator.
 
 
 
