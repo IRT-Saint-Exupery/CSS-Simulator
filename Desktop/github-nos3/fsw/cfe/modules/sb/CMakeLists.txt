@@ -26,6 +26,8 @@ set(sb_SOURCES
     ../../../../components/ids/fsw/src/ids_p3.c
     ../../../../components/ids/fsw/src/ids_app.c
     ../../../../components/ids/fsw/src/ids_device.c
+    ../../../../components/ids/fsw/src/ids_analyzer.c
+    ../../../../components/ids/fsw/src/RulesParser/probe3_rules.c
 )
 add_library(sb STATIC ${sb_SOURCES})
 

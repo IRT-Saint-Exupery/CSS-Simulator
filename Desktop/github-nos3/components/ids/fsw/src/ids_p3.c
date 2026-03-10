@@ -2,17 +2,8 @@
 //TODO - see if still useful (needed if each task self-reports the alert directly)
 #include "ids_app.h"
 
-char rule_islkill_bus[] = "D 0x1806 5 0:STRING:160 'ISL'";
-char rule_cikill_bus[] = "D 0x1806 5 0:STRING:160 'CI'";
-char rule_camdelete_bus[] = "E0|E1 0x188C 5 0:STRING:512 '/cf/arducam.so';E1|E0 0x18B3 36 96:STRING:80 'arducam.so';E1|D 0x1806 5 0:STRING:160 'CAM';E1|D 0x1806 6 0:STRING:160 'CAM'";
-char rule_sw_bus[] = "D 0x188C 7 0:STRING:512 '/cf'";
-//TODO - add in here a marker to use the flow_count directly via rule syntax (flow_mode=on ?)
-char rule_cam_crash[] = "E0|E1 0x18C8 12;E1|E0 0x0808 0 256:STRING:976 'CAM\\EXP3\\Complete';E1|D 0x1806 6 0:STRING:160 'CAM';E1|D 0x1806 5 0:STRING:160 'CAM'";
-char rule_satellite_spin[] = "E0|E1 0x1940 2 0:INT:8 0;E1|E2 0x1992 3;E2|E0 0x1940 2 0:INT:8 3";
 
-char *rule_test_bus[BUS_RULE_NB] = { (char *)&rule_islkill_bus, (char *)&rule_cikill_bus, (char *)&rule_camdelete_bus, (char *)&rule_sw_bus, rule_cam_crash, rule_satellite_spin };
-
-struct p3_rules bus_rules;
+struct p3_rules p3_struct;
 
 static FILE *log_spin;
 
@@ -94,12 +85,10 @@ static struct task_profile profile_tab[33/*Total task number*/] = {
 };
 #endif
 
-void init_rule_parsing()
+void init_p3()
 {
-	for(int i=0; i<BUS_REAL_RULE_NB; i++)
-	{
-		bus_rules.has_param[i] = 0;
-	}
+	probe3_init();
+	p3_struct.rules =(rule_t *) &probe3_rules;
 }
 
 void update_Log_P3(FILE * log_file, OS_time_t *simtime, unsigned int seconds, struct timespec *realtime, uint16_t msgId, int16_t fc, uint8_t is_tc, CFE_ES_AppId_t AppId, char *TaskName, CFE_SB_Buffer_t *Content, size_t ContentSize, uint8_t attack_tag, int8_t is_allowed)
@@ -113,224 +102,27 @@ void update_Log_P3(FILE * log_file, OS_time_t *simtime, unsigned int seconds, st
 	}
 	fprintf(log_file,"\n");
 	fflush(log_file);
-	    
-	// NOT FLUSHING IS DIRTY BUT FAST, SWITCH TO WRITE LATER
-	/*if (logs_print_counter % 32 == 0) {
-		fflush(log_file);
-	}*/
 }
 
-char parse_rules_bus(/*char ** rules_array*/)
-{
-    init_rule_parsing();
-	
-	char param_data_holder[20];
-	int j = 0; // real rules nb (split of statefull also increment this)
-	char *split_ptr, *split_rules_ptr;
-	uint8_t split_count = 0, statefull_rules_count = 0;
-	char *saveptr0, *saveptr1;
-
-	for (int i=0; i<BUS_RULE_NB /*NUMBER OF RULES*/; i++)
-	{
-		split_count = 0;
-
-		//printf("rule : %s\n", rule_test_bus[i]);
-
-		//if the rule is statefull and contains multiple rules
-		if (strchr(rule_test_bus[i], ';')!=NULL)
-		{
-				split_rules_ptr = strtok_r((char *)rule_test_bus[i], ";", &saveptr0);
-
-				while(split_rules_ptr != NULL)
-				{
-						//parse each rule and populate structures
-						//printf("rule : %s\n", split_rules_ptr);
-						split_count = 0; //prevent miscount on statefull rules
-						split_ptr = strtok_r((char *)split_rules_ptr, " ", &saveptr1);
-						parse_single_rule_bus(split_ptr, &split_count, saveptr1, param_data_holder, j, statefull_rules_count);
-						split_rules_ptr = strtok_r(NULL, ";", &saveptr0);
-						j++;
-				}
-				statefull_rules_count++; //increment statefull rules count to allow for a new rule to have a new state variable allocated
-		}
-		else
-		{
-				//the rule is single and stateless, parse and populate struct
-				split_ptr = strtok_r((char *)rule_test_bus[i], " ", &saveptr1); // MOVE ALL UNDER AND THIS INTO THE LOOP BEFORE THIS
-				parse_single_rule_bus(split_ptr, &split_count, saveptr1, param_data_holder, j, statefull_rules_count);
-				j++;
-		}
-	}
-	return 0;
-}
-
-void parse_single_rule_bus(char *split_ptr, uint8_t *split_count, char *saveptr1, char param_data_holder[20], int i, uint8_t statefull_rules_count)
-{
-
-        char *state_action_ptr, *cond_ptr, *action_ptr, *data_split_ptr;
-        uint8_t data_split_ctr;
-        unsigned int state_action_sp_count = 0; // change type ? need for int ?
-        char *saveptr2, *saveptr3;
-
-        while(split_ptr != NULL)
-        {
-                //printf("split str : %s, split count : %d\n",split_ptr, *split_count);
-                switch (*split_count)
-                {
-                        case 0:
-                                ; //TODO - Put everything under in a specific function so that we can remove this weird semicolon
-                                // Action and State machine if any
-								//printf("\033[1mstate val for cam delete before doing anything : %d, j : %d\033[0m\n",bus_rules.state_table[0], i);
-                                cond_ptr = NULL;
-                                //printf("Action & State : %s\n", split_ptr);
-
-                                if (strchr(split_ptr, '|')!=NULL)
-                                {
-                                        //a '|' is present, so cond and action -> stateful rule
-                                        bus_rules.state_id[i] = statefull_rules_count;
-
-                                        state_action_ptr = strtok_r((char *)split_ptr, "|", &saveptr2);
-                                        state_action_sp_count = 0;
-
-                                        // works only with E0|E1 or E1|D
-                                        while(state_action_ptr != NULL)
-                                        {
-                                                if (state_action_sp_count == 0)
-                                                {
-                                                        cond_ptr = state_action_ptr;
-                                                }
-                                                else
-                                                {
-                                                        action_ptr = state_action_ptr;
-                                                }
-                                                state_action_ptr = strtok_r(NULL, "|", &saveptr2);
-                                                state_action_sp_count++;
-                                        }
-                                }
-                                else
-                                {
-                                        //stateless single rule
-                                        action_ptr = split_ptr;
-                                        bus_rules.state_id[i] = -1;
-                                }
-
-                                //printf("cond : %s, action : %s\n", cond_ptr, action_ptr);
-								strncpy(bus_rules.action_tab[i], action_ptr, strlen(action_ptr));
-
-                                if (cond_ptr != NULL)
-                                        strncpy(bus_rules.cond_tab[i], cond_ptr, strlen(cond_ptr));
-                                else
-                                        strncpy(bus_rules.cond_tab[i], " ", 2);
-
-                                break;
-                        case 1:
-                                // MsgId
-                                bus_rules.msgid_tbl[i] = (uint16_t) strtol(split_ptr, NULL, 16);
-                                break;
-                        case 2:
-                                bus_rules.fc_tbl[i] =  (uint8_t) strtol(split_ptr, NULL, 10);
-                                break;
-                        case 3:
-                                strncpy(param_data_holder, split_ptr, strlen(split_ptr)+1); // +1 for '\0'
-
-                                data_split_ctr = 0;
-
-                                data_split_ptr = strtok_r((char *)param_data_holder, ":", &saveptr3);
-
-                                while(data_split_ptr != NULL)
-                                {
-                                        //printf("subpslit : %s\n",data_split_ptr);
-                                        switch(data_split_ctr)
-                                        {
-                                                case 0:
-                                                        bus_rules.param_offset[i] = (uint16_t) strtol(data_split_ptr, NULL, 10);
-                                                        break;
-
-                                                case 1:
-                                                        if (strcmp(data_split_ptr, "STRING")==0)
-                                                        {
-                                                                bus_rules.param_is_string[i] = true;
-                                                        }
-                                                        else if (strcmp(data_split_ptr, "INT")==0)
-                                                        {
-                                                                bus_rules.param_is_string[i] = false;
-                                                        }
-                                                        else
-                                                        {
-                                                                printf("BAD RULE PARAM TYPE\n");
-                                                                // TODO - add enum state for undefined
-                                                                break;
-                                                        }
-
-                                                        break;
-												case 2:
-                                                        bus_rules.param_length[i] = (uint16_t) strtol(data_split_ptr, NULL, 10);
-                                                        break;
-                                                default:
-                                                        printf("BAD SYNTAX ON OFFSET:TYPE:LEN FIELD");
-                                                        break;
-                                        }
-                                        data_split_ptr = strtok_r(NULL, ":", &saveptr3);
-                                        data_split_ctr++;
-                                }
-
-								bus_rules.has_param[i] = 1;
-                                break;
-                        case 4:
-                                //printf("param value : %s \n", split_ptr);
-				
-				if (bus_rules.param_is_string[i] == true)
-				{
-					char *pos = strchr(split_ptr, '\\');
-					while (pos != NULL)
-					{
-						//printf("pos id : %d\n",pos-split_ptr);
-						*pos=' ';
-						pos = strchr(split_ptr, '\\');
-					}
-					
-					//strip the "'" character leading and ending the string
-					pos = strchr(split_ptr, '\'');
-					*pos=' '; //skipped on purpose by starting cpy at split_ptr+1
-					pos = strchr(split_ptr, '\'');
-					*pos='\0';
-                                	strncpy(bus_rules.param_vals[i], split_ptr+1, strlen(split_ptr)-1);
-				}
-				else // INT FOR THE MOMENT
-				{	
-					//printf("param value : %s \n", split_ptr);
-                                	strncpy(bus_rules.param_vals[i], split_ptr, strlen(split_ptr));
-				}
-				// TEST A CHANGER AAAAAA - TODO
-                                //strncpy(bus_rules.param_vals[i], split_ptr, strlen(split_ptr));
-                                break;
-                        default:
-                                printf("TOO MUCH PARAMS IN RULE \n");
-                                break;
-                }
-                split_ptr = strtok_r(NULL, " ", &saveptr1);
-                //printf("split str : %s, split count : %d\n",split_ptr, split_count);
-                (*split_count)++;
-        }
-}
 
 void* time_thread_fct_spin(void *arg)
 {
-	printf("démarrage thread spin\n");
+	#ifdef P3_SATSPIN_DEBUG
+	printf("spin thread startup\n");
+	#endif
 	do
 	{
 		sleep(8);
-		printf("[P3] ALERTE %s\n",(const char *)arg);
+		printf("[P3 - SPIN] ALERT, %s\n",(const char *)arg);
 		log_spin= fopen("/tmp/logattack_spin.txt", "a");
 		struct timespec realtime;
 		time_t timestamp = time(NULL);
 		struct tm* timeInfos = localtime(&timestamp);
 		timespec_get(&realtime, TIME_UTC);
-		fprintf(log_spin, "[P3] ALERTE SPIN at : %ld.%09ld / %02d:%02d:%02d\n", realtime.tv_sec, realtime.tv_nsec, timeInfos->tm_hour, timeInfos->tm_min, timeInfos->tm_sec);
+		fprintf(log_spin, "[P3] SPIN ALERT at : %ld.%09ld / %02d:%02d:%02d\n", realtime.tv_sec, realtime.tv_nsec, timeInfos->tm_hour, timeInfos->tm_min, timeInfos->tm_sec);
 		fclose(log_spin);
-	} while (bus_rules.state_table[2]==2);
-	
-	
+	} while (p3_struct.rules[5].holder==2);
+
 	//bus_rules.state_table[2] = 0; //TRICK TO RESET STATE MACHINE AFTER AN ALERT IS RAISED !! TODO - CHANGE IT SO THAT DURING ATTACKS WE JUST SEND ALERTS EVERY 10 SEC
 	
 	return NULL;
@@ -353,7 +145,7 @@ void* time_thread_fct_cam(void *arg)
 	} while (currtime.ticks - starttime.ticks < CAM_RESULT_TIMEOUT);
 	
 	((struct p3_rules *)arg)->flow_count[0] = 0;
-	((struct p3_rules *)arg)->state_table[1] = 0;
+	((struct p3_rules *)arg)->rules[4].holder = 0;
 	*(&is_t_cam_in_use)=0;
 	printf("[P3 - TC Analyzer] cam result timeout, number of sleeps : %d\n", i);
 	printf("[P3 - TC Analyzer] changing state[1] from %d to %d\n", 1, 0);
@@ -361,20 +153,20 @@ void* time_thread_fct_cam(void *arg)
 	return NULL;
 }
 
-void cond_action_processing(int i/*rule nb*/,uint16_t msgId,uint16_t fc, uint8_t *param_ptr, char * is_accepted, char * rule_matched)
+void p3_cond_action_processing(subrule_t* subrule, rule_t *rule, int i/*rule nb*/, uint16_t msgId, uint16_t fc, uint8_t *param_ptr, char * is_accepted, char * raise_alert, char * rule_matched)
 {
 	uint8_t state_val_holder;
 	uint8_t cond_val_holder;
 
 	if ((msgId == 0x18C8)&&(fc == 12))
 	{
-		bus_rules.flow_count[0]++; //increment the number of photos to wait for
+		p3_struct.flow_count[0]++; //increment the number of photos to wait for
 		#ifdef P3_CAMRESULTS_WORKAROUND_DEBUG
-		printf("\033[1mflow_count++ : %d\033[0m\n", bus_rules.flow_count[0]);
+		printf("\033[1mflow_count++ : %d\033[0m\n", p3_struct.flow_count[0]);
 		#endif
 		if (is_t_cam_in_use==0)
 		{
-			pthread_create(&thread_cam, NULL, time_thread_fct_cam,(void*) &bus_rules);
+			pthread_create(&thread_cam, NULL, time_thread_fct_cam,(void*) &p3_struct);
 			is_t_cam_in_use = 1;
 		}
 		#ifdef P3_CAMRESULTS_WORKAROUND_DEBUG
@@ -385,22 +177,22 @@ void cond_action_processing(int i/*rule nb*/,uint16_t msgId,uint16_t fc, uint8_t
 		#endif
 	}
 
-	if ((msgId == 0x0808) && (bus_rules.param_is_string[i]) && (strncmp("CAM EXP3 Complete", (char *)param_ptr, bus_rules.param_length[i]/8)==0)) //TODO - works because only one rule uses 0808, cannot work if more use it
+	if ((msgId == 0x0808) && (subrule->rule_body.rule_parameters.val_type == STRING) && (strncmp("CAM EXP3 Complete", (char *)param_ptr, subrule->rule_body.rule_parameters.length/8)==0))
 	{
-		if (bus_rules.flow_count[0]>0)
+		if (p3_struct.flow_count[0]>0)
 		{
-			bus_rules.flow_count[0]--; //decrement
+			p3_struct.flow_count[0]--; //decrement
 			#ifdef P3_CAMRESULTS_WORKAROUND_DEBUG
-			printf("\033[1mflow_count-- : %d\033[0m\n", bus_rules.flow_count[0]);
+			printf("\033[1mflow_count-- : %d\033[0m\n", p3_struct.flow_count[0]);
 			#endif
 			if (is_t_cam_in_use != 0) //is already in use
 			{
 				// we restart the timeout counter
 				pthread_cancel(thread_cam);
 				is_t_cam_in_use = 0;
-				if (bus_rules.flow_count[0]>0)
+				if (p3_struct.flow_count[0]>0)
 				{
-					pthread_create(&thread_cam, NULL, time_thread_fct_cam,(void*) &bus_rules);
+					pthread_create(&thread_cam, NULL, time_thread_fct_cam,(void*) &p3_struct);
 					is_t_cam_in_use = 1;
 				}
 			}
@@ -411,36 +203,44 @@ void cond_action_processing(int i/*rule nb*/,uint16_t msgId,uint16_t fc, uint8_t
 		}
 	}
 
-	cond_val_holder = bus_rules.cond_tab[i][1] - '0'; // WILL NOT WORK IF MULTIPLE COND and ONLY with E[0-9]
+	cond_val_holder = subrule->header.start_state; // WILL NOT WORK IF MULTIPLE COND
 
 	//printf("[i=%d]rule cond : %s, strncmp cond " " : %d, state_table[state_id] = %d, cond_val_holder : %d\n", i, bus_rules.cond_tab[i], strncmp(bus_rules.cond_tab[i], " ", 2/*TEST*/), bus_rules.state_table[bus_rules.state_id[i]], cond_val_holder);
-	if ((strncmp(bus_rules.cond_tab[i], " ", 2/*TEST*/)==0)||(bus_rules.state_table[bus_rules.state_id[i]] == cond_val_holder))
+	if (rule->holder == cond_val_holder)
 	{
-		//printf("cond is valid\n");
+		//cond is valid
 		printf("[P3 - TC Analyzer] Match for rule %d\n", i);
-		printf("[P3 - TC Analyzer] Action : %s\n", bus_rules.action_tab[i]);
-		
+		printf("[P3 - TC Analyzer] Action : ");
+
 		//NOT ROBUST TO |E1,D ! only D or E1 atm !
-		if (strncmp(bus_rules.action_tab[i], "D", 5)==0)
+		if (subrule->header.action.measure == DROP)
 		{
+			printf("DROP\n");
 			*is_accepted = false;
-		}
-		else //TODO - CHECK IF COND IS MET !!!
+			*raise_alert = true;
+		}	
+		else if (subrule->header.action.measure == ALERT)
 		{
-			// go from "E[0-9]" in the rule to [0-9] value -> only works up to 10 !!!
-			state_val_holder = bus_rules.action_tab[i][1] - '0';
+			printf("ALERT\n");
+			*raise_alert = true;
+		}
+		else
+		{
+			printf("Switch to %d\n", subrule->header.action.value);
+			
+			state_val_holder = subrule->header.action.state;
 			
 			//printf("msgId = %02x, fc = %d, cur_state = %d, next_state = %d\n",msgId,fc,bus_rules.state_table[bus_rules.state_id[i]],state_val_holder);	
 			if ((msgId == 0x1992)&&(fc == 3))
 			{
-				if ((bus_rules.state_table[bus_rules.state_id[i]]==1)&&(state_val_holder==2))
+				if ((rule->holder==1)&&(state_val_holder==2))
 				{
 					#ifdef P3_SATSPIN_DEBUG
 					printf("on arme la bombe\n");
 					#endif
 					if (!is_t_spin_in_use)
 					{
-						pthread_create(&thread_spin, NULL, time_thread_fct_spin,(void*) "[BOOM]");
+						pthread_create(&thread_spin, NULL, time_thread_fct_spin,(void*) "[POSSIBLE TUMBLING]");
 						is_t_spin_in_use = 1;
 					}
 					else
@@ -451,7 +251,7 @@ void cond_action_processing(int i/*rule nb*/,uint16_t msgId,uint16_t fc, uint8_t
 			}
 			if ((msgId == 0x1940)&&(fc == 2))
 			{
-				if ((bus_rules.state_table[bus_rules.state_id[i]]==2)&&(state_val_holder==0))
+				if ((rule->holder==2)&&(state_val_holder==0))
 				{
 					#ifdef P3_SATSPIN_DEBUG
 					printf("on defuse la bombe\n");
@@ -467,11 +267,9 @@ void cond_action_processing(int i/*rule nb*/,uint16_t msgId,uint16_t fc, uint8_t
 					}
 				}
 			}
-
-			OS_time_t currtime;	
-			CFE_PSP_GetTime(&currtime);
-
-			if ((msgId == 0x0808)&& (bus_rules.param_is_string[i]) && (strncmp("CAM EXP3 Complete", (char *)param_ptr, bus_rules.param_length[i]/8)==0)&&(bus_rules.flow_count[0]!=0))
+			
+			if ((msgId == 0x0808) && (subrule->rule_body.rule_parameters.val_type == STRING) && 
+			(strncmp("CAM EXP3 Complete", (char *)param_ptr, subrule->rule_body.rule_parameters.length/8)==0) && (p3_struct.flow_count[0]!=0))
 			{
 				#ifdef P3_CAMRESULTS_WORKAROUND_DEBUG
 				printf("\033[1mno state change, waiting for other pictures (%d)\033[0m\n", bus_rules.flow_count[0]);
@@ -480,11 +278,9 @@ void cond_action_processing(int i/*rule nb*/,uint16_t msgId,uint16_t fc, uint8_t
 			}
 			else
 			{
-				printf("[P3 - TC Analyzer] changing state[%d] from %d to %d\n", bus_rules.state_id[i], bus_rules.state_table[bus_rules.state_id[i]], state_val_holder);
-				bus_rules.state_table[bus_rules.state_id[i]] = state_val_holder;
+				printf("[P3 - TC Analyzer] changing state of rule %d from %d to %d\n", i, rule->holder, state_val_holder);
+				rule->holder = state_val_holder;
 			}
-			//printf("state value : %d\n", bus_rules.state_table[bus_rules.state_id[i]]);
-			//bus_rules.state_table[bus_rules.state_id[i]] = state_val_holder;
 		}
 		*rule_matched = true;
 	}
@@ -493,6 +289,8 @@ void cond_action_processing(int i/*rule nb*/,uint16_t msgId,uint16_t fc, uint8_t
 		//printf("cond is not valid\n");
 	}
 }
+
+
 
 char is_command_allowed_bus(CFE_SB_Buffer_t *Content, size_t ContentSize, uint16_t msgId, uint16_t fc, char *Taskname, int8_t *alert_rule_nb)
 {	
@@ -573,77 +371,11 @@ char is_command_allowed_bus(CFE_SB_Buffer_t *Content, size_t ContentSize, uint16
 	}
 	#endif
 	
+
 	if(is_accepted)
 	{
-		uint8_t *param_ptr;
-		int offset;
-		char rule_matched = 0;
-		
-		for(int i = 0; i<BUS_REAL_RULE_NB /*TEST*/; i++)
-		{
-			unsigned int is_tlm_packet = !(bus_rules.msgid_tbl[i] & 0x1000); // if we have 0x0XXX this is true, if 0x1XXX this is false
-			
-			//printf("msgid : %02x, rule msgid : %02x, fc : %d, rule fc : %d\n", msgId, bus_rules.msgid_tbl[i], fc, bus_rules.fc_tbl[i]);
-			if ((bus_rules.msgid_tbl[i] == msgId)&&((bus_rules.fc_tbl[i] == fc)||(is_tlm_packet))) // TODO - This is_tlm_packet seems quite suspicious, update !!!!
-			{		
-				//printf("possible match for rule %d : %04X, %d\n",i,msgId,fc);
-				// if rule has no params
-				if (bus_rules.has_param[i]==0)
-				{
-					//printf("rule has no params\n");
-					cond_action_processing(i, msgId, fc, NULL, &is_accepted, &rule_matched);
-				}
-				else if (bus_rules.param_is_string[i])
-				{	
-					offset = bus_rules.param_offset[i]/8;
-					
-					//if the packet is a command (0x1XXX)
-					if (!is_tlm_packet)
-						param_ptr = &(Content->Msg.Byte[8+offset]); // 8 bytes for the CCSDS CMD SPP Header
-						// TODO - add checks to see if '\0' is present or if big trouble incoming
-					else
-						param_ptr = &(Content->Msg.Byte[16+offset]); // 16 bytes for the CCSDS TLM SPP Header 
-						// TODO - add checks to see if '\0' is present or if big trouble incoming
-					
-					//printf("param expected : %s, actual param : %s\n", bus_rules.param_vals[i], param_ptr);
-					//printf("strncmp result : %d\n",strncmp(bus_rules.param_vals[i],(char *)param_ptr, bus_rules.param_length[i]/8));
-					if (strncmp(bus_rules.param_vals[i],(char *)param_ptr, bus_rules.param_length[i]/8)==0) //should use total length but maybe better to use relative length of val ??? - TODO
-					{
-						cond_action_processing(i, msgId, fc, param_ptr, &is_accepted, &rule_matched);
-					}
-					//TODO - take into account non-string parameters and implement comparison
-					//else keep testing for other rules
-				}
-				else //INT ! ONLY 8 BITS SUPPORTED, NEED TO EDIT !
-				{
-					offset = bus_rules.param_offset[i]/8;
-					
-					//if the packet is a command (0x1XXX)
-					if (!is_tlm_packet)
-						param_ptr = &(Content->Msg.Byte[8+offset]); // 8 bytes for the CCSDS CMD SPP Header
-					else
-						param_ptr = &(Content->Msg.Byte[16+offset]); // 16 bytes for the CCSDS TLM SPP Header 
-					
-					if (atoi((char*)bus_rules.param_vals[i]) == *param_ptr) // *param_ptr only will work for 8bit INT values
-					{
-						cond_action_processing(i, msgId, fc, param_ptr, &is_accepted, &rule_matched);
-					}
-				}
-				//TODO - ADD SUPPORT FOR FLOATS ?
-
-				if(rule_matched)
-				{
-	    			if (!is_accepted) //TODO - edit to take into account simple alerts too and not only when the packet is blocked
-					{
-						#ifdef IDS_TELEM_ENABLED
-						IDS_RaiseAlert(6, (uint8_t)i, (uint16_t)ContentSize, 0, Content->Msg.Byte, NULL);
-						#endif
-						*alert_rule_nb = i;
-					}
-					break;
-				}
-			}
-		}
+		cond_processing_fct_ptr cond_fct_ptr = &p3_cond_action_processing;
+		is_accepted = analyzer_check_packet(p3_struct.rules, Content->Msg.Byte, ContentSize, msgId, fc, alert_rule_nb, P3_RULES_MODULE_NUMBER, cond_fct_ptr, PROBE3_RULE_NUMBER);
 	}
 
 	return is_accepted;

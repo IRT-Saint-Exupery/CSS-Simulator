@@ -1,0 +1,2 @@
+make launch RULES=tests/valid_input5.rules PREFIX=probe3 OUTPUT=probe3_rules VERBOSE=1
+make launch RULES=tests/valid_input4.rules PREFIX=probe2 OUTPUT=probe2_rules VERBOSE=1

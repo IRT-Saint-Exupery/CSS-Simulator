@@ -103,13 +103,17 @@ int32 CFE_SB_EarlyInit(void)
                  
     //LOUIS - IRT CSS - Init the log file & open
     #ifdef LOGGING_P3_ENABLED
+    //printf("\033[1mINIT VERY VERY NOT DONE\n\033[0m");
     log_fd = fopen("/tmp/logids_p3.csv", "w");
     fprintf(log_fd,"simtime,realtime,MsgId,FC,is_TC,AppId,TaskName,AttackTag,IDS_output,packet\n");
+    fflush(log_fd);
     logs_print_counter = 0;
     #endif
     #ifdef IDS_P3_ENABLED
+    //printf("\033[1mINIT VERY NOT DONE\n\033[0m");
     log_attack_bus = fopen("/tmp/logattack_fw_bus.txt", "w");
-    parse_rules_bus();
+    init_p3();
+    //parse_rules_bus();
     #endif
 
     return Stat;

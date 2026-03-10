@@ -162,7 +162,7 @@ int32 CI_CustomInit(void)
     **PARSE RULES & GENERATE ARRAYS, MOVE LATER TO INIT
     */
     #ifdef IDS_P2_ENABLED
-    parse_rules();
+    init_P2();
     #endif
 
     /* Initialize the UDP socket */
@@ -459,7 +459,7 @@ int32 CI_CustomReadCltuSocket(void)
         struct tm * timeinfo;
         time(&rawtime);
         timeinfo = localtime(&rawtime);
-        fprintf(log_attack,"Packet bloqué : ");
+        fprintf(log_attack,"Packet blocked : ");
         printf("[P2] Packet blocked\n");
         printf("len tc pdu : %d\n",crypto_tc_frame.tc_pdu_len);
         for (uint16 i = 0; i < crypto_tc_frame.tc_pdu_len; i++)
@@ -468,9 +468,9 @@ int32 CI_CustomReadCltuSocket(void)
         }
         fprintf(log_attack,"%s",asctime(timeinfo));
         fflush(log_attack);
-        #ifdef IDS_TELEM_ENABLED
-        IDS_RaiseAlert(4, rule_nb, crypto_tc_frame.tc_pdu_len, 0, crypto_tc_frame.tc_pdu, NULL);
-        #endif
+        //#ifdef IDS_TELEM_ENABLED
+        //IDS_RaiseAlert(4, rule_nb, crypto_tc_frame.tc_pdu_len, 0, crypto_tc_frame.tc_pdu, NULL);
+        //#endif
     }
     #endif
     
