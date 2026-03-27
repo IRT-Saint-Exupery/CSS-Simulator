@@ -23,12 +23,12 @@ NEW_ABS="${NEW_INT}${FRAC}"
 sed "s|<absolute-start-time>${ORIG_ABS}</absolute-start-time>|<absolute-start-time>${NEW_ABS}</absolute-start-time>|" "$XML_INIT" > "$XML_OUT"
 
 # 2) TXT - use epoch seconds, write to temp files first
-BASE_EPOCH=$(date -d '2025-10-18 08:30:00' +%s)
+BASE_EPOCH=$(date -u -d '2025-10-18 08:30:00' +%s)
 NEW_EPOCH=$((BASE_EPOCH + DELTA))
 
 # Create new lines in temp files (safe quoting)
-date -d "@$NEW_EPOCH" '+%m %d %Y                      !  Date (UTC) (Month, Day, Year)' > /tmp/new_date_line
-date -d "@$NEW_EPOCH" '+%H %M %S.%02N                     !  Time (UTC) (Hr,Min,Sec)' > /tmp/new_time_line
+date -u -d "@$NEW_EPOCH" '+%m %d %Y                      !  Date (UTC) (Month, Day, Year)' > /tmp/new_date_line
+date -u -d "@$NEW_EPOCH" '+%H %M %S.%02N                     !  Time (UTC) (Hr,Min,Sec)' > /tmp/new_time_line
 
 # Replace lines using temp files (proper sed syntax with variables)
 sed "/Date (UTC)/c $(cat /tmp/new_date_line)" "$INP_INIT" | \
