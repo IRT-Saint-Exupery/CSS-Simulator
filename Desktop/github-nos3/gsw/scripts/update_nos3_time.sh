@@ -36,3 +36,19 @@ sed "/Time (UTC)/c $(cat /tmp/new_time_line)" > "$INP_OUT"
 
 rm -f /tmp/new_date_line /tmp/new_time_line
 
+
+# update true anomaly (ok only for constant rate with e=0 !!!)
+TRUEAN=257.145
+. /home/nos3/Desktop/github-nos3/gsw/scripts/update_anomaly.sh $TRUEAN $1 /home/nos3/Desktop/github-nos3/sims/cfg/InOut/Orb_ISS_sat1.txt
+TRUEAN=308.574
+. /home/nos3/Desktop/github-nos3/gsw/scripts/update_anomaly.sh $TRUEAN $1 /home/nos3/Desktop/github-nos3/sims/cfg/InOut/Orb_ISS_sat2.txt 
+TRUEAN=0.0
+. /home/nos3/Desktop/github-nos3/gsw/scripts/update_anomaly.sh $TRUEAN $1 /home/nos3/Desktop/github-nos3/sims/cfg/InOut/Orb_ISS_sat3.txt 
+TRUEAN=51.429
+. /home/nos3/Desktop/github-nos3/gsw/scripts/update_anomaly.sh $TRUEAN $1 /home/nos3/Desktop/github-nos3/sims/cfg/InOut/Orb_ISS_sat4.txt 
+TRUEAN=102.858
+. /home/nos3/Desktop/github-nos3/gsw/scripts/update_anomaly.sh $TRUEAN $1 /home/nos3/Desktop/github-nos3/sims/cfg/InOut/Orb_ISS_sat5.txt 
+TRUEAN=154.287
+. /home/nos3/Desktop/github-nos3/gsw/scripts/update_anomaly.sh $TRUEAN $1 /home/nos3/Desktop/github-nos3/sims/cfg/InOut/Orb_ISS_sat6.txt 
+TRUEAN=205.716
+. /home/nos3/Desktop/github-nos3/gsw/scripts/update_anomaly.sh $TRUEAN $1 /home/nos3/Desktop/github-nos3/sims/cfg/InOut/Orb_ISS_sat7.txt 
