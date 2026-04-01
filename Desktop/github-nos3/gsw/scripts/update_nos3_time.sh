@@ -22,6 +22,15 @@ NEW_ABS="${NEW_INT}${FRAC}"
 
 sed "s|<absolute-start-time>${ORIG_ABS}</absolute-start-time>|<absolute-start-time>${NEW_ABS}</absolute-start-time>|" "$XML_INIT" > "$XML_OUT"
 
+# Also update the installed copy in the CMake build directory so that the NOS3
+# component simulators (launched from sims/build/bin/ by launch_sat.sh) read the
+# correct time. The build copy is a CMake-installed snapshot of the source; without
+# this update it would remain stale until the next `make sim`.
+BUILD_XML="/home/nos3/Desktop/github-nos3/sims/build/bin/nos3-simulator.xml"
+if [ -f "$BUILD_XML" ]; then
+    cp "$XML_OUT" "$BUILD_XML"
+fi
+
 # 2) TXT - use epoch seconds, write to temp files first
 BASE_EPOCH=$(date -u -d '2025-10-18 08:30:00' +%s)
 NEW_EPOCH=$((BASE_EPOCH + DELTA))
@@ -34,21 +43,4 @@ date -u -d "@$NEW_EPOCH" '+%H %M %S.%02N                     !  Time (UTC) (Hr,M
 sed "/Date (UTC)/c $(cat /tmp/new_date_line)" "$INP_INIT" | \
 sed "/Time (UTC)/c $(cat /tmp/new_time_line)" > "$INP_OUT"
 
-rm -f /tmp/new_date_line /tmp/new_time_line
-
-
-# update true anomaly (ok only for constant rate with e=0 !!!)
-TRUEAN=257.145
-. /home/nos3/Desktop/github-nos3/gsw/scripts/update_anomaly.sh $TRUEAN $1 /home/nos3/Desktop/github-nos3/sims/cfg/InOut/Orb_ISS_sat1.txt
-TRUEAN=308.574
-. /home/nos3/Desktop/github-nos3/gsw/scripts/update_anomaly.sh $TRUEAN $1 /home/nos3/Desktop/github-nos3/sims/cfg/InOut/Orb_ISS_sat2.txt 
-TRUEAN=0.0
-. /home/nos3/Desktop/github-nos3/gsw/scripts/update_anomaly.sh $TRUEAN $1 /home/nos3/Desktop/github-nos3/sims/cfg/InOut/Orb_ISS_sat3.txt 
-TRUEAN=51.429
-. /home/nos3/Desktop/github-nos3/gsw/scripts/update_anomaly.sh $TRUEAN $1 /home/nos3/Desktop/github-nos3/sims/cfg/InOut/Orb_ISS_sat4.txt 
-TRUEAN=102.858
-. /home/nos3/Desktop/github-nos3/gsw/scripts/update_anomaly.sh $TRUEAN $1 /home/nos3/Desktop/github-nos3/sims/cfg/InOut/Orb_ISS_sat5.txt 
-TRUEAN=154.287
-. /home/nos3/Desktop/github-nos3/gsw/scripts/update_anomaly.sh $TRUEAN $1 /home/nos3/Desktop/github-nos3/sims/cfg/InOut/Orb_ISS_sat6.txt 
-TRUEAN=205.716
-. /home/nos3/Desktop/github-nos3/gsw/scripts/update_anomaly.sh $TRUEAN $1 /home/nos3/Desktop/github-nos3/sims/cfg/InOut/Orb_ISS_sat7.txt 
+rm -f /tmp/new_date_line /tmp/new_time_line 
