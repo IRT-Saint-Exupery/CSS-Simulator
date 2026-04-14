@@ -116,14 +116,14 @@ Please note that CSS Platform is composed by multiple repositories :
 7. [*Mission*](/eclipse-workspace/mission): the automatic mission component code is here. 
 8. [*Scenario_Manager*](/Scenario_Manager): the code of the scenario manager is here (launch one or several simulations and save the data). 
 9. */opt/nos3/*: NASA 42 and COSMOS are installed here in the VM. Cosmos folders are duplicated for each satellite in the constellation (cosmos1, cosmos2, etc).
-10. [*/Dataset_Utils/*](): the code for automatic dataset generation is here (included as separate GitHub repository).
+10. [*Dataset_Utils*](): the code for automatic dataset generation is here (included as separate GitHub repository).
 
 Limitations:
  
 1. The simulator architecture is adapted only for small constellations. 
 2. The RF layer is not simulated.
 
-A simple guide for this simulator can be found in [*/Doc/*](/Doc) folder.
+A simple guide for this simulator can be found in [*Doc*](/Doc) folder.
 
 ### Prerequisites
 
@@ -158,7 +158,7 @@ Once all VMs are launched, you can simply log into the VM representing the first
 ```bash
 git pull origin main
 ```
-from the home directory of the VM and also from [*/Dataset_Utils/*]() in order to get the latest version of the code. Now, you can follow the steps described in [README](/Install_tools_nos3/README.md) to setup the simulation. 
+from the home directory of the VM and also from [*Dataset_Utils*]() in order to get the latest version of the code. Now, you can follow the steps described in [README](/Install_tools_nos3/README.md) to setup the simulation. 
 
   
 Here is also an example of CITEF scenario with 7 satellites: 
