@@ -123,7 +123,7 @@ Limitations:
 1. The simulator architecture is adapted only for small constellations. 
 2. The RF layer is not simulated.
 
-A simple guide for this simulator can be found in [WORK IN PROGRESS]() 
+A simple guide for this simulator can be found in [*/Doc/*](/Doc) folder.
 
 ### Prerequisites
 
@@ -136,7 +136,7 @@ The "comfortable" ressources CPU/RAM(GB) required to run the simulator can be su
 
 The VMs should share the same network (for deployment). The VMs are all defined from a generic VM (based on Ubuntu 20.04 LTS, same as NOS3 VM) that can be specialized after creation.
 
-The preferred method to deploy CSS simulator is via the main generic VM of the project, that you can request here : [WORK IN PROGRESS]().
+The preferred method to deploy CSS simulator is via the main generic VM of the project, that you can request here : [VM Link]().
 
 The CSS simulator has been defined and deployed in a proprietary cyber range environment (**CITEF** by [Nexova](https://www.nexovagroup.eu/en)). 
 However, a priori it is possible to deploy and test the simulator locally (or on dedicated hardware) using VirtualBox (as for NOS3), see next section.
@@ -153,7 +153,13 @@ For deployment and installation, once you have downloaded the main VM, you shoul
 
 <div align="left">
 
-Once all VMs are launched, you can simply log into the VM representing the first satellite of your constellation (SAT1) and you can follow the steps described in [README](/Install_tools_nos3/README.md).
+Once all VMs are launched, you can simply log into the VM representing the first satellite of your constellation (SAT1). It is suggested to perform 
+
+```bash
+git pull origin main
+```
+from the home directory of the VM and also from [*/Dataset_Utils/*]() in order to get the latest version of the code. Now, you can follow the steps described in [README](/Install_tools_nos3/README.md) to setup the simulation. 
+
   
 Here is also an example of CITEF scenario with 7 satellites: 
 
@@ -226,7 +232,6 @@ More information can be found in the simulator guide.
 * [ESA 3S 2025](https://indico.esa.int/event/571/attachments/7211/13615/A%20Satellite%20Constellation%20Simulator%20for%20Space.pdf): A satellite constellation simulator for space systems cybersecurity research and development. (Introduction)
 * [IAC 2025](https://dl.iafastro.directory/event/IAC-2025/paper/96166/): A novel simulation platform for space systems cybersecurity R&D. (Focused on attacks and mitigations)
 * [EDCC 2026](https://www.cs.kent.ac.uk/EDCC2026/home): Attack Scenarios and Embedded Intrusion Detection for Space Systems.
-* [WORK IN PROGRESS]()
 
 If you find this work useful, please acknowledge it by citing these papers.
 

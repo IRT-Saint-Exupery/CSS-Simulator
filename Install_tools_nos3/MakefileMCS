@@ -71,12 +71,12 @@ gsw:
 	$(MAKE) gsw-prep
 	#./gsw/scripts/makeFrontEnd.sh
 	./gsw/scripts/create_cosmos_gem_sat1.sh
-	./gsw/scripts/create_cosmos_gem_sat2.sh
-	./gsw/scripts/create_cosmos_gem_sat3.sh
-	./gsw/scripts/create_cosmos_gem_sat4.sh
-	./gsw/scripts/create_cosmos_gem_sat5.sh
-	./gsw/scripts/create_cosmos_gem_sat6.sh
-	./gsw/scripts/create_cosmos_gem_sat7.sh
+	#./gsw/scripts/create_cosmos_gem_sat2.sh
+	#./gsw/scripts/create_cosmos_gem_sat3.sh
+	#./gsw/scripts/create_cosmos_gem_sat4.sh
+	#./gsw/scripts/create_cosmos_gem_sat5.sh
+	#./gsw/scripts/create_cosmos_gem_sat6.sh
+	#./gsw/scripts/create_cosmos_gem_sat7.sh
 
 gsw-prep:
 	mkdir -p ./gsw/cosmos/build
