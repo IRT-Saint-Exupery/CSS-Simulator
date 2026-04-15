@@ -29,7 +29,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="logo.png" alt="Logo" width="150" height="150">
+    <img src="Images/logo.png" alt="Logo" width="150" height="150">
   </a>
 
 <h3 align="center">CSS Project</h3>
@@ -93,7 +93,7 @@ In the context of CSS project, it has been decided to split the simulator on mul
 
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="CSS_Architecture.jpg" alt="Logo" width="750" height="500">
+    <img src="Images/CSS_Architecture.jpg" alt="Logo" width="750" height="500">
   </a>
 
 
@@ -148,7 +148,7 @@ For deployment and installation, once you have downloaded the main VM, you shoul
 
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="scenario1.png" alt="Logo" width="350" height="200">
+    <img src="Images/scenario1.png" alt="Logo" width="350" height="200">
   </a>
 
 <div align="left">
@@ -165,7 +165,7 @@ Here is also an example of CITEF scenario with 7 satellites:
 
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="scenario7.png" alt="Logo" width="600" height="400">
+    <img src="Images/scenario7.png" alt="Logo" width="600" height="400">
   </a>
   
 <div align="left">
@@ -190,7 +190,7 @@ After launch (generally 1 to 2 minutes) :
 
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="42Cam_7Sat.png" alt="Logo" width="1100" height="400">
+    <img src="Images/42Cam_7Sat.png" alt="Logo" width="1100" height="400">
   </a>
 
 <div align="left">

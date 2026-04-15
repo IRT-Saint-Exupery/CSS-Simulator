@@ -1,0 +1,117 @@
+The CSS Platform is composed by multiple repositories :
+
+/home/nos3/Install_tools_nos3 --> this is to deploy a constellation and to diffuse updates (Procedure.txt) --> Ex. ./Do_Update_All.sh
+
+/home/nos3/CSS_Attacks --> this is the folder containing the exploits (CSS project) --> Ex. ./Master_Attacks_Scripts.sh 1
+
+/home/nos3/Input_Generator --> this is the folder containing the input generator
+
+/home/nos3/Desktop/github-nos3 --> NOS3 code is here
+
+/home/nos3/eclipse-workspace/frontend -->  FrontEnd component code is here 
+
+/home/nos3/eclipse-workspace/imager -->  FrontEnd component code is here 
+
+/home/nos3/eclipse-workspace/mission -->  Mission component code is here
+
+/home/nos3/Scenario_Manager -->  Scenario manager code is here
+
+/opt/nos3/ --> 42 and Cosmos code is here 
+
+/home/nos3/cookies
+
+
+# 12/2024 
+# CSS Project 
+
+
+DISCLAIMER : the following functions are not available or not working or not updated (for now)!
+
+- CFDP not working properly (COSMOS + CF CFS) -> external library is used instead
+- COP-1 not available (only partial implementation)
+- encrypted TLM not working (debugging in progress)
+- TLM ADCS (inactive by default to limit msg, msg should be activated)
+- cryptolib is not updated to keep existing vulnerabilities. 
+
+NB: the simulation is not real time. the simulation is slower than real time! you can check Sim Time in 42 window to estimate the ratio.
+
+NB: In order to change step time you have to modify the following files :    
+-Inp_Sim.txt // 0.01 by default  
+-SC_NOS3.txt // check sample time for all components is bigger or equal to Inp_Sim.txt    
+-nos3_simulator.xml // line 11/12 / 10000 by default   
+-cfe_psp_start.c // line 88 / 100 to have 0.01s
+    
+NB: if FSW is not launching at start, please restart the VM!.   
+NB: sockets between the sat and 42 sometimes do not start properly (NaN or freeze). in this case restart the simulator!  
+
+NB: if FSW has message : HK HEADER + TRAILER FOUND  --> there is an issue with GPS Data. To be checked.
+NB: data from 42 to the satellite are freezing sometimes (to be investigated). Please relaunch the sim in case of issues.
+
+NB: for info intersting data are stored in /tmp folder.
+- decoded photos during the mission are available in /tmp folder of MCS VM ! 
+- in /tmp of SAT VM you can find 
+---- the input file for imager 
+---- the log used by IDS for detection 
+---- control errors for ADCS normal mode
+---- visibility information (sat wrt ground station defined in isl_app.h)
+ 
+NB: The commands 
+-CFE_ES_STOP_APP 
+-GENERIC_ADCS_SET_MODE_CC    
+are considerd as a critical TC, so we added a MAC for authentication at the end of SPP packets.
+MAC is defined as 1234 only for prototyping!
+
+NB: IDS/IPS is active by default. (see ids_probes.h)
+
+NB: for 42 sockets initialisation see iokit.c and 42ipc.c in /opt/nos3/42
+
+NB: if you need to adjust packet length , ccsds length is in byte , it counts all the bytes AFTER the FC, here an example :   137 x 8 =  8 + 8 + 8 + 8 + 8 + 32 + 512 + 512 = 1096
+
+COMMAND CF CF_TX_FILE <%= CosmosCfsConfig::PROCESSOR_ENDIAN %> "This command (theoretically) causes a CFDP Put Request to be issued from FSW to the ground."
+  APPEND_ID_PARAMETER CCSDS_STREAMID 16 UINT MIN_UINT16 MAX_UINT16 0x18B3 "CCSDS Packet Identification" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_SEQUENCE 16 UINT MIN_UINT16 MAX_UINT16 0xC000 "CCSDS Packet Sequence Control" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_LENGTH 16 UINT MIN_UINT16 MAX_UINT16 137 "CCSDS Packet Data Length" BIG_ENDIAN
+  APPEND_PARAMETER CCSDS_FC 8 UINT MIN_UINT8 MAX_UINT8 2 "CCSDS Command Function Code"
+  APPEND_PARAMETER CCSDS_CHECKSUM 8 UINT MIN_UINT8 MAX_UINT8 0 "CCSDS Command Checksum"
+  APPEND_PARAMETER CLASS 8 UINT 0 1 0 "CFDP Class 1 or 2"
+    STATE "CLASS 1 - No Feedback" 0
+    STATE "CLASS 2 - With Feedback" 1
+  APPEND_PARAMETER KEEP 8 UINT 0 1 1 "Keep or delete file after transfer"
+    STATE "Delete" 0
+    STATE "Keep" 1
+  APPEND_PARAMETER CHAN 8 UINT 0 1 0 "CFDP Chan 0 or 1"
+    STATE "Chan 0" 0
+    STATE "Chan 1" 1
+  APPEND_PARAMETER PRIORITY 8 UINT 0 255 1 "Playback Priority"
+  APPEND_PARAMETER DEST_ID 32 STRING "0.21" "Destination ID - 2 bytes"
+  APPEND_PARAMETER SRCFILENAME 512 STRING "/data/" "Path/Filename to send"
+  APPEND_PARAMETER DSTFILENAME 512 STRING "/tmp/data" "Path/Filename at destination"
+  
+
+NB: CFDP alternative implementation is here : https://gitlab.com/librecube/lib/python-cfdp  
+NB: CFDP layer is based on external python library , see CF_UPLINK and CF_DOWNLINK commands. The origin filestore is filestore="/home/nos3/Desktop/github-nos3/fsw/build/exe/cpu1/cf".
+for now only Class 1 is supported. to be extended.
+
+see Commands:
+- CFS CF_UPLINK_FILE --> MsgId 0x18B3
+- CFS CF_DOWNLINK_FILE --> MsgId 0x18B6
+
+- for Uplink the flow is : COSMOS --> Cryptolib --> call external CFDP Library (/cf of MCS) --> Send to CryptoLib --> FrontEnd --> ISL --> CI --> BUS --> CF --> Send to external CFDP Server --> save in /cf of SATX
+- for Downlink the flow is : COSMOS --> Cryptolib --> FrontEnd --> ISL --> CI --> BUS --> CF ---> call external CFDP library (/cf of SAT X) --> send to CF --> BUS --> TO --> ISL --> FrontEnd ---> Cryptolib --> Send to external CFDP Server --> save in /cf of MCS
+
+NB: Geometric Visibility is computed by ISL when the GPS data are available (NOVATEL activation by TC is required!) the data are then transferred to MCS VM in /tmp folder. See visiX.txt files. 
+This is a work around to provide sat visibility to ground station as there is no direct communication between MCS VM and NASA 42 VM. This could be improved in further releases.
+
+NB: Dynamic routing update is managed via frontend that create the uplink command for cryptolib in FE_routegen.cpp.
+
+NB: Cryptolib standalone is compiled at launch on MCS VM. For Cryptolib modifications check at launch on MCS VM.
+
+NB: CSS Attacks packets are labeled to be different from normal packets (this is for detection performance analysis). In particular, 8th octet of SPP is set to 0x02 instead of 0x00 OR 6th bit of 1st octet of TF header is set to 1 instead of 0 (ex. in hex 0x20 becomes 0x24).
+
+NB: the ground stations used for visibility computation are in Inp_Sim.txt 
+
+NB: the targets of the automatic mission (photo to be captured) are in /home/nos3/eclipse-workspace/mission/config/targets.txt 
+
+NB: to change the starting time use the script diffuse_nos3_time.sh <delta in sec>   
+NB: absolute start time in nos3-simulator.xml is in J2000 format.
+
