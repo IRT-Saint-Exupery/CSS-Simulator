@@ -195,7 +195,13 @@ fi
 if [ $1 -eq 15 ]; then
   echo "*********************** EVIL CAM APP Delete all in /cf  ************************"
   #./Attack_A15.sh 
-  ./Attack_Cam.sh arducam_A15_delete.so
+  if [ "$#" -eq 2 ]; then
+    echo "path : $2"
+    printf "$2" > /tmp/target_folder.txt
+  else
+    rm /tmp/target_folder.txt 2>/dev/null
+  fi
+  ./Attack_Cam.sh arducam_A15_customizable.so
 fi
 
 ##########################################################################################################
