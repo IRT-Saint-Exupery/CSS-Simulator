@@ -1,58 +1,44 @@
 !.gitignore
-/home/nos3/Install_tools_nos3/*
-/home/nos3/CSS_Attacks/*
-/home/nos3/Input_Generator/*
-/home/nos3/Desktop/github-nos3/*
-/home/nos3/eclipse-workspace/frontend/*
-/home/nos3/eclipse-workspace/imager/* 
-/home/nos3/eclipse-workspace/mission/*
-/home/nos3/Scenario_Manager/*
-!/home/nos3/Install_tools_nos3
-!/home/nos3/CSS_Attacks
-!/home/nos3/Input_Generator
-!/home/nos3/Desktop/github-nos3
-!/home/nos3/eclipse-workspace/frontend
-!/home/nos3/eclipse-workspace/imager 
-!/home/nos3/eclipse-workspace/mission
-!/home/nos3/Scenario_Manager
-/Desktop/github-nos3/sims/build
-/Desktop/github-nos3/fsw/build
+#Satellite config files
 /Desktop/github-nos3/sims/cfg/InOut/Inp_Cmd.txt
 /Desktop/github-nos3/sims/cfg/InOut/Inp_IPC.txt
 /Desktop/github-nos3/sims/cfg/InOut/Inp_Sim.txt
 /Desktop/github-nos3/sims/cfg/routeConfig.txt
-/eclipse-workspace/frontend/build/
-/eclipse-workspace/mission/build/
-/Input_Generator/__pycache__
+/Desktop/github-nos3/stopT.sh
 !/Input_Generator/README.txt
-/home/nos3/Install_tools_nos3/Usage
-/home/nos3/Scenario_Manager/old
-/home/nos3/eclipse-workspace/frontend/Release
-/home/nos3/eclipse-workspace/frontend/Dlls
-/home/nos3/eclipse-workspace/frontend/Debug
-/home/nos3/eclipse-workspace/frontend/.tracecompass
-/home/nos3/eclipse-workspace/frontend/.settings
-/home/nos3/eclipse-workspace/frontend/.project
-/home/nos3/eclipse-workspace/frontend/.cproject
-/home/nos3/eclipse-workspace/imager/Release
-/home/nos3/eclipse-workspace/imager/Dlls
-/home/nos3/eclipse-workspace/imager/Debug
-/home/nos3/eclipse-workspace/imager/.settings
-/home/nos3/eclipse-workspace/imager/Inc
-/home/nos3/eclipse-workspace/imager/.project
-/home/nos3/eclipse-workspace/imager/.cproject
-/home/nos3/eclipse-workspace/mission/Release
-/home/nos3/eclipse-workspace/mission/Dlls
-/home/nos3/eclipse-workspace/mission/Debug
-/home/nos3/eclipse-workspace/mission/.tracecompass
-/home/nos3/eclipse-workspace/mission/.settings
-/home/nos3/eclipse-workspace/mission/.project
-/home/nos3/eclipse-workspace/mission/.cproject
-/home/nos3/Desktop/github-nos3/components/cryptolib/build
+
+#Eclipse files to ignore
+/home/nos3/eclipse-workspace/*/.tracecompass
+eclipse-workspace/.metadata/
+eclipse-workspace/*/.settings/
+eclipse-workspace/*/Debug/
+eclipse-workspace/*/Dlls/
+eclipse-workspace/*/Release/
+eclipse-workspace/imager/Inc/
+eclipse-workspace/frontend/config.h.in
 *.project
 *.cproject
-Desktop/test-misc/
+
+#NOS3 misc
+Desktop/github-nos3/.vagrant/
+Desktop/github-nos3/.cdskeyfile
+Desktop/github-nos3/.reservedkeyfile
+Desktop/github-nos3/.resetkeyfile
+Desktop/github-nos3/.settings/
+Desktop/github-nos3/.sh
+Desktop/github-nos3/.sh~
+
+#Build files
 build/
+__pycache__
+
+#TODO - move somewhere else
+Desktop/test-misc/
+
+#Desktop misc
+*.desktop
+
+#Home files to ignore
 .bash_history
 .bash_logout
 .bashrc
@@ -66,55 +52,33 @@ build/
 .vboxclient-vmsvga-session-tty2.pid
 .vim/
 .viminfo
-__pycache__
 .cache/
 .ansible/
 .profile
 .swt/
-Desktop/github-nos3/.vagrant/
 eclipse-inst-jre-linux64/
-eclipse-workspace/.metadata/
-eclipse-workspace/*/.settings/
-eclipse-workspace/*/Debug/
-eclipse-workspace/*/Dlls/
-eclipse-workspace/*/Release/
 .Xauthority
-clean.sh
 .config/
 .eclipse/
 eclipse/
+.vscode/
+.dotnet/
 .gitconfig
 .local/
 .p2/
-#MAYBE DELETE THOSE FILES??? ------
-eclipse-workspace/frontend/config.h.in
-eclipse-workspace/imager/Inc/
-eclipse-workspace/imager/stars_old.txt
-Desktop/github-nos3/.gitignore
-cFS_NOS3_Architecture.jpg
-Desktop/github-nos3/estrattore.sh
-Desktop/github-nos3/fsw/nos3_defs/tables/sch_def_msgtbl_old.c
-Desktop/github-nos3/fsw/nos3_defs/tables/sch_def_schtbl_old.c
-Desktop/github-nos3/sims/cfg/routeConfig_old.txt
-Desktop/github-nos3/fsw/osal/src/os/nos/src/os-impl-tasks.c.OLD
-Desktop/github-nos3/gsw/scripts/python-cfdp-main/examples/spacepacket_transport/local_send_file_class2_old.py
-Install_tools_nos3/Specialize_42_InOut/OLD_Inp_IPC.txt.7SAT
-Install_tools_nos3/Specialize_42_InOut/OLD_Inp_Sim.txt.7SAT
-Scenario_Manager/old/
-#TODO - DETERMINE WHAT TO DO WITH THIS FOLDERS
+Pictures/
+Downloads/
+.pki/
+snap/
+
+#If someone wants to integrate the thruster in the future (with more modern version of NOS3 -- beware, there may need many adaptations)
 Desktop/github-nos3/components/generic_thruster/
+
+#Traffic redirection to ground probe for detection
 gatewatcher/ 
-# ---------------------------------
-Desktop/github-nos3/.cdskeyfile
-Desktop/github-nos3/.reservedkeyfile
-Desktop/github-nos3/.resetkeyfile
-Desktop/github-nos3/.settings/
-Desktop/github-nos3/.sh
-Desktop/github-nos3/.sh~
-*.desktop
+
+#Separate repo
 Dataset_Utils/
-#DELETE / UPDATE ? ----
-CSS_platform.txt
-#----------------------
-#CHECK IF NOT A PROBLEM TO PUT IN GITIGNORE
+
+#Cookies used for updating
 cookies/ 

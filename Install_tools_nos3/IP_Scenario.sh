@@ -6,7 +6,7 @@
 
 IP_LOCAL_ADDR=$(hostname -I | awk '{print $1}')
 
-NBSAT=7  ### <----------- Modify here : It should correspond to your scenario ! (same for the IP)
+NBSAT=1  ### <----------- Modify here : It should correspond to your scenario ! (same for the IP)
 IPSAT1="192.168.100.11"
 IPSAT2="192.168.100.12"
 IPSAT3="192.168.100.13"

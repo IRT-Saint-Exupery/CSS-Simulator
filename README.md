@@ -29,7 +29,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="logo.png" alt="Logo" width="150" height="150">
+    <img src="Images/logo.png" alt="Logo" width="150" height="150">
   </a>
 
 <h3 align="center">CSS Project</h3>
@@ -93,7 +93,7 @@ In the context of CSS project, it has been decided to split the simulator on mul
 
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="CSS_Architecture.jpg" alt="Logo" width="750" height="500">
+    <img src="Images/CSS_Architecture.jpg" alt="Logo" width="750" height="500">
   </a>
 
 
@@ -109,34 +109,36 @@ Please note that CSS Platform is composed by multiple repositories :
 
 1. [*Install_tools_nos3*](/Install_tools_nos3): this is to deploy a satellite or a constellation and to diffuse updates.
 2. [*CSS_Attacks*](/CSS_Attacks): this is the folder containing the exploits developed for CSS project.
-3. [*Input_Generator*](/Input_Generator): the python code of the input generator is here. You can define and automate the TC sent to the constellation.
+3. [*Input_Generator*](/Input_Generator): You can define and automate the TC sent to the constellation.
 4. [*Github-nos3*](/Desktop/github-nos3): the modified NOS3 code is here (including [ISL](/Desktop/github-nos3/components/isl) and [IDS](/Desktop/github-nos3/components/ids)).
 5. [*FrontEnd*](/eclipse-workspace/frontend): the FrontEnd component code is here. 
-6. [*Imager*](/eclipse-workspace/imager): the imager component code is here. 
+6. [*Imager*](/eclipse-workspace/imager): the imager (what the camera can see) component code is here. 
 7. [*Mission*](/eclipse-workspace/mission): the automatic mission component code is here. 
-8. [*Scenario_Manager*](/Scenario_Manager): the code of the scenario manager is here (launch one or several simulations and save the data). 
+8. [*Scenario_Manager*](/Scenario_Manager): this is to launch one or several simulations and save the data. For automatic data generation the recommended method is via [*css-dataset*](https://github.com/IRT-Saint-Exupery/css-dataset). 
 9. */opt/nos3/*: NASA 42 and COSMOS are installed here in the VM. Cosmos folders are duplicated for each satellite in the constellation (cosmos1, cosmos2, etc).
-10. [*/Dataset_Utils/*](): the code for automatic dataset generation is here (included as separate GitHub repository).
+10. [*css-dataset*](https://github.com/IRT-Saint-Exupery/css-dataset): the code for **Large Scale Dataset Generation** is here (separate GitHub repository)[^1].
+
+[^1]: May not be available at this time. Please reach out if you want to know our progress on it.
 
 Limitations:
  
 1. The simulator architecture is adapted only for small constellations. 
 2. The RF layer is not simulated.
 
-A simple guide for this simulator can be found in [WORK IN PROGRESS]() 
+A simple guide for this simulator can be found in [*Doc*](/Doc) folder.
 
 ### Prerequisites
 
 The CSS Simulator is based on multiple VMs: 1 VM for the Mission Control System (COSMOS), 1 VM for Flight Dynamics and Visualization (NASA 42), 1 VM for each satellite in the constellation (NASA cFS).
 
-The "comfortable" ressources CPU/RAM(GB) required to run the simulator can be summarized as follow :
+The comfortable resources CPU/RAM(GB) required to run the simulator can be summarized as follow :
 1. Satellite VM : 2CPU / 3GB or higher.
 2. Visualization VM : 4CPU / 4GB or higher.
-3. MCS VM: 1CPU / 4GB for each satellite to be controlled (or higher). 
+3. MCS VM: 1CPU / 4GB for each satellite to be controlled (or higher, 3CPU / 5.5GB is recommended for 1 SAT). 
 
 The VMs should share the same network (for deployment). The VMs are all defined from a generic VM (based on Ubuntu 20.04 LTS, same as NOS3 VM) that can be specialized after creation.
 
-The preferred method to deploy CSS simulator is via the main generic VM of the project, that you can request here : [WORK IN PROGRESS]().
+The preferred method to deploy CSS simulator is via the main generic VM of the project, that you can request here : [VM Link]().
 
 The CSS simulator has been defined and deployed in a proprietary cyber range environment (**CITEF** by [Nexova](https://www.nexovagroup.eu/en)). 
 However, a priori it is possible to deploy and test the simulator locally (or on dedicated hardware) using VirtualBox (as for NOS3), see next section.
@@ -144,22 +146,28 @@ However, a priori it is possible to deploy and test the simulator locally (or on
 
 ### Installation
 
-For deployment and installation, once you have downloaded the main VM, you should create your own scenario using for example **CITEF** or VirtualBox. For example the following scenario: 
+For deployment and installation, once you have downloaded the main VM, you should create your own scenario using for example **CITEF** or VirtualBox (see CSS Guide in [*Doc*](/Doc) for VirtualBox procedure). For example the following scenario: 
 
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="scenario1.png" alt="Logo" width="350" height="200">
+    <img src="Images/scenario1.png" alt="Logo" width="350" height="200">
   </a>
 
 <div align="left">
 
-Once all VMs are launched, you can simply log into the VM representing the first satellite of your constellation (SAT1) and you can follow the steps described in [README](/Install_tools_nos3/README.md).
+Once all VMs are launched, you can simply log into the VM representing the first satellite of your constellation (SAT1). It is suggested to perform 
+
+```bash
+git pull origin main
+```
+from the home directory of the VM in order to get the latest version of the code. Now, you can follow the steps described in [README](/Install_tools_nos3/README.md) to setup the simulation. If you are planning to generate a dataset using the simulator, it is recommended to clone the [*css-dataset*](https://github.com/IRT-Saint-Exupery/css-dataset) repository in the home directory of the VM.
+
   
-Here is also an example of CITEF scenario with 7 satellites: 
+Here is also an example of CITEF scenario with 7 satellites (including HIL simulation of proprietary ground probes): 
 
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="scenario7.png" alt="Logo" width="600" height="400">
+    <img src="Images/scenario7.png" alt="Logo" width="600" height="400">
   </a>
   
 <div align="left">
@@ -184,12 +192,12 @@ After launch (generally 1 to 2 minutes) :
 
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="42Cam_7Sat.png" alt="Logo" width="1100" height="400">
+    <img src="Images/42Cam_7Sat.png" alt="Logo" width="1100" height="400">
   </a>
 
 <div align="left">
 
-The **automatic mission** defined in mission component will start a few minutes after starting the simulator. In particular, the targets of the mission are defined in [targets.txt](/eclipse-workspace/mission/config/targets.txt). TO Telemetry, Sensors and Normal mode are activated by TC during the mission.
+The **automatic mission** defined in [*Mission*](/eclipse-workspace/mission) component will start a few minutes after starting the simulator. In particular, the targets of the mission are defined in [targets.txt](/eclipse-workspace/mission/config/targets.txt). TO Telemetry, Sensors and Normal mode are activated by TC during the mission.
  
 You can test some **attacks** using:
 
@@ -197,7 +205,7 @@ You can test some **attacks** using:
 ./Master_Attacks_Scripts.sh <exploit_number>
 ```
 
-See [*CSS_Attacks*](/CSS_Attacks) folder and CSS manual for more details. 
+See [*CSS_Attacks*](/CSS_Attacks) folder and CSS guide in [*Doc*](/Doc) for more details. 
 
 A live demonstration of CSS simulation platform has been presented at:
 
@@ -215,7 +223,7 @@ A live demonstration of CSS simulation platform has been presented at:
 7. The ground stations used for visibility computation are in *Inp_Sim.txt*. 
 8. The simulator consider a simple dynamic routing algorithm by default (simple ring topology with 1 feeder link).
 
-More information can be found in the simulator guide. 
+More information can be found in the simulator guide in [*Doc*](/Doc) folder. 
 
 **Development**
 1. The simulator development can be managed completely from SAT1 VM. We suggest to modify only SAT1 and then to diffuse the modifications. This is managed via bash scripts in [*Install_tools_nos3*](/Install_tools_nos3) folder, see [README](/Install_tools_nos3/README.md).
@@ -226,7 +234,6 @@ More information can be found in the simulator guide.
 * [ESA 3S 2025](https://indico.esa.int/event/571/attachments/7211/13615/A%20Satellite%20Constellation%20Simulator%20for%20Space.pdf): A satellite constellation simulator for space systems cybersecurity research and development. (Introduction)
 * [IAC 2025](https://dl.iafastro.directory/event/IAC-2025/paper/96166/): A novel simulation platform for space systems cybersecurity R&D. (Focused on attacks and mitigations)
 * [EDCC 2026](https://www.cs.kent.ac.uk/EDCC2026/home): Attack Scenarios and Embedded Intrusion Detection for Space Systems.
-* [WORK IN PROGRESS]()
 
 If you find this work useful, please acknowledge it by citing these papers.
 
