@@ -116,7 +116,9 @@ Please note that CSS Platform is composed by multiple repositories :
 7. [*Mission*](/eclipse-workspace/mission): the automatic mission component code is here. 
 8. [*Scenario_Manager*](/Scenario_Manager): this is to launch one or several simulations and save the data. For automatic data generation the recommended method is via [*css-dataset*](https://github.com/IRT-Saint-Exupery/css-dataset). 
 9. */opt/nos3/*: NASA 42 and COSMOS are installed here in the VM. Cosmos folders are duplicated for each satellite in the constellation (cosmos1, cosmos2, etc).
-10. [*css-dataset*](https://github.com/IRT-Saint-Exupery/css-dataset): the code for **Large Scale Dataset Generation** is here (separate GitHub repository).
+10. [*css-dataset*](https://github.com/IRT-Saint-Exupery/css-dataset): the code for **Large Scale Dataset Generation** is here (separate GitHub repository)[^1].
+
+[^1]: May not be available at this time. Please reach out if you want to know our progress on it.
 
 Limitations:
  
