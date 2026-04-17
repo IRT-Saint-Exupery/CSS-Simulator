@@ -138,7 +138,7 @@ The comfortable resources CPU/RAM(GB) required to run the simulator can be summa
 
 The VMs should share the same network (for deployment). The VMs are all defined from a generic VM (based on Ubuntu 20.04 LTS, same as NOS3 VM) that can be specialized after creation.
 
-The preferred method to deploy CSS simulator is via the main generic VM of the project, that you can request here : [VM Link]().
+The preferred method to deploy CSS simulator is via the main generic VM of the project, that you can request here : [VM Link](https://datasets.irt-saintexupery.com/index.php/s/sPegyh2BkkZ8L09).
 
 The CSS simulator has been defined and deployed in a proprietary cyber range environment (**CITEF** by [Nexova](https://www.nexovagroup.eu/en)). 
 However, a priori it is possible to deploy and test the simulator locally (or on dedicated hardware) using VirtualBox (as for NOS3), see next section.
