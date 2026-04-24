@@ -17,7 +17,7 @@ SEMICOLON [;]
 HEX 0x[0-9a-fA-F]+
 NUM [0-9]+
 STRING [a-zA-Z0-9/\.]+
-PATH ['][a-zA-Z0-9 /\.]+[']
+PATH ['][a-zA-Z0-9 _/\.]+[']
 
 %% 
 

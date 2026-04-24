@@ -307,7 +307,15 @@ fi
 if [ $1 -eq 25 ]; then
   echo "*********************** CAM DELETE from EVIL CAM APP  ************************"
   #./Attack_A14_A8.sh
-  ./Attack_Cam.sh arducam_A8.so
+  if [ "$#" -eq 3 ]; then
+    echo "file : $2"
+    echo "app : $3"
+    printf "$2" > /tmp/target_path.txt
+    printf "$3" > /tmp/target_app.txt
+  else
+    rm /tmp/target_path.txt /tmp/target_app.txt 2>/dev/null
+  fi
+  ./Attack_Cam.sh arducam_A8_customizable.so
 fi
 
 if [ $1 -eq 26 ]; then

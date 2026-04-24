@@ -13,7 +13,7 @@ static pthread_t thread_cam = 0;
 static unsigned char is_t_cam_in_use = 0;
 
 #if defined P3_PROFILING_ENABLED
-struct msg_couple msg_fm[2] = { { .MsgId=0x0808, .FC=0 }, { .MsgId=0x088a, .FC=0 } };
+struct msg_couple msg_fm[3] = { { .MsgId=0x0808, .FC=0 }, { .MsgId=0x088a, .FC=0 }, { .MsgId=0x088c, .FC=0 } };
 struct msg_couple msg_ds[3] = { { .MsgId=0x0808, .FC=0 }, { .MsgId=0x08b8, .FC=0 }, { .MsgId=0x08ba, .FC=0 } };
 struct msg_couple msg_lc[2] = { { .MsgId=0x0808, .FC=0 }, { .MsgId=0x08a7, .FC=0 } };
 struct msg_couple msg_sc[5] = { { .MsgId=0x0808, .FC=0 }, { .MsgId=0x18a9, .FC=4 }, { .MsgId=0x08aa, .FC=0 }, { .MsgId=0x18bb, .FC=2 }, { .MsgId=0x18a9, .FC=16 } };
@@ -49,7 +49,7 @@ struct msg_couple msg_ci_custom[23] = { { .MsgId=0x1880, .FC=2 }, { .MsgId=0x187
 
 static struct task_profile profile_tab[33/*Total task number*/] = {
 
-	{ "FM", msg_fm, 2 },
+	{ "FM", msg_fm, 3 },
 	{ "DS", msg_ds, 3 },
 	{ "LC", msg_lc, 2 },
 	{ "SC", msg_sc, 5 },

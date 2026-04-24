@@ -25,7 +25,7 @@ test: clean all
 
 launch: test clean all
 	./parser ${RULES}
-	python3 generator.py ${PYTHON_PREFIX} ${PYTHON_OUTPUT}
+	python3.13 generator.py ${PYTHON_PREFIX} ${PYTHON_OUTPUT}
 
 all: utils.o errors.o rules.o list.o csv_formatter.o lex.yy.c parser.tab.c parser.tab.h
 	gcc -o parser parser.tab.c lex.yy.c utils.o errors.o rules.o list.o csv_formatter.o -lm ${CFLAGS}
