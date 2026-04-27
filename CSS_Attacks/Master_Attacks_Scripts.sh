@@ -174,7 +174,6 @@ if [ $1 -eq 13 ]; then
   echo "*********************** Load a malicious CAM APP on the SAT  *****************************"
   echo "*********************** SB FLOODING when TC CAM_EXP3_CC   ********************************"
   echo "*********************** ./Do_Make_All to revert to normal behavior ! ************************"
-  #./Attack_A13.sh
   ./Attack_Cam.sh arducam_A13_floodhk.so
 fi
 
@@ -184,7 +183,6 @@ fi
 
 if [ $1 -eq 14 ]; then
   echo "*********************** KILL CI from EVIL CAM APP  ************************"
-  #./Attack_A14.sh 
   ./Attack_Cam.sh arducam_A1.so
 fi
 
@@ -194,7 +192,6 @@ fi
 
 if [ $1 -eq 15 ]; then
   echo "*********************** EVIL CAM APP Delete all in /cf  ************************"
-  #./Attack_A15.sh 
   if [ "$#" -eq 2 ]; then
     echo "path : $2"
     printf "$2" > /tmp/target_folder.txt
@@ -294,19 +291,16 @@ fi
 
 if [ $1 -eq 23 ]; then
   echo "*********************** KILL ISL from EVIL CAM APP  ************************"
-  #./Attack_A14_A2.sh
   ./Attack_Cam.sh arducam_A2.so
 fi
 
 if [ $1 -eq 24 ]; then
   echo "*********************** CAM CRASH from EVIL CAM APP  ************************"
-  #./Attack_A14_A5.sh
   ./Attack_Cam.sh arducam_A5.so
 fi
 
 if [ $1 -eq 25 ]; then
   echo "*********************** CAM DELETE from EVIL CAM APP  ************************"
-  #./Attack_A14_A8.sh
   if [ "$#" -eq 3 ]; then
     echo "file : $2"
     echo "app : $3"
@@ -320,7 +314,6 @@ fi
 
 if [ $1 -eq 26 ]; then
   echo "*********************** SAT SPIN from EVIL CAM APP  ************************"
-  #./Attack_A14_A12.sh
   ./Attack_Cam.sh arducam_A12.so
 fi
 

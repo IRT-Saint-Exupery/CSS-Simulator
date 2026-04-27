@@ -24,7 +24,6 @@ def getDirectories():
 			#add file path
 			targets[name].append(f)	
 
-			#print(targets)
 	return targets
 	
 	

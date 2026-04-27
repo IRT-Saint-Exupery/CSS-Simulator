@@ -71,7 +71,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-CSS project (2023 - 2026) is led by the French Institute for Technological Research ([IRT](https://www.irt-saintexupery.com/)) in Toulouse. One of the goal of CSS project is to build a state-of-the-art Space System Simulation platform for Cybersecurty R&D. The CSS simulator can be used to deploy a constellation of satellites, including Flight Software, Mission Control System, space environment and space link communications (based on CCSDS stack). It also embeds an Intrusion Detection System(IDS) onboard the satellites.
+CSS project (2023 - 2026) is led by the French Institute for Technological Research ([IRT](https://www.irt-saintexupery.com/)) in Toulouse. One of the goal of CSS project is to build a state-of-the-art Space System Simulation platform for Cybersecurty R&D. The CSS simulator can be used to deploy a constellation of satellites, including Flight Software, Mission Control System, space environment and space link communications (based on CCSDS stack). It also embeds an Intrusion Detection System (IDS) onboard the satellites.
 
 The simulator has been developed based on NASA [NOS3](https://github.com/nasa/nos3/releases/tag/v1_06_02) version 1.6.2. (released 07/08/2023). 
 
