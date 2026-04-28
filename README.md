@@ -28,7 +28,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/IRT-Saint-Exupery/CSS-Simulator">
     <img src="Images/logo.png" alt="Logo" width="150" height="150">
   </a>
 
@@ -71,7 +71,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-CSS project (2023 - 2026) is led by the French Institute for Technological Research ([IRT](https://www.irt-saintexupery.com/)) in Toulouse. One of the goal of CSS project is to build a state-of-the-art Space System Simulation platform for Cybersecurty R&D. The CSS simulator can be used to deploy a constellation of satellites, including Flight Software, Mission Control System, space environment and space link communications (based on CCSDS stack).
+CSS project (2023 - 2026) is led by the French Institute for Technological Research ([IRT](https://www.irt-saintexupery.com/)) in Toulouse. One of the goal of CSS project is to build a state-of-the-art Space System Simulation platform for Cybersecurty R&D. The CSS simulator can be used to deploy a constellation of satellites, including Flight Software, Mission Control System, space environment and space link communications (based on CCSDS stack). It also embeds an Intrusion Detection System (IDS) onboard the satellites.
 
 The simulator has been developed based on NASA [NOS3](https://github.com/nasa/nos3/releases/tag/v1_06_02) version 1.6.2. (released 07/08/2023). 
 
@@ -92,7 +92,7 @@ In the context of CSS project, it has been decided to split the simulator on mul
 
 
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/IRT-Saint-Exupery/CSS-Simulator">
     <img src="Images/CSS_Architecture.jpg" alt="Logo" width="750" height="500">
   </a>
 
@@ -138,7 +138,7 @@ The comfortable resources CPU/RAM(GB) required to run the simulator can be summa
 
 The VMs should share the same network (for deployment). The VMs are all defined from a generic VM (based on Ubuntu 20.04 LTS, same as NOS3 VM) that can be specialized after creation.
 
-The preferred method to deploy CSS simulator is via the main generic VM of the project, that you can request here : [VM Link](https://datasets.irt-saintexupery.com/index.php/s/sPegyh2BkkZ8L09).
+The preferred method to deploy CSS simulator is via the main generic VM of the project (corresponding to the v0.1 repo tag), that you can request here : [VM Link](https://datasets.irt-saintexupery.com/index.php/s/sPegyh2BkkZ8L09).
 
 The CSS simulator has been defined and deployed in a proprietary cyber range environment (**CITEF** by [Nexova](https://www.nexovagroup.eu/en)). 
 However, a priori it is possible to deploy and test the simulator locally (or on dedicated hardware) using VirtualBox (as for NOS3), see next section.
@@ -149,7 +149,7 @@ However, a priori it is possible to deploy and test the simulator locally (or on
 For deployment and installation, once you have downloaded the main VM, you should create your own scenario using for example **CITEF** or VirtualBox (see CSS Guide in [*Doc*](/Doc) for VirtualBox procedure). For example the following scenario: 
 
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/IRT-Saint-Exupery/CSS-Simulator">
     <img src="Images/scenario1.png" alt="Logo" width="350" height="200">
   </a>
 
@@ -166,7 +166,7 @@ from the home directory of the VM in order to get the latest version of the code
 Here is also an example of CITEF scenario with 7 satellites (including HIL simulation of proprietary ground probes): 
 
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/IRT-Saint-Exupery/CSS-Simulator">
     <img src="Images/scenario7.png" alt="Logo" width="600" height="400">
   </a>
   
@@ -191,7 +191,7 @@ After launch (generally 1 to 2 minutes) :
 5. The camera imager (what the Arducam can see) will be available in each SAT (NB: Imager is updated only if SAT is in "Normal Mode"). 
 
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/IRT-Saint-Exupery/CSS-Simulator">
     <img src="Images/42Cam_7Sat.png" alt="Logo" width="1100" height="400">
   </a>
 
@@ -246,6 +246,10 @@ The CSS simulator is also distributed under the NOSA 1.3 License. See `LICENSE.t
 ## DISCLAIMER
 The provided content is for research and testing. We are not responsible for any inappropriate usage of this content. 
 The code and the main VM are provided as-is for general use. We do not offer dedicated support or troubleshooting assistance.
+
+<!-- Contributors -->
+## Contributors
+The people who contributed to this project are @[Simon9050](https://github.com/Simon9050), @[ItzOren](https://github.com/ItzOren), @[girardja](https://github.com/girardja) and @[lucashervier](https://github.com/lucashervier).
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments

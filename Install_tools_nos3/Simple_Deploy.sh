@@ -10,6 +10,7 @@ echo "#################### Update VM #################"
 ./Do_Update_All.sh
 echo "#################### Make Clean #################"
 ./Do_MakeClean_All_VM.sh
+sleep 10
 echo "#################### Make All ################"
 ./Do_Make_All_VM.sh
 echo "#################### Now you can go on VM MCS #################"

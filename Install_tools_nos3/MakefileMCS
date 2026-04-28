@@ -126,4 +126,4 @@ sc-launch:
 
 stop:
 	./gsw/scripts/stop.sh
-	/home/nos3/eclipse-workspace/frontend/stop_frontend.sh
+	-/home/nos3/eclipse-workspace/frontend/stop_frontend.sh

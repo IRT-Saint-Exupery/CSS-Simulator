@@ -9,6 +9,7 @@ def getDirectories():
 
 	cmd_files = cmd.readlines()
 	cmd_files = [l.rstrip('\n') for l in cmd_files]
+	cmd_files = [f for f in cmd_files if f.endswith(".txt")]
 	
 	targets = {}
 	for f in cmd_files:
@@ -23,7 +24,6 @@ def getDirectories():
 			#add file path
 			targets[name].append(f)	
 
-			
 	return targets
 	
 	
