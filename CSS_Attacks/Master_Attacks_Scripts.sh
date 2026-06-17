@@ -7,8 +7,8 @@ fi
 if ! [[ $1 =~ ^[0-9]+$ ]]; then
     echo "Error: Argument is not an integer." >&2
     exit 1
-elif [ "$1" -lt 0 ] || [ "$1" -gt 27 ]; then
-    echo "Error: Argument must be between 0 and 27." >&2
+elif [ "$1" -lt 0 ] || [ "$1" -gt 28 ]; then
+    echo "Error: Argument must be between 0 and 28." >&2
     exit 1
 fi
 
@@ -43,6 +43,7 @@ if [ $1 -eq 0 ]; then
   echo " 25 = EVIL CAM APP CAM DELETE (A8) "
   echo " 26 = EVIL CAM APP SAT SPIN (A12) "
   echo " 27 = DELETE ALL SYSTEM FILES (/cf) "
+  echo " 28 = EVIL CAM APP PHOTO EDIT (SLEEP 0.5s VERSION - attack prob=1/4 on any target) "
 fi  
 
 ##########################################################################################################
@@ -321,3 +322,9 @@ if [ $1 -eq 27 ]; then
   echo "*********************** DELETE /CF from ground  ************************"
   ./Attack_A27.sh
 fi
+
+if [ $1 -eq 28 ]; then
+  echo "*********************** EVIL CAM APP PHOTO EDIT (SLEEP 0.5s VERSION) ************************"
+  ./Attack_Cam.sh arducam_A28_sleep.so
+fi
+
