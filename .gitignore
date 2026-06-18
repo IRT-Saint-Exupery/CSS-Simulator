@@ -70,6 +70,8 @@ Pictures/
 Downloads/
 .pki/
 snap/
+.gnupg
+.vscode-shared
 
 #If someone wants to integrate the thruster in the future (with more modern version of NOS3 -- beware, there may need many adaptations)
 Desktop/github-nos3/components/generic_thruster/
