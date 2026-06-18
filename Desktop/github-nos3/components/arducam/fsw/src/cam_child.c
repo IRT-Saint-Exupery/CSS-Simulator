@@ -426,11 +426,13 @@ void CAM_ChildTask(void)
                         break;
                 }
                 // Delay to allow for all CAM Tlm messages to be cleared from pipe
-                OS_TaskDelay(10000);
+                //OS_TaskDelay(10000);
             }
             // Cleanup
             CAM_AppData.State = CAM_STOP;
         OS_MutSemGive(CAM_AppData.data_mutex);
+        //IRT CSS FIX CAM BEHAVIOR - sleeping AFTER releasing mutex allows for messages to be cleared from pipe (main CAM thread needs mutex to clear pipe)
+        OS_TaskDelay(2000);
     }
 
     /* This call allows cFE to clean-up system resources */
