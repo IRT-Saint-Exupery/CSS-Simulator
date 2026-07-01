@@ -1,0 +1,310 @@
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <cmath>
+#include <thread>
+#include <chrono>
+#include <ctime>
+#include <cstdlib>
+#include <filesystem>
+#include <algorithm>
+#include <cstring>
+#include <unistd.h>
+#include <limits.h>
+
+using namespace std;
+
+const double WGS84_A = 6378137.0;
+const double WGS84_E2 = 6.6943799901377997e-3;
+const double DIST_MIN = 1'340'000.0; // m
+const double altitudeSat = 1'300'000; //m
+
+enum TargetStatus { Missing, InProgress, Done };
+enum SatStatus { SatFree, SatBusy };
+
+struct Target {
+    double lat, lon;
+    string name;
+    double x, y, z;
+    TargetStatus status = Missing;
+    int satellite = -1;
+    time_t dateCommande = 0;
+};
+
+struct Satellite {
+    double x, y, z; // nadir pos
+    SatStatus status = SatFree;
+};
+
+vector<Target> readTargets(const string& filename) {
+    vector<Target> targets;
+    ifstream file(filename);
+    if (!file) {
+        cerr << "Could not open file: " << filename << endl;
+        return targets;
+    }
+    string line;
+    while (getline(file, line)) {
+        istringstream iss(line);
+        Target t;
+        if (!(iss >> t.lat >> t.lon >> t.name)) {
+            cerr << "Skipping malformed line: " << line << endl;
+            continue; // Skip lines that don't parse
+        }
+        targets.push_back(t);
+    }
+    return targets;
+}
+
+
+int get_NSat_value_from_script(const char *filename) {
+    FILE *file = fopen(filename, "r");
+    if (file == NULL) {
+        perror("Failed to open script file");
+        return -1; // error code
+    }
+
+    char line[256];
+    int value = -1; // default if not found
+
+    while (fgets(line, sizeof(line), file)) {
+        // Look for a line that starts with "AA="
+        if (strncmp(line, "NBSAT=", 6) == 0) {
+            // Extract the numeric value after "AA="
+            char *ptr = line + 6; // move past "AA="
+            value = atoi(ptr);
+            break;
+        }
+    }
+
+    fclose(file);
+    return value;
+}
+
+
+void geoToECEF(Target& t) {
+    double latRad = t.lat * M_PI / 180.0;
+    double lonRad = t.lon * M_PI / 180.0;
+    double N = WGS84_A / sqrt(1 - WGS84_E2 * sin(latRad) * sin(latRad));
+    double alt = 0.0;
+
+    t.x = (N + alt) * cos(latRad) * cos(lonRad);
+    t.y = (N + alt) * cos(latRad) * sin(lonRad);
+    t.z = (N * (1 - WGS84_E2) + alt) * sin(latRad);
+}
+
+double distance(const Target& t, const Satellite& s) {
+    return sqrt(pow(t.x - s.x, 2) + pow(t.y - s.y, 2) + pow(t.z - s.z, 2));
+}
+
+void readSatellitePositions(vector<Satellite>& sats) {
+    for (int i = 0; i < 7; ++i) {
+        string filename = "/tmp/pos" + to_string(i + 1) + ".txt";
+        ifstream file(filename);
+        if (file) {
+            file >> sats[i].x >> sats[i].y >> sats[i].z; // true pos sat
+            double fact = WGS84_A / (WGS84_A  + altitudeSat);
+            sats[i].x *= fact;
+            sats[i].y *= fact;
+            sats[i].z *= fact;
+        }
+    }
+}
+
+void commander(const Satellite& s, const Target& t) {
+    // Simule une commande (à adapter selon ton système)
+	int cryptolibPort[] = {6010, 6012, 6014, 6016, 6018, 6020, 6022}; // Cryptolib input UDP ports //TODO define in input file
+	int port = cryptolibPort[t.satellite]; //0 to NSAT-1 ?
+	float Lat = t.lat;
+	float Lon = t.lon;
+
+    // set target and take picture
+    // Track_and_photo.py Port Lat Long // to set a new target and take a picture
+	cout << "Satellite " << t.satellite+1 << " is close to " << t.name << "\n";
+
+    string command = "python3 /home/nos3/Input_Generator/Track_and_photo.py "+ to_string(port) + " " + to_string(Lat) + " " + to_string(Lon);
+    system(command.c_str());
+
+    cout << "TCs sent to Satellite " << t.satellite+1 << " for target " << t.name << " ( " << t.lat << ", " << t.lon << " )\n";
+    //cout << "Set New Target and Take a Photo now ! \n";
+}
+
+void pointing(const Satellite& s, const Target& t) {
+    // Simule une commande (à adapter selon ton système)
+	int cryptolibPort[] = {6010, 6012, 6014, 6016, 6018, 6020, 6022}; // Cryptolib input UDP ports //TODO define in input file
+	int port = cryptolibPort[t.satellite]; //0 to NSAT-1 ?
+	float Lat = t.lat;
+	float Lon = t.lon;
+
+    // set target and take picture
+    // Track_and_photo.py Port Lat Long // to set a new target and take a picture
+	//cout << "Satellite " << t.satellite+1 << " is close to " << t.name << "\n";
+
+    string command = "python3 /home/nos3/Input_Generator/Track.py "+ to_string(port) + " " + to_string(Lat) + " " + to_string(Lon);
+    system(command.c_str());
+
+    //cout << "TCs sent to Satellite " << t.satellite+1 << " for target " << t.name << " ( " << t.lat << ", " << t.lon << " )\n";
+    //cout << "Set New Target and Take a Photo now ! \n";
+}
+
+
+bool fileExist(const char* filename) {
+	FILE *file = fopen(filename, "r");
+	if (file == NULL) {
+	     //perror("Failed to open file");
+	     return false; // error code
+	}
+	else {
+		fclose(file);
+		return true;
+	}
+}
+
+
+void createIsBusyFile(int N) {
+    std::ofstream file("/tmp/isbusy.txt");
+    for (int i = 0; i < N; ++i)
+        file << 0 << '\n';
+}
+
+void setBusyState(const char* state, int pos, int N) {
+    int values[N];
+    int count = 0;
+    FILE* f = fopen("/tmp/isbusy.txt", "r");
+    if (!f) return;
+
+    while (count < N && fscanf(f, "%d", &values[count]) == 1)
+        count++;
+    fclose(f);
+
+    if (pos < 1 || pos > count)
+        return;
+
+    values[pos - 1] = (strcmp(state, "busy") == 0) ? 1 : 0;
+    f = fopen("/tmp/isbusy.txt", "w");
+    if (!f) return;
+
+    for (int i = 0; i < count; i++)
+        fprintf(f, "%d\n", values[i]);
+
+    fclose(f);
+}
+
+int main() {
+
+	chdir("/home/nos3/eclipse-workspace/mission/src");
+    char cwd[PATH_MAX];
+    if (getcwd(cwd, sizeof(cwd)) != NULL) {
+        std::cout << "Current working directory: " << cwd << std::endl;
+    } else {
+        perror("getcwd() error");
+    }
+
+    Target Nadir;
+    Nadir.lat = 0;
+    Nadir.lon = 0;
+
+	int nSats = get_NSat_value_from_script("/home/nos3/Install_tools_nos3/IP_Scenario.sh");
+    cout << "Waiting for Simulator initialization ... \n";
+    string command = "rm /tmp/*.jpg"; // remove old photos
+    createIsBusyFile(nSats);
+
+    system(command.c_str());
+	this_thread::sleep_for(chrono::seconds(20*nSats)); //20 //90
+
+	cout << "Starting Mission Initialization ... \n";
+    command = "python3 /home/nos3/Input_Generator/Init.py " + to_string(nSats);
+    system(command.c_str());
+    cout << "Mission in progress ... \n";
+    this_thread::sleep_for(chrono::seconds(10*nSats));
+
+    vector<Target> targets = readTargets("/home/nos3/eclipse-workspace/mission/config/targets.txt");
+
+    for (auto& t : targets) geoToECEF(t);
+    vector<Satellite> satellites(nSats);
+    cout << "Mission is running \n";
+
+    //std::ofstream xyzlog("/tmp/xyzlog.txt");
+
+    auto start_time = std::chrono::system_clock::now();
+    cout << "timer start\n";
+    auto reset_occured = 0;
+    auto threshold = std::chrono::seconds(7200);    	/*7200*///If the mission has been running for 2 hours or more (roughly equal to new orbit iteration)
+    //while (any_of(targets.begin(), targets.end(), [](const Target& t) { return t.status != Done; })) {
+    while(true) {
+    	readSatellitePositions(satellites);
+
+    	//xyzlog << "x :" << to_string(satellites[0].x) << ", y :" << to_string(satellites[0].y) << ", z :" << to_string(satellites[0].z) << endl;
+    	auto curr_time = std::chrono::system_clock::now();
+    	std::chrono::duration<double> elapsed_seconds = curr_time - start_time;
+
+    	if ((elapsed_seconds >= threshold) && (reset_occured == 0)) {
+    		//Reset the targets queue
+    		for (size_t i = 0; i < targets.size(); ++i) {
+    			if (targets[i].status != InProgress) {
+    				targets[i].status = Missing;
+    			}
+    		}
+    		cout << threshold.count() << "s elapsed, reset targets \n";
+    		reset_occured = 1;
+    	}
+
+        for (size_t i = 0; i < targets.size(); ++i) {
+            if (targets[i].status == Missing) {
+                for (size_t j = 0; j < satellites.size(); ++j) {
+                    if (satellites[j].status == SatFree && distance(targets[i], satellites[j]) < DIST_MIN) {
+                        satellites[j].status = SatBusy;
+                        setBusyState("busy",(int) j +1,nSats);
+                        targets[i].satellite = j;
+                        targets[i].status = InProgress;
+                        targets[i].dateCommande = time(nullptr);
+                        commander(satellites[j], targets[i]);
+                        break;
+                    }
+                }
+            }
+        }
+
+        for (size_t i = 0; i < targets.size(); ++i) {
+            if (targets[i].status == InProgress) {
+                string filename = "/tmp/ArducamSat" + to_string(targets[i].satellite + 1) + ".jpg";
+
+                if (fileExist(filename.c_str())) {
+                    targets[i].status = Done;
+
+                    cout << "SAT" +to_string(targets[i].satellite + 1) + " captured a photo of "+ targets[i].name +"\n";
+                    string newfilename = "/tmp/" + targets[i].name + ".jpg";
+                    rename(filename.c_str(),newfilename.c_str()); // rename photo
+                    cout <<  targets[i].name + " added to Mission.png \n";
+                    command = "python3 /home/nos3/eclipse-workspace/mission/src/overlay_earth_tile.py " + newfilename
+					+ " " + to_string(targets[i].lat) + " " + to_string(targets[i].lon);
+                    system(command.c_str());
+
+                    satellites[targets[i].satellite].status = SatFree;
+
+                    setBusyState("free",(int)targets[i].satellite + 1,nSats);
+
+                    Nadir.satellite = targets[i].satellite; // point back to nadir once the photo is captured
+                    pointing(satellites[targets[i].satellite], Nadir);
+
+                } else if (difftime(time(nullptr), targets[i].dateCommande) > 300) {
+                    targets[i].status = Missing;
+                    satellites[targets[i].satellite].status = SatFree;
+
+                    setBusyState("free",(int)targets[i].satellite + 1,nSats);
+
+                    Nadir.satellite = targets[i].satellite; // point back to nadir if too much time
+                    pointing(satellites[targets[i].satellite], Nadir);
+                }
+            }
+        }
+
+        this_thread::sleep_for(chrono::seconds(10)); // Pause
+    }
+
+    cout << "All targets have been captured.\n";
+    cout << "Mission Completed \n";
+
+    return 0;
+}
