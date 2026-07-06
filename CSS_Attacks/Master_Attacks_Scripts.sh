@@ -7,8 +7,8 @@ fi
 if ! [[ $1 =~ ^[0-9]+$ ]]; then
     echo "Error: Argument is not an integer." >&2
     exit 1
-elif [ "$1" -lt 0 ] || [ "$1" -gt 28 ]; then
-    echo "Error: Argument must be between 0 and 28." >&2
+elif [ "$1" -lt 0 ] || [ "$1" -gt 30 ]; then
+    echo "Error: Argument must be between 0 and 30." >&2
     exit 1
 fi
 
@@ -44,6 +44,8 @@ if [ $1 -eq 0 ]; then
   echo " 26 = EVIL CAM APP SAT SPIN (A12) "
   echo " 27 = DELETE ALL SYSTEM FILES (/cf) "
   echo " 28 = EVIL CAM APP PHOTO EDIT (SLEEP 0.5s VERSION - attack prob=1/4 on any target) "
+  echo " 29 = EVIL CAM APP PHOTO SHIFT (via ADCS & Spoofing) - IN PROGRESS "
+  echo " 30 = EVIL CAM APP PHOTO REPLAY (cached from first orbit, done on every target) - needs special version of mission"
 fi  
 
 ##########################################################################################################
@@ -324,7 +326,16 @@ if [ $1 -eq 27 ]; then
 fi
 
 if [ $1 -eq 28 ]; then
-  echo "*********************** EVIL CAM APP PHOTO EDIT (SLEEP 0.5s VERSION) ************************"
+  echo "*********************** Picture Edited (simulated via delay) from EVIL CAM APP ************************"
   ./Attack_Cam.sh arducam_A28_sleep.so
 fi
 
+if [ $1 -eq 29 ]; then
+	echo "*********************** PHOTO SHIFT FROM TARGET from EVIL CAM APP (via ADCS & Spoofing) - IN PROGRESS ************************"
+  ./Attack_Cam.sh arducam_A_changer.so
+fi
+
+if [ $1 -eq 30 ]; then
+	echo "*********************** PHOTO REPLAY (cached from first orbit, todo - determine if on all targets or random one) from EVIL CAM APP ************************"
+  ./Attack_Cam.sh arducam_A30_cache.so
+fi
