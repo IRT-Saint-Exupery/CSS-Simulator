@@ -229,7 +229,7 @@ int main() {
 
     auto start_time = std::chrono::system_clock::now();
     cout << "timer start\n";
-    auto reset_occured = 0;
+    //auto reset_occured = 0;
     auto threshold = std::chrono::seconds(7200);    	/*7200*///If the mission has been running for 2 hours or more (roughly equal to new orbit iteration)
     //while (any_of(targets.begin(), targets.end(), [](const Target& t) { return t.status != Done; })) {
     while(true) {
@@ -239,7 +239,7 @@ int main() {
     	auto curr_time = std::chrono::system_clock::now();
     	std::chrono::duration<double> elapsed_seconds = curr_time - start_time;
 
-    	if ((elapsed_seconds >= threshold) && (reset_occured == 0)) {
+    	if ((elapsed_seconds >= threshold) /*&& (reset_occured == 0)*/) {
     		//Reset the targets queue
     		for (size_t i = 0; i < targets.size(); ++i) {
     			if (targets[i].status != InProgress) {
@@ -247,7 +247,9 @@ int main() {
     			}
     		}
     		cout << threshold.count() << "s elapsed, reset targets \n";
-    		reset_occured = 1;
+    		start_time = std::chrono::system_clock::now();
+    		cout << "reset orbit timer\n";
+    		//reset_occured = 1;
     	}
 
         for (size_t i = 0; i < targets.size(); ++i) {
