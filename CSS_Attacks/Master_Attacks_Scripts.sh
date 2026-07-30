@@ -43,7 +43,7 @@ if [ $1 -eq 0 ]; then
   echo " 25 = EVIL CAM APP CAM DELETE (A8) "
   echo " 26 = EVIL CAM APP SAT SPIN (A12) "
   echo " 27 = DELETE ALL SYSTEM FILES (/cf) "
-  echo " 28 = EVIL CAM APP PHOTO EDIT (SLEEP 0.5s VERSION - attack prob=1/4 on any target) "
+  echo " 28 = EVIL CAM APP PHOTO EDIT (SLEEP 0.5s VERSION - attack prob=1/1 on any target) "
   echo " 29 = EVIL CAM APP PHOTO SHIFT (via ADCS & Spoofing) - IN PROGRESS "
   echo " 30 = EVIL CAM APP PHOTO REPLAY (cached from first orbit, done on every target) - needs special version of mission"
 fi  
@@ -332,7 +332,7 @@ fi
 
 if [ $1 -eq 29 ]; then
 	echo "*********************** PHOTO SHIFT FROM TARGET from EVIL CAM APP (via ADCS & Spoofing) - IN PROGRESS ************************"
-  ./Attack_Cam.sh arducam_A_changer.so
+  ./Attack_Cam.sh arducam_A29_shift.so
 fi
 
 if [ $1 -eq 30 ]; then
