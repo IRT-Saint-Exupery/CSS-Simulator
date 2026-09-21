@@ -45,7 +45,8 @@ struct task_profile {
 
 //void init_rule_parsing(void);
 void init_p3(void);
-void update_Log_P3(FILE * log_file, OS_time_t *simtime, unsigned int seconds, struct timespec *realtime, uint16_t msgId, int16_t fc, uint8_t is_tc, CFE_ES_AppId_t AppId, char *TaskName, CFE_SB_Buffer_t *Content, size_t ContentSize, uint8_t attack_tag, int8_t is_allowed);
+//void update_Log_P3(FILE * log_file, OS_time_t *simtime, unsigned int seconds, struct timespec *realtime, uint16_t msgId, int16_t fc, uint8_t is_tc, CFE_ES_AppId_t AppId, char *TaskName, CFE_SB_Buffer_t *Content, size_t ContentSize, uint8_t attack_tag, int8_t is_allowed);
+void update_Log_P3(FILE * log_file, OS_time_t *simtime, unsigned int seconds, struct timespec *realtime, uint16_t msgId, int16_t fc, uint8_t is_tc, char *AppName, char *TaskName, CFE_SB_Buffer_t *Content, size_t ContentSize, uint8_t attack_tag, int8_t is_allowed);
 char parse_rules_bus(void);
 void parse_single_rule_bus(char *split_ptr, uint8_t *split_count, char *saveptr1, char param_data_holder[20], int i,  uint8_t statefull_rules_count);
 

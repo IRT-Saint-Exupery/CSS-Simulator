@@ -1721,7 +1721,7 @@ void CFE_SB_BroadcastBufferToRoute(CFE_SB_BufferD_t *BufDscPtr, CFE_SBR_RouteId_
     //BufDscPtr->Content.Msg.Byte[7] & 0;
  
     
-	update_Log_P3(log_fd, &ticks_time, packet_seconds, &realtime, msgId, fc, is_tc, AppId, (char *)TaskName, &(BufDscPtr->Content), BufDscPtr->ContentSize, attack_tag, is_allowed);
+	update_Log_P3(log_fd, &ticks_time, packet_seconds, &realtime, msgId, fc, is_tc,(char *) AppName, (char *)TaskName, &(BufDscPtr->Content), BufDscPtr->ContentSize, attack_tag, is_allowed);
 
     /*for(unsigned int i = 0; i<BufDscPtr->ContentSize; i++){
 	    fprintf(log_fd,"%02x", BufDscPtr->Content.Msg.Byte[i]);

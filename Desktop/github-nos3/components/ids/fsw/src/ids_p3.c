@@ -91,11 +91,12 @@ void init_p3()
 	p3_struct.rules =(rule_t *) &probe3_rules;
 }
 
-void update_Log_P3(FILE * log_file, OS_time_t *simtime, unsigned int seconds, struct timespec *realtime, uint16_t msgId, int16_t fc, uint8_t is_tc, CFE_ES_AppId_t AppId, char *TaskName, CFE_SB_Buffer_t *Content, size_t ContentSize, uint8_t attack_tag, int8_t is_allowed)
+//void update_Log_P3(FILE * log_file, OS_time_t *simtime, unsigned int seconds, struct timespec *realtime, uint16_t msgId, int16_t fc, uint8_t is_tc, CFE_ES_AppId_t AppId, char *TaskName, CFE_SB_Buffer_t *Content, size_t ContentSize, uint8_t attack_tag, int8_t is_allowed)
+void update_Log_P3(FILE * log_file, OS_time_t *simtime, unsigned int seconds, struct timespec *realtime, uint16_t msgId, int16_t fc, uint8_t is_tc, char *AppName, char *TaskName, CFE_SB_Buffer_t *Content, size_t ContentSize, uint8_t attack_tag, int8_t is_allowed)
 {
 	//fprintf(log_file,"PSP ticks : %lld, MsgId : %04x, FC : %d, AppId : %d, TaskName : %s, Message : ", simtime->ticks/*/OS_TIME_TICKS_PER_USEC*/, msgId, fc, AppId, TaskName);
 	//														time in ticks 							   real time in µsec												Tag - anomaly or not (if yes 2 - or 3 ??? so & with 2 (0b10)) IDS verdict (is_allowed)
-	fprintf(log_file,"%lld,%d.%06ld,%04x,%d,%d,%d,%s,%d,%d,", simtime->ticks/*/OS_TIME_TICKS_PER_USEC*/, seconds, realtime->tv_nsec/1000, msgId, fc, is_tc, AppId, TaskName, attack_tag,  is_allowed);
+	fprintf(log_file,"%lld,%d.%06ld,%04x,%d,%d,%s,%s,%d,%d,", simtime->ticks/*/OS_TIME_TICKS_PER_USEC*/, seconds, realtime->tv_nsec/1000, msgId, fc, is_tc, AppName, TaskName, attack_tag,  is_allowed);
 	for(unsigned int i = 0; i<ContentSize; i++){
 		//fprintf(log_fd,"%02x", MsgBuf[i]);
 		fprintf(log_file,"%02x", Content->Msg.Byte[i]);
