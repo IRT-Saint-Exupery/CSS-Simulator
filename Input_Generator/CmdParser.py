@@ -5,7 +5,7 @@ import re
 #cmd = os.popen('find `find /home/nos3/Desktop/github-nos3 -name "cmd_tlm" | grep -v build` -name "*.txt" | grep -vi tlm.txt', mode = 'r', buffering = -1)
 
 def getDirectories():
-	cmd = os.popen('find ../Desktop -path "*/cmd_tlm/*" | grep -vi -e "tlm.txt" -e "build"', mode = 'r', buffering = -1)
+	cmd = os.popen('find /home/nos3/Desktop -path "*/cmd_tlm/*" | grep -vi -e "tlm.txt" -e "build"', mode = 'r', buffering = -1)
 
 	cmd_files = cmd.readlines()
 	cmd_files = [l.rstrip('\n') for l in cmd_files]
