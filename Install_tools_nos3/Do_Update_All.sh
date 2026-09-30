@@ -1,11 +1,22 @@
 #!/bin/bash
 
+cd /home/nos3/Install_tools_nos3
+
 source IP_Scenario.sh
 
-if [ "$IP_LOCAL_ADDR" != "$IPSAT1" ]; then
-echo "#################### $0 Shoud be called from the main VM - SAT1 #################"
-exit
+#if IPv4 ends in .11, assume that it is SAT1
+if ! [[ "$IP_LOCAL_ADDR" =~ [0-9]+\.[0-9]+\.[0-9]+\.11 ]]; then
+	echo "#################### $0 Shoud be called from the main VM - SAT1 (IP ends in .11) #################"
+	exit
 fi
+
+#LAST_IP_MEMBER=$(echo $IP42 | cut -d "." -f 4)
+#echo "$IP42's last member is $LAST_IP_MEMBER"
+
+#if [ "$IP_LOCAL_ADDR" != "$IPSAT1" ]; then
+#echo "#################### $0 Shoud be called from the main VM - SAT1 (IP ends in .11) #################"
+#exit
+#fi
 
 if [ $NBSAT -ge 2 ]; then 
 	if ping -c 1 "$IPSAT2" &> /dev/null

@@ -8,3 +8,4 @@
 ./Specialize_MCS.sh $1
 
 touch ~/cookies/maj$1
+#echo "cookies touched"

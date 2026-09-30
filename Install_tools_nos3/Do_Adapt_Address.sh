@@ -2,6 +2,8 @@
 
 # this shell will adapt the IP configuration of the scenario according to the IP defined in IP_Scenario.sh
 
+cd /home/nos3/Install_tools_nos3
+
 source IP_Scenario.sh 
 
 if [ "$IP_LOCAL_ADDR" != "$IPSAT1" ]; then
@@ -37,6 +39,10 @@ export files=`fgrep -l -r 192.168.100.16`; for file in "${files[@]}"; do sed -i 
 export files=`fgrep -l -r 192.168.100.17`; for file in "${files[@]}"; do sed -i 's/192.168.100.17/'$IPSAT7'/g' $file; done 2>/dev/null
 export files=`fgrep -l -r 192.168.100.42`; for file in "${files[@]}"; do sed -i 's/192.168.100.42/'$IP42'/g' $file; done 2>/dev/null
 export files=`fgrep -l -r 192.168.100.5`;  for file in "${files[@]}"; do sed -i 's/192.168.100.5/'$IPMCS'/g' $file; done 2>/dev/null
+
+cd ~/Desktop/github-nos3/components/isl/fsw/platform_inc
+echo `pwd`
+export files=`fgrep -l -r 192.168.100`; for file in "${files[@]}"; do sed -i 's/192.168.100/'$NETWORK_BASE_IP'/g' $file; done 2>/dev/null
 
 cd /opt/nos3
 echo `pwd`
